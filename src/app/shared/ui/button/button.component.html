@@ -1,0 +1,17 @@
+
+<button [type]="type" [class.is-hovered]="isHovered" class="button {{variant}}" [attr.aria-disabled]="disabled" [disabled]="disabled" 
+    (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+
+    @if(iconPath && iconPosition === 'left'){
+        <img [src]="iconPath" alt="icon">
+    }
+
+    <span #label class="label">
+        <ng-content></ng-content>
+    </span>
+
+    @if(iconPath && iconPosition === 'right'){
+        <img [src]="iconPath" alt="icon">
+    }
+    
+</button>
