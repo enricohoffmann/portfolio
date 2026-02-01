@@ -26,7 +26,6 @@ export class ButtonComponent {
 
   onMouseEnter() {
     this.isHovered = true;
-    
   }
 
   onMouseLeave() {
