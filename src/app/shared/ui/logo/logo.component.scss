@@ -1,0 +1,43 @@
+.logo{
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: clamp(120px, 20vw, 200px);
+    aspect-ratio: 4 / 1;
+}
+
+.logo-full,
+.logo-outline{
+    position: absolute;
+    inset: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.logo-full{
+    background-image: url("/assets/img/logoEnricoFull01.svg");
+    opacity: 1;
+}
+
+.logo-outline{
+    background-image: url('/assets/img/logoEnricoOutline01.svg');
+    opacity: 0;
+}
+
+.logo .only-outline{
+    opacity: 1;
+}
+
+.logo.is-hovered:hover .logo-full{
+    opacity: 0;
+}
+
+.logo .only-full{
+    opacity: 1;
+}
+
+.logo.is-hovered:hover .logo-outline{
+    opacity: 1;
+}

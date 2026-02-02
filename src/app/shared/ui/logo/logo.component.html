@@ -1,0 +1,11 @@
+<a class="logo" aria-label="Logo  - Enrico Hoffmann" [class.is-hovered]="hoverable"  [style.width.px]="width ?? null" routerLink="/">
+
+    @if(variant == 'auto' || variant == 'full') {
+        <span class="logo-full"></span>
+    }
+
+    @if (variant == 'auto' || variant == 'outline') {
+        <span class="logo-outline" [class.only-outline]="variant == 'outline'"></span>
+    }
+    
+</a>
