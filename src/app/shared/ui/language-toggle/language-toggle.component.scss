@@ -1,6 +1,7 @@
 @import './../../../../styles.scss';
 
 .slider{
+    position: relative;
     @include display-flex-setup(row, space-between, center);
     height: 28px;
     width: 84px;
@@ -8,10 +9,33 @@
     border-radius: 9999px;
 }
 
-.lang-en[type=radio]:not(:checked)::before{
-    content: "EN";
-    width: 14px;
-    height: 14px;
-    background-color: white;
-    padding-left: 8px;
+
+input{
+    width: 44px;
+    height: 28px;
+    appearance: none;
+    background-color: var(--default-element-color);
+    border-radius: 9999px;
 }
+
+/* .lang-en[type=radio]:not(:checked)::before{
+    @include display-flex-setup(row, center, center);
+    position: relative;
+    content: "EN";
+    padding-top: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+} */
+
+/* .lang-en[type=radio]:checked::before{
+    @include display-flex-setup(row, center, center);
+    position: relative;
+    content: "EN";
+    padding-top: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--default-element-color);
+    opacity: 0.5;
+    background-color: transparent;
+} */
