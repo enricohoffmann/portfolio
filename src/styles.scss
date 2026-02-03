@@ -71,3 +71,8 @@
     font-weight: 700;
     font-style: italic;
 }
+
+.visually-hidden {
+    position: absolute;
+    left: -9999px;
+}

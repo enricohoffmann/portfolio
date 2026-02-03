@@ -1,0 +1,17 @@
+@import './../../../../styles.scss';
+
+.slider{
+    @include display-flex-setup(row, space-between, center);
+    height: 28px;
+    width: 84px;
+    border: solid 1px var(--default-element-color);
+    border-radius: 9999px;
+}
+
+.lang-en[type=radio]:not(:checked)::before{
+    content: "EN";
+    width: 14px;
+    height: 14px;
+    background-color: white;
+    padding-left: 8px;
+}
