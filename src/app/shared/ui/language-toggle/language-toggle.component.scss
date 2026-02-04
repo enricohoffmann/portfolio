@@ -1,41 +1,79 @@
 @import './../../../../styles.scss';
 
-.slider{
+
+.toggle {
     position: relative;
+    box-sizing: border-box;
     @include display-flex-setup(row, space-between, center);
     height: 28px;
     width: 84px;
     border: solid 1px var(--default-element-color);
     border-radius: 9999px;
+    padding: 1px
 }
 
+.toggle:hover {
+    border-color: #FFFFFF;
 
-input{
-    width: 44px;
-    height: 28px;
-    appearance: none;
-    background-color: var(--default-element-color);
+    & label {
+        opacity: 1;
+    }
+}
+
+.toggle input {
+    position: absolute;
+    width: 1;
+    height: 1;
+    opacity: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
+.toggle:has(input:focus-visible) {
+  outline: 1px solid #ffff;
+  outline-offset: 3px;
+}
+
+input+label {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    box-sizing: border-box;
+    @include display-flex-setup(row, center, center);
+    margin: 0;
+    height: 100%;
+    width: 42px;
+    background-color: transparent;
+    padding: 0 0.75rem;
     border-radius: 9999px;
+    font-family: 'Fira_Code';
+    font-size: 16px;
+    font-weight: 700;
+    transition: background-color 120ms ease-out, color 120ms ease-out, opacity 120ms ease-out;
+
+    &:last-of-type {
+        transform: translateX(-4px);
+    }
 }
 
-/* .lang-en[type=radio]:not(:checked)::before{
-    @include display-flex-setup(row, center, center);
-    position: relative;
-    content: "EN";
-    padding-top: 6px;
-    font-size: 16px;
-    font-weight: 700;
-    color: white;
-} */
 
-/* .lang-en[type=radio]:checked::before{
-    @include display-flex-setup(row, center, center);
-    position: relative;
-    content: "EN";
-    padding-top: 6px;
-    font-size: 16px;
-    font-weight: 700;
+input:checked+label {
+    cursor: default;
+    background-color: var(--default-element-color);
+    color: #FFFFFF;
+    box-shadow: 0 0 0 2px var(--default-element-color),
+        0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+input:not(:checked)+label {
     color: var(--default-element-color);
     opacity: 0.5;
-    background-color: transparent;
-} */
+}
+
+input:not(:checked):hover+label {
+    opacity: 1;
+}

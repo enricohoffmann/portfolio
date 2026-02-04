@@ -1,6 +1,6 @@
-<div class="slider">
-    <input class="lang-en" id="language-en" type="radio" name="language-toggle"/>
-    <label for="language-en" class="visually-hidden">EN</label>
-    <input id="language-de" type="radio" name="language-toggle">
-    <label for="language-de" class="visually-hidden">DE</label>
+<div class="toggle">
+    <input class="lang-en" id="language-en" type="radio" name="language-toggle" value="EN" checked="checked" [(ngModel)]="language"/>
+    <label class="lang-en-label" for="language-en">EN</label>
+    <input id="language-de"type="radio" name="language-toggle" value="DE" [(ngModel)]="language">
+    <label class="lang-de-label" for="language-de" >DE</label>
 </div>
