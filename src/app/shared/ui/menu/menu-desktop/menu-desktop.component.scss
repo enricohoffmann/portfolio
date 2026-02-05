@@ -1,0 +1,5 @@
+@import './../../../../../styles.scss';
+
+menu{
+    @include display-flex-setup(row, flex-start, center, 24px);
+}

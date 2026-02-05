@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { LogoComponent } from "../ui/logo/logo.component";
-import { LanguageToggleComponent } from "../ui/language-toggle/language-toggle.component";
+import { MenuDesktopComponent } from "../ui/menu/menu-desktop/menu-desktop.component";
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [LogoComponent, LanguageToggleComponent],
+  imports: [LogoComponent, MenuDesktopComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

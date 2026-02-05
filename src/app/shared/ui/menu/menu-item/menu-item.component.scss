@@ -1,0 +1,39 @@
+@import './../../../../../styles.scss';
+
+.menu-item{
+    @include display-flex-setup(column, center, center);
+    cursor: pointer;
+    text-decoration: none;
+    transform: translateY(2px);
+    
+}
+
+.menu-item-text{
+    font-family: 'Fira_Code';
+    font-size: 20px;
+    font-weight: 400;
+    color: #FFFFFF;
+}
+
+.menu-dot{
+    width: 6.4px;
+    height: 6.4px;
+    background-color: var(--default-element-color);
+    border-radius: 9999px;
+    opacity: 0;
+    transition: opacity 100ms ease-in;
+}
+
+.menu-item:hover .menu-dot{
+    opacity: 1;
+}
+
+.menu-item:active, .active {
+    & .menu-item-text{
+        color: var(--default-element-color);
+    }
+
+    & .menu-dot{
+        opacity: 1;
+    }
+}

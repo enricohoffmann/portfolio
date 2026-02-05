@@ -5,4 +5,12 @@ section{
     height: 100dvh;
     width: 100%;
     background: linear-gradient(30deg, #1c1c1c 23%,#08463b 100%);
+    @include display-flex-setup(column, center, center);
+}
+
+.hero-header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
