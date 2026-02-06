@@ -14,3 +14,27 @@ section{
     left: 0;
     width: 100%;
 }
+
+article{
+    @include display-flex-setup(column, center, center);
+
+    & span{
+        font-family: 'Fira_Code';
+        font-size: 40px;
+        font-weight: 400;
+        color: var(--text-color-default);
+    }
+
+    & h1{
+        font-family: 'Karla';
+        font-size: 128px;
+        font-weight: 700;
+        color: var(--text-color-default);
+    }
+
+}
+
+.btn-container{
+    @include display-flex-setup(row, center, center, 48px);
+    padding-top: 48px;
+}

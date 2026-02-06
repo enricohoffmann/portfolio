@@ -1,13 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { RouterLink } from "@angular/router";
+import { Component, Input} from '@angular/core';
+import { RouterLink, RouterLinkActive } from "@angular/router";
 
 @Component({
   selector: 'app-menu-item',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: './menu-item.component.html',
   styleUrl: './menu-item.component.scss'
 })
 export class MenuItemComponent {
-  @Input() isActiv: boolean = false;
+  @Input({required: true}) target!: string;
+  @Input() exact: boolean = false;
 }

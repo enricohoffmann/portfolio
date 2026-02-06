@@ -28,6 +28,16 @@
     opacity: 1;
 }
 
+.menu-item {
+  &:focus-visible {
+    outline: none;
+
+    .menu-dot {
+      opacity: 1;
+    }
+  }
+}
+
 .menu-item:active, .active {
     & .menu-item-text{
         color: var(--default-element-color);
