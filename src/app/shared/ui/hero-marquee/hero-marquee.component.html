@@ -1,9 +1,16 @@
 <section>
+    <div class="marquee-track" #track>
 
-    @for (item of marqueeTextArrayEN; track item) {
-    <div class="marquee-dot"></div>
-    <span class="marquee-text">{{ item }}</span>
-    }
+        @for (num of copies; track $index;){
 
+            <div class="marquee-group" #group>
+                @for (item of marqueeTextArrayEN; track $index; let last = $last) {
+                <span class="marquee-dot" aria-hidden="true"></span>
+                <span class="marquee-text">{{ item }}</span>
+                }
+            </div>
+        }
 
+    </div>
 </section>
+

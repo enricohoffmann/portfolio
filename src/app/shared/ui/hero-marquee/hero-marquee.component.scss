@@ -1,46 +1,115 @@
 @import './../../../../styles.scss';
 
 $backDrop: 5.3px;
+$linearGradientValue1: 0%;
+$linearGradientValue2: 14%;
+$linearGradientValue3: 86%;
+$linearGradientValue4: 100%;
 
-section{
+
+section {
     position: absolute;
     left: 0;
-    bottom: 100px;
-    @include display-flex-setup(row, space-evenly, center, 56px);
+    bottom: 0;
+    @include display-flex-setup(row, flex-start, center);
+    width: 105%;
     height: 62px;
-    width: 100%;
     overflow: hidden;
     isolation: isolate;
+    transform: rotate(-3deg) translateY(-100%) translateX(-21px);
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 0 24px;
+    -webkit-mask-image: linear-gradient(
+        to right, 
+        transparent $linearGradientValue1, 
+        black $linearGradientValue2, 
+        black $linearGradientValue3, 
+        transparent $linearGradientValue4
+    );
+    mask-image: linear-gradient(
+        to right, 
+        transparent $linearGradientValue1, 
+        black $linearGradientValue2, 
+        black $linearGradientValue3, 
+        transparent $linearGradientValue4
+    );
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
 }
 
-section::before{
+section::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.12);
     -webkit-backdrop-filter: blur($backDrop);
-    backdrop-filter: blur($backDrop); 
+    backdrop-filter: blur($backDrop);
     z-index: 0;
     pointer-events: none
 }
 
-.marquee-dot{
+.marquee-track {
+    --trackShift: 0px;
+    --duration: 20s;
+    --marqueeFontSize: 32;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    flex:0 0 auto;
+    padding-left: 56px;
+    will-change: transform;
+    animation: none;
+}
+
+.marquee-track.is-ready{
+    animation: slideText var(--duration) linear infinite;
+}
+
+.marquee-group{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    padding-right: 56px;
+    flex: 0 0 auto;
+    width: max-content;
+}
+
+.marquee-dot {
+    display: inline-block;
     height: 8px;
     width: 8px;
     background-color: var(--default-element-color);
     border-radius: 9999px;
-    padding-left: 8px;
 }
 
-.marquee-text{
+.marquee-text {
     font-family: 'Karla';
-    font-size: 32px;
     font-weight: 400;
+    font-size: var(--marqueeFontSize);
     color: var(--default-element-color);
     white-space: nowrap;
 }
 
-.marquee-dot, .marquee-text{
+.marquee-dot,
+.marquee-text {
     position: relative;
     z-index: 1;
+}
+
+@keyframes slideText {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(var(--trackShift) * -1));
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .marquee-track{ animation: none;}
 }
