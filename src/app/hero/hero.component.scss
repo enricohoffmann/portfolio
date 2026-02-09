@@ -1,6 +1,8 @@
 @import './../../styles.scss';
 
-section{
+:host > section{
+    position: relative;
+    isolation: isolate;
     height: 100vh;
     height: 100dvh;
     width: 100%;
@@ -37,4 +39,8 @@ article{
 .btn-container{
     @include display-flex-setup(row, center, center, 48px);
     padding-top: 48px;
+}
+
+.leteral{
+    z-index: 0;
 }

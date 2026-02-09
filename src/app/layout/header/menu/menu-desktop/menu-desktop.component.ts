@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { LanguageToggleComponent } from "../../language-toggle/language-toggle.component";
 import { MenuItemComponent } from "../menu-item/menu-item.component";
+import { LanguageToggleComponent } from '../../../../ui/language-toggle/language-toggle.component';
+
 
 @Component({
   selector: 'app-menu-desktop',

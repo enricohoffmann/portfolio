@@ -1,0 +1,21 @@
+@import './../../../../styles.scss';
+
+:host{
+    position: relative;
+    z-index: 1;
+}
+
+article{
+    position: relative;
+    @include display-flex-setup(column, center, flex-end);
+    z-index: 1;
+}
+
+
+.line{
+    position: relative;
+    width: 1px;
+    height: 240px;
+    background-color: var(--default-element-color);
+    z-index: 1;
+}

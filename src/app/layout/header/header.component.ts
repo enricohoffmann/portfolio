@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LogoComponent } from "../ui/logo/logo.component";
-import { MenuDesktopComponent } from "../ui/menu/menu-desktop/menu-desktop.component";
+import { MenuDesktopComponent } from "../header/menu/menu-desktop/menu-desktop.component";
+import { LogoComponent } from '../../ui/logo/logo.component';
 
 @Component({
   selector: 'app-header',
