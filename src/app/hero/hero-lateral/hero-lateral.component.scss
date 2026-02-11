@@ -9,9 +9,9 @@ section{
     background-color: transparent;
     width: 100%;
     max-width: var(--max-content-width);
-    height: 200px;
+    height: 400px;
     transform: translateX(-50%);
-    @include display-flex-setup(row, space-between, center);
+    @include display-flex-setup(row, space-between, flex-end);
     padding-left: 96px;
     padding-right: 96px;
     z-index: 0;

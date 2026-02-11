@@ -1,21 +1,59 @@
 @import './../../../../styles.scss';
 
-:host{
-    position: relative;
-    z-index: 1;
-}
-
 article{
     position: relative;
-    @include display-flex-setup(column, center, flex-end);
-    z-index: 1;
+    @include display-flex-setup(column, flex-end, center);
+    
 }
 
+.scroll-dowm{
+    position: relative;
+    box-sizing: border-box;
+    width: 30px;
+    height: 48px;
+    border: 1px solid var(--default-element-color);
+    border-radius: 32px;
+    margin-bottom: 32px;
+    @include display-flex-setup(row, center, center);
+}   
 
 .line{
     position: relative;
     width: 1px;
     height: 240px;
     background-color: var(--default-element-color);
-    z-index: 1;
+}
+
+.arrow-down{
+    position: relative;
+    background-image: url('/assets/icon/arrowDown.svg');
+    transform: translateY(0);
+    height: 24px;
+    width: 18px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: all 125ms ease-in;
+    will-change: transform;
+    animation: moveArrow 700ms cubic-bezier(.45,.05,.55,.95) infinite alternate;
+}
+
+@keyframes moveArrow {
+    0%{
+        transform: translateY(0);
+    }
+
+    5%{
+        transform: translateY(0);
+    }
+
+    100%{
+        transform: translateY(10px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .arrow-down{
+        animation: none;
+    }
 }

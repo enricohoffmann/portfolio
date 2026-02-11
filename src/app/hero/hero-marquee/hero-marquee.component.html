@@ -1,7 +1,7 @@
-<section>
-    <div class="marquee-track" #track>
-
-        @for (num of copies; track $index;){
+<section class="marquee-container">
+    <div class="fade-viewport">
+        <div class="marquee-track" #track>
+            @for (num of copies; track $index;){
 
             <div class="marquee-group" #group>
                 @for (item of marqueeTextArrayEN; track $index; let last = $last) {
@@ -9,8 +9,7 @@
                 <span class="marquee-text">{{ item }}</span>
                 }
             </div>
-        }
-
+            }
+        </div>
     </div>
 </section>
-

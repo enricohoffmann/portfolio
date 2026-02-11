@@ -3,15 +3,10 @@
 $backDrop: 5.3px;
 $linearGradientValue1: 0%;
 $linearGradientValue2: 14%;
-$linearGradientValue3: 86%;
+$linearGradientValue3: 80%;
 $linearGradientValue4: 100%;
 
-:host{
-    position: relative;
-    z-index: 5;
-}
-
-section {
+.marquee-container {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -24,34 +19,34 @@ section {
     -webkit-user-select: none;
     user-select: none;
     padding: 0 24px;
-    -webkit-mask-image: linear-gradient(
-        to right, 
-        transparent $linearGradientValue1, 
-        black $linearGradientValue2, 
-        black $linearGradientValue3, 
-        transparent $linearGradientValue4
-    );
-    mask-image: linear-gradient(
-        to right, 
-        transparent $linearGradientValue1, 
-        black $linearGradientValue2, 
-        black $linearGradientValue3, 
-        transparent $linearGradientValue4
-    );
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    z-index: 5;
+    z-index: 2;
 }
 
-section::before {
+.marquee-container::before {
     content: "";
     position: absolute;
     inset: 0;
     background: rgba(255, 255, 255, 0.12);
     -webkit-backdrop-filter: blur($backDrop);
     backdrop-filter: blur($backDrop);
-    z-index: 4;
+    z-index: 0;
     pointer-events: none
+}
+
+.fade-viewport {
+    -webkit-mask-image: linear-gradient(to right,
+            transparent $linearGradientValue1,
+            black $linearGradientValue2,
+            black $linearGradientValue3,
+            transparent $linearGradientValue4 );
+    mask-image: linear-gradient(to right,
+            transparent $linearGradientValue1,
+            black $linearGradientValue2,
+            black $linearGradientValue3,
+            transparent $linearGradientValue4 );
+    overflow: hidden;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
 }
 
 .marquee-track {
@@ -63,17 +58,18 @@ section::before {
     display: flex;
     flex-wrap: nowrap;
     width: max-content;
-    flex:0 0 auto;
+    flex: 0 0 auto;
     padding-left: 56px;
     will-change: transform;
     animation: none;
+
 }
 
-.marquee-track.is-ready{
+.marquee-track.is-ready {
     animation: slideText var(--duration) linear infinite;
 }
 
-.marquee-group{
+.marquee-group {
     position: relative;
     display: flex;
     align-items: center;
@@ -105,6 +101,7 @@ section::before {
     z-index: 2;
 }
 
+
 @keyframes slideText {
     0% {
         transform: translateX(0);
@@ -115,6 +112,8 @@ section::before {
     }
 }
 
-@media (prefers-reduced-motion: reduce){
-    .marquee-track{ animation: none;}
+@media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+        animation: none;
+    }
 }
