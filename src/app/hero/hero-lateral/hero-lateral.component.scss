@@ -9,7 +9,7 @@ section{
     background-color: transparent;
     width: 100%;
     max-width: var(--max-content-width);
-    height: 400px;
+    height: auto;
     transform: translateX(-50%);
     @include display-flex-setup(row, space-between, flex-end);
     padding-left: 96px;

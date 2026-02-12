@@ -1,0 +1,46 @@
+@import './../../../styles.scss';
+
+
+button{
+    @include display-flex-setup(row, center, center);
+    cursor: pointer;
+    background: transparent;
+    border: unset;
+}
+
+.icon-container{
+    position: relative;
+    width: 32px;
+    height: 32px;
+    @include display-flex-setup(row, center, center);
+    overflow: hidden;
+}
+
+img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: contain;
+
+}
+
+.showWhite{
+    opacity: 0;
+    /* animation: animateColor 125ms ease forwards; */
+}
+
+.showColored{
+    opacity: 1;
+    /* animation: animateColor 125ms ease backwards; */
+}
+
+@keyframes animateColor{
+    from {
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+}

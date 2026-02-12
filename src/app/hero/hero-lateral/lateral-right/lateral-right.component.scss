@@ -1,0 +1,32 @@
+@import './../../../../styles.scss';
+
+article {
+    position: relative;
+    @include display-flex-setup(column, flex-end, center);
+    gap: 12px;
+    width: max-content;
+}
+
+
+.mail-link {
+    text-decoration: none;
+    font-family: 'Karla';
+    font-size: 18px;
+    color: #FFFFFF;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    transition: color 75ms ease-in-out;
+
+    &:hover, :focus-visible{
+        color: var(--default-element-color);
+        outline: none;
+    }
+}
+
+
+.line {
+    position: relative;
+    width: 1px;
+    height: 186px;
+    background-color: white;
+}
