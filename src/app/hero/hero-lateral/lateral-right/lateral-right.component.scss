@@ -1,12 +1,21 @@
 @import './../../../../styles.scss';
 
-article {
-    position: relative;
-    @include display-flex-setup(column, flex-end, center);
-    gap: 12px;
+$column1: 32px;
+$column2: 16px;
+
+.lateral-right-grid {
+    display: grid;
+    grid-template-columns: $column1 $column2;
+    row-gap: 12px;
+    align-items: end;
     width: max-content;
 }
 
+.mail-link-container{
+    grid-column: 1; 
+    grid-row: 1;
+    @include display-flex-setup(row, center, center);
+}
 
 .mail-link {
     text-decoration: none;
@@ -17,7 +26,8 @@ article {
     transform: rotate(180deg);
     transition: color 75ms ease-in-out;
 
-    &:hover, :focus-visible{
+    &:hover,
+    :focus-visible {
         color: var(--default-element-color);
         outline: none;
     }
@@ -25,8 +35,18 @@ article {
 
 
 .line {
-    position: relative;
+    grid-column: 1;
+    grid-row-end: auto;
+    justify-self: center;
     width: 1px;
     height: 186px;
     background-color: white;
+}
+
+.contact-icon{
+    grid-column: 1 / -1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: $column1 $column2;
+    align-items: center;
 }

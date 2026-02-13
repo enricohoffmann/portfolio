@@ -1,8 +1,10 @@
-<button type="button" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+<button type="button" class="contact-button">
     <div class="icon-container">
-        <img alt="icon" #iconDefault>
-        <img alt="icon" #iconHover>
+        <img alt="icon" [src]="'/assets/icon/' + iconName + 'Colored.svg'" class="icon icon-colored">
+        <img alt="icon" [src]="'/assets/icon/' + iconName + 'White.svg'" class="icon icon-white">
     </div>
-
-    <div class="dot"></div>
 </button>
+
+<div class="dot-cell">
+    <div class="dot"></div>
+</div>

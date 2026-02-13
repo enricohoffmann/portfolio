@@ -1,11 +1,13 @@
 @import './../../../styles.scss';
 
 
-button{
-    @include display-flex-setup(row, center, center);
+.contact-button{
+    grid-column: 1;
+    @include display-flex-setup(row, flex-start, center, 6px);
     cursor: pointer;
     background: transparent;
     border: unset;
+    padding: 0;
 }
 
 .icon-container{
@@ -14,33 +16,54 @@ button{
     height: 32px;
     @include display-flex-setup(row, center, center);
     overflow: hidden;
+
 }
 
-img{
+.icon {
     position: absolute;
     width: 100%;
     height: 100%;
     object-position: center;
     object-fit: contain;
-
-}
-
-.showWhite{
+    inset: 0;
     opacity: 0;
-    /* animation: animateColor 125ms ease forwards; */
+    transition: opacity 125ms ease-in-out;
 }
 
-.showColored{
+
+
+.icon-colored{
     opacity: 1;
-    /* animation: animateColor 125ms ease backwards; */
 }
 
-@keyframes animateColor{
-    from {
-        opacity: 0;
-    }
+.contact-button:hover .icon-colored {
+    opacity: 0;
+}
 
-    to{
+.contact-button:hover  {
+
+    & .icon-white{
         opacity: 1;
     }
+
+    & .dot {
+        opacity: 1;
+    }
+}
+
+.dot-cell{
+    grid-column: 2;
+    position: relative;
+    @include display-flex-setup(row, center, center);
+    inset: 0;
+}
+
+.dot {
+    display: inline-block;
+    width: 6.4px;
+    height: 6.4px;
+    border-radius: 9999px;
+    opacity: 0;
+    background-color: var(--default-element-color);
+    transition: opacity 125ms ease-in-out;
 }
