@@ -1,6 +1,10 @@
-@import './../../styles.scss';
+@import './../../../styles.scss';
 
-:host>section {
+:host{
+    overflow: hidden;
+}
+
+section {
     position: relative;
     isolation: isolate;
     height: 100vh;
@@ -8,7 +12,6 @@
     width: 100%;
     background: linear-gradient(30deg, #1c1c1c 23%, #08463b 100%);
     @include display-flex-setup(column, center, center);
-    
 }
 
 .hero-header {

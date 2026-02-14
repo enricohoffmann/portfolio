@@ -54,4 +54,5 @@ header>* {
     grid-column-end: auto;
     grid-row: 2 / span 3;
     justify-self: flex-end;
+    overflow: hidden;
 }

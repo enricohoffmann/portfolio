@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ContactIconComponent } from "../../../ui/contact-icon/contact-icon.component";
+import { ContactIconComponent } from "../../../../ui/contact-icon/contact-icon.component";
 
 @Component({
   selector: 'app-lateral-right',

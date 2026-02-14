@@ -1,0 +1,74 @@
+@import './../../../../styles.scss';
+
+:host > *{
+    background-color: var(--background-dark);
+}
+
+.aboutMe-section{
+    @include display-flex-setup(row, center, center);
+    padding-top: 96px;
+    padding-bottom: 96px;
+}
+
+.aboutMe-mainGrid{
+    display: grid;
+    grid-template-columns: 609px 96px 609px;
+    height: 700px;
+}
+
+.foto-grid{
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 598px 102px;
+}
+
+.aboutMe-boxGrid{
+    grid-column: 3;
+    display: grid;
+    grid-template-rows: 102px 598px;
+}
+
+.foto-container{
+    grid-row: 1;
+    @include display-flex-setup(row, center, center);
+    overflow-y: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+
+.foto-container:hover .aboutMe-deco{
+    transform: translateX(-41px) translateY(30px);
+}
+
+
+
+.aboutMe-deco{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 568px;
+    width: 568px;
+    background-image: url('/assets/decor/imgBackgroundDecor.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    transition: all 250ms ease-in;
+}
+
+.aboutMe-foto{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 570px;
+    width: 570px;
+    border-radius: 30px;
+    background-color: rgb(60, 66, 64);
+}
+
+.aboutMe-container{
+    grid-row: 2;
+    /* background-color: rgba(0, 255, 255, 0.418); */
+    
+
+}

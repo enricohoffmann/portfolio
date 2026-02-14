@@ -6,7 +6,7 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 @mixin display-flex-setup($direction: row, $justify: center, $align: center, $gap: 0) {

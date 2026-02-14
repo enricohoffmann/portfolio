@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Component } from '@angular/core';
-import { HeroComponent } from './hero/hero.component';
+import { LandingComponent } from './pages/landing/landing.component';
+
 
 @Component({
   template: '<div>Coming soon...</div>',
@@ -9,9 +10,6 @@ import { HeroComponent } from './hero/hero.component';
 export class EmptyComponent {}
 
 export const routes: Routes = [
-    {path: '', component: HeroComponent, pathMatch: 'full'},
-    {path: 'about', component: EmptyComponent },
-    {path: 'skills', component: EmptyComponent},
-    {path: 'projects', component: EmptyComponent},
+    {path: '', component: LandingComponent, pathMatch: 'full'},
     {path: '*', redirectTo: ''}
 ];
