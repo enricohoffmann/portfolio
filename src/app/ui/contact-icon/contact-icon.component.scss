@@ -1,9 +1,11 @@
 @import './../../../styles.scss';
 
+$transitionTime: 125ms; 
 
 .contact-button{
     grid-column: 1;
-    @include display-flex-setup(row, flex-start, center, 6px);
+    display: grid;
+    grid-template-columns: 32px 14px;
     cursor: pointer;
     background: transparent;
     border: unset;
@@ -11,6 +13,7 @@
 }
 
 .icon-container{
+    grid-column: 1;
     position: relative;
     width: 32px;
     height: 32px;
@@ -27,29 +30,15 @@
     object-fit: contain;
     inset: 0;
     opacity: 0;
-    transition: opacity 125ms ease-in-out;
+    transition: opacity $transitionTime ease-in-out;
 }
 
 
 
-.icon-colored{
-    opacity: 1;
-}
-
-.contact-button:hover .icon-colored {
-    opacity: 0;
-}
-
-.contact-button:hover  {
-
-    & .icon-white{
-        opacity: 1;
-    }
-
-    & .dot {
-        opacity: 1;
-    }
-}
+.icon-colored{ opacity: 1;}
+.contact-button:hover .icon-colored { opacity: 0;}
+.contact-button:hover .icon-white{ opacity: 1 };
+.contact-button:hover .dot {opacity: 1;}
 
 .dot-cell{
     grid-column: 2;
@@ -65,5 +54,5 @@
     border-radius: 9999px;
     opacity: 0;
     background-color: var(--default-element-color);
-    transition: opacity 125ms ease-in-out;
+    transition: opacity $transitionTime ease-in-out;
 }

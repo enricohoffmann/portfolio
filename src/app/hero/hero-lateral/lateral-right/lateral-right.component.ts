@@ -9,5 +9,6 @@ import { ContactIconComponent } from "../../../ui/contact-icon/contact-icon.comp
   styleUrl: './lateral-right.component.scss'
 })
 export class LateralRightComponent {
+ 
 
 }

@@ -1,4 +1,8 @@
 :root{
     --header-height: 96px;
     --max-content-width: 1920px;
+    --header-rows-content: 48px;
+    --header-row-middle: 28px;
+    --header-row-height: calc((var(--header-rows-content) - var(--header-row-middle)) / 2);
+    --header-row-firstAndEnd: calc((var(--header-height) - var(--header-rows-content)) /2);
 }

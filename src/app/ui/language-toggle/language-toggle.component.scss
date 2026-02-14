@@ -22,8 +22,8 @@
 
 .toggle input {
     position: absolute;
-    width: 1;
-    height: 1;
+    width: 1px;
+    height: 1px;
     opacity: 0;
     margin: -1px;
     overflow: hidden;
@@ -56,7 +56,7 @@ input+label {
     transition: background-color 120ms ease-out, color 120ms ease-out, opacity 120ms ease-out;
 
     &:last-of-type {
-        transform: translateX(-4px);
+        transform: translateX(-0px);
     }
 }
 

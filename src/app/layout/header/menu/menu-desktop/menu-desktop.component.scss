@@ -1,5 +1,19 @@
 @import './../../../../../styles.scss';
 
 nav{
-    @include display-flex-setup(row, flex-start, center, 24px);
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    display: grid;
+    grid-template-columns: max-content max-content max-content max-content;
+    grid-template-rows: 100%;
+    column-gap: 24px;
+}
+
+.menu-language-toggle{
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.menu-item-host{
+    grid-row: 1 / span 2;
 }

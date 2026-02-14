@@ -1,7 +1,7 @@
 @import './../../../../styles.scss';
 
 $column1: 32px;
-$column2: 16px;
+$column2: 14px;
 
 .lateral-right-grid {
     display: grid;
@@ -13,7 +13,6 @@ $column2: 16px;
 
 .mail-link-container{
     grid-column: 1; 
-    grid-row: 1;
     @include display-flex-setup(row, center, center);
 }
 
@@ -44,9 +43,5 @@ $column2: 16px;
 }
 
 .contact-icon{
-    grid-column: 1 / -1;
-    grid-row: 2;
-    display: grid;
-    grid-template-columns: $column1 $column2;
-    align-items: center;
+    grid-column: 1 / span 2;
 }
