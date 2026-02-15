@@ -2,37 +2,21 @@
 
 $backDrop: 4px;
 
-section{
+section {
     position: relative;
     height: 100%;
     width: 100%;
     display: grid;
     grid-template-rows: auto 1fr;
-    
+
 }
 
-.card-eyebrow{
-    grid-row: 1;
-    margin-bottom: 20px;
-    font-family: 'Karla';
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--default-element-color);
+article>* {
+    position: relative;
+    z-index: 1;
 }
 
-.card-title{
-    font-family: "Fira_Code";
-    font-size: 64px;
-    font-weight: 700;
-    color: var(--default-element-color);
-}
-
-article > * {
-  position: relative;
-  z-index: 1;
-}
-
-article{
+article {
     grid-row: 2;
     position: relative;
     @include display-flex-setup(column, flex-start, flex-start);
@@ -45,7 +29,7 @@ article{
     user-select: none;
 }
 
-article::before{
+article::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -55,3 +39,17 @@ article::before{
     -webkit-backdrop-filter: blur($backDrop);
     backdrop-filter: blur($backDrop);
 }
+
+.card-eyebrow {
+    grid-row: 1;
+    margin-bottom: 20px;
+    font-family: 'Karla';
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--default-element-color);
+}
+
+[cardItems]:empty {
+    display: none;
+}
+

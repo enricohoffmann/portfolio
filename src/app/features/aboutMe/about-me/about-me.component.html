@@ -1,18 +1,31 @@
 
-<section class="aboutMe-section">
+<section class="aboutMe-section" id="about">
     <article class="aboutMe-mainGrid">
         <aside class="foto-grid">
             <div class="foto-container">
                 <div class="aboutMe-deco"></div>
                 <!-- <img src="" alt="Foto"> -->
-                <div class="aboutMe-foto"></div>
+                <div class="aboutMe-foto"></div> <!-- Platzhalter für echtes Foto-->
             </div>
         </aside>
         <aside class="aboutMe-boxGrid">
             <div class="aboutMe-container">
-                <app-card>
+                <app-card cardType="aboutMe">
                     <span cardEyebrow>Who I Am</span>
-                    <span cardTitle>About Me</span>
+                    <h2 class="mb-24 z1" cardTitle>About Me</h2>
+                    <p class="card-body z1" cardBody>
+                        Hey there, I'm Lukas! Write some information about yourself that is IT related. 
+                        Why are you passionate about coding? 
+                        What is your source of inspiration for improving your programming skills?
+                    </p>
+                    <ul cardItems>
+                        <li app-info-item iconName="location_on">Where are you based? Would you be open to working remotely or potentially relocating?<li>
+                        <li app-info-item iconName="cognition">Show that you are open-minded. Are you enthusiastic about learning new technologies and continually improving your skills?</li>
+                        <li app-info-item iconName="new_releases">A brief description of your problem-solving approach. 
+                            Do you learn from each challenge as you search for the most efficient or elegant solution? 
+                            You can include some keywords like: analytical thinking, creativity, persistence and  collaboration.
+                        </li>
+                    </ul>
                 </app-card>
             </div>
         </aside>

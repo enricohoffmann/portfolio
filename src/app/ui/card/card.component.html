@@ -3,11 +3,8 @@
         <ng-content select="[cardEyebrow]"></ng-content>
     </span>
     <article>
-        <h2 class="card-title">
-            <ng-content select="[cardTitle]"></ng-content>
-        </h2>
-        <div class="card-body">
-            <ng-content select="[cardBody]"></ng-content>
-        </div>
+        <ng-content select="[cardTitle]"></ng-content>
+        <ng-content select="[cardBody]"></ng-content>
+        <ng-content select="[cardItems]"></ng-content>
     </article>
 </section>

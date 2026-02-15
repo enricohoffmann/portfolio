@@ -8,6 +8,8 @@
     @include display-flex-setup(row, center, center);
     padding-top: 96px;
     padding-bottom: 96px;
+    height: 100vh;
+    height: 100dvh;
 }
 
 .aboutMe-mainGrid{
@@ -42,7 +44,6 @@
 }
 
 
-
 .aboutMe-deco{
     position: absolute;
     top: 0;
@@ -68,7 +69,13 @@
 
 .aboutMe-container{
     grid-row: 2;
-    /* background-color: rgba(0, 255, 255, 0.418); */
-    
-
 }
+
+.card-body{
+    font-family: 'Karla';
+    font-size: 18px;
+    font-weight: 400;
+    color: #FFFFFF;
+    word-wrap: normal;
+}
+

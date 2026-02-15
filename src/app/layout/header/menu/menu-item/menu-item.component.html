@@ -1,8 +1,6 @@
-<a [routerLink]="target" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true}" class="menu-item"
-    #rla="routerLinkActive" [attr.aria-current]="rla.isActive ? 'page' : null">
+<a [routerLink]="['/']" [fragment]="tragetFragment" class="menu-item" [class.active]="(active$ | async)">
     <span class="menu-item-text"><ng-content></ng-content></span>
     <div class="dot-cell-container" aria-hidden="true">
         <div class="menu-dot"></div>
     </div>
 </a>
-

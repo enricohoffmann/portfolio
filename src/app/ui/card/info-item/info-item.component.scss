@@ -1,0 +1,37 @@
+:host {
+    position: relative;
+    z-index: 1;
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 56px 1fr;
+    cursor: pointer;
+    transition: color 100ms ease-in;
+}
+
+
+.card-list-item-icon {
+    grid-column: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    object-position: center;
+    
+}
+
+.card-list-item-content {
+    grid-column: 2;
+    font-family: 'Karla';
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.80);
+    transition: color 100ms ease-in;
+}
+
+:host:hover .card-list-item-content,
+:host(.card-list-item):hover .card-list-item-content {
+    color: rgb(255, 255, 255, 1);
+}
+
