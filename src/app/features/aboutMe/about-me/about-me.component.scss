@@ -6,15 +6,19 @@
 
 .aboutMe-section{
     @include display-flex-setup(row, center, center);
-    padding-top: 96px;
+    padding-top: 108px;
     padding-bottom: 96px;
-    height: 100vh;
-    height: 100dvh;
+/*     height: 100vh;
+    height: 100dvh; */
 }
 
 .aboutMe-mainGrid{
+    max-width: var(--max-content-width);
+    width: 100%;
+    padding-left: 96px;
+    padding-right: 108px;
     display: grid;
-    grid-template-columns: 609px 96px 609px;
+    grid-template-columns: minmax(0, 609px) 1fr minmax(0, 609px);
     height: 700px;
 }
 
@@ -71,11 +75,5 @@
     grid-row: 2;
 }
 
-.card-body{
-    font-family: 'Karla';
-    font-size: 18px;
-    font-weight: 400;
-    color: #FFFFFF;
-    word-wrap: normal;
-}
+
 

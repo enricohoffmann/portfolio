@@ -1,0 +1,83 @@
+@import './../../../../styles.scss';
+
+:host>* {
+    background-color: var(--background-dark);
+}
+
+.skills-section {
+    position: relative;
+    overflow: hidden;
+    @include display-flex-setup(row, center, center);
+    width: 100%;
+    min-height: 880px;
+
+}
+
+.skills-section::before {
+    content: "";
+    position: absolute;
+    top: 100px;
+    left: 0;
+    height: 85%;
+    width: 695px;
+    transform: translateX(-60%);
+
+    background: radial-gradient(circle,
+            #08463B 30%,
+            #1C1C1C 100%);
+
+    pointer-events: none;
+    z-index: 0;
+
+    border-radius: 9999px;
+    filter: blur(16px) brightness(0.8);
+}
+
+
+.skills-section>* {
+    position: relative;
+    z-index: 1;
+}
+
+.skills-content-grid {
+    height: 100%;
+    width: 100%;
+    max-width: var(--max-content-width);
+    padding-left: 120px;
+    padding-right: 96px;
+    display: grid;
+    grid-template-columns: 520px 1fr;
+    grid-template-rows: 48px auto;
+}
+
+.skill-set-container {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 520px;
+    height: 550px;
+}
+
+.card-subtitle {
+    margin-top: 24px;
+    font-family: "Fira_Code";
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.colored {
+    color: var(--default-element-color);
+}
+
+.card-subtext{
+    width: 330px;
+    margin-top: 20px;
+    font-family: 'Karla';
+    font-size: 16px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.skills-btn-container{
+    margin-top: 24px;
+}

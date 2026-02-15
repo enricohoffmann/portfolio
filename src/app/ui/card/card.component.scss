@@ -53,3 +53,14 @@ article::before {
     display: none;
 }
 
+[cardSubtitle]:empty {
+    display: none;
+}
+
+[cardSubtext]:empty {
+    display: none;
+}
+
+[cardButton]:empty {
+    display: none;
+}
