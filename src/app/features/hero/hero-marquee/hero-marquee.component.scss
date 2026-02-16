@@ -80,11 +80,7 @@ $linearGradientValue4: 100%;
 }
 
 .marquee-dot {
-    display: inline-block;
-    height: 8px;
-    width: 8px;
-    background-color: var(--default-element-color);
-    border-radius: 9999px;
+    @include createOneDot(8px, 8px);
 }
 
 .marquee-text {

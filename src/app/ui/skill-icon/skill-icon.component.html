@@ -1,0 +1,10 @@
+<article class="skill-item-grid">
+    <aside class="skill-item-icon-contaier">
+        <div class="skill-mindset-bubble" role="tooltip" title="Skill information"></div>
+        <img class="skill-item-icon" [src]="'/assets/icon/' + iconName + '.svg'" alt="">
+    </aside>
+    
+    <span class="skill-item-text" [class.textColorChange]="textColorChange">
+        <ng-content></ng-content>
+    </span>
+</article>

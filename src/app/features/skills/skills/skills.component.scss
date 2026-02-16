@@ -81,3 +81,13 @@
 .skills-btn-container{
     margin-top: 24px;
 }
+
+.skillset-grid{
+    padding-inline: 64px 0;
+    grid-column: 2;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-auto-rows: 135px;
+    grid-gap: 48px;
+}

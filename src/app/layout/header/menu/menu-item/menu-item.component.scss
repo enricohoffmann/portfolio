@@ -24,10 +24,7 @@
 }
 
 .menu-dot{
-    width: 6.4px;
-    height: 6.4px;
-    background-color: var(--default-element-color);
-    border-radius: 9999px;
+    @include createOneDot(6.4px, 6.4px);
     opacity: 0;
     transition: opacity 100ms ease-in;
 }

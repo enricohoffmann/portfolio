@@ -141,3 +141,12 @@ h2{
     color: #FFFFFF;
     word-wrap: normal;
 }
+
+
+@mixin createOneDot($width: 4px, $height: 4px){
+    display: inline-block;
+    height: $height;
+    width: $width;
+    background-color: var(--default-element-color);
+    border-radius: 9999px;
+}
