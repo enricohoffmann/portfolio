@@ -20,7 +20,7 @@
             </app-card>
         </div>
         <div class="skillset-grid">
-            <!-- <app-skill-icon iconName="htmlIcon">HTML</app-skill-icon>
+            <app-skill-icon iconName="htmlIcon">HTML</app-skill-icon>
             <app-skill-icon iconName="cssIcon">CSS</app-skill-icon>
             <app-skill-icon iconName="jsIcon">JavaScript</app-skill-icon>
             <app-skill-icon iconName="materialIcon">Material Design</app-skill-icon>
@@ -29,8 +29,12 @@
             <app-skill-icon iconName="fireBaseIcon">Firebase</app-skill-icon>
             <app-skill-icon iconName="gitIcon">Git</app-skill-icon>
             <app-skill-icon iconName="restApiIcon">REST-API</app-skill-icon>
-            <app-skill-icon iconName="scrumIcon">Scrum</app-skill-icon> -->
-            <app-skill-icon iconName="growthMindsetIcon" [textColorChange]=true>Growth mindset</app-skill-icon>
+            <app-skill-icon iconName="scrumIcon">Scrum</app-skill-icon>
+            <app-skill-with-tooltip>
+                <app-skill-icon iconElement iconName="growthMindsetIcon" [textColorChange]=true>Growth mindset</app-skill-icon>
+                <app-tooltip tooltipElement></app-tooltip>
+            </app-skill-with-tooltip>
+            
         </div>
     </article>
 </section>
