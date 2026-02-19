@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CardComponent } from "../../../ui/card/card.component";
-import { InfoItemComponent } from "../../../ui/card/info-item/info-item.component";
+import { CardComponent } from "../../ui/card/card.component";
+import { InfoItemComponent } from "../../ui/card/info-item/info-item.component";
 
 @Component({
   selector: 'app-about-me',
