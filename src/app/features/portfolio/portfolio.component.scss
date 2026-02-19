@@ -1,0 +1,29 @@
+#portfolio{
+    margin-top: 76px;
+    padding: 0 120px;
+    min-height: 880px;
+}
+
+.portfolio-label {
+    font-family: 'Karla';
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--default-element-color);
+}
+
+.portfolio-headline{
+    margin-top: 16px;
+    padding-bottom: 16px;
+}
+
+.portfolio-introduction{
+    max-width: 456px;
+    font-family: 'Karla';
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.portfolio-grid-container{
+    display: grid;
+}

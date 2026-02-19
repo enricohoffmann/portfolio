@@ -15,6 +15,23 @@ import { TooltipComponent } from "../../ui/tooltip/tooltip.component";
 export class SkillsComponent {
 
   isSkillIconHovering: boolean = false;
+  skillItems: { iconName: string; iconText: string }[] = [];
+
+  constructor(){
+    this.skillItems = [
+      { iconName: 'htmlIcon', iconText: 'HTML' },
+      { iconName: 'cssIcon', iconText: 'CSS' },
+      { iconName: 'jsIcon', iconText: 'JavaScript' },
+      { iconName: 'materialIcon', iconText: 'Material Design' },     
+      { iconName: 'typeScriptIcon', iconText: 'TypeScript' },
+      { iconName: 'angularIcon', iconText: 'Angular' },
+      { iconName: 'fireBaseIcon', iconText: 'Firebase' },
+      { iconName: 'gitIcon', iconText: 'Git' },
+      { iconName: 'restApiIcon', iconText: 'REST-API' },
+      { iconName: 'scrumIcon', iconText: 'Scrum' }
+    ]
+  }
+
 
   receiveHoverFromSkillIcon(isHovering: boolean): void {
     this.isSkillIconHovering = isHovering;
