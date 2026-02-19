@@ -14,4 +14,9 @@ import { TooltipComponent } from "../../ui/tooltip/tooltip.component";
 })
 export class SkillsComponent {
 
+  isSkillIconHovering: boolean = false;
+
+  receiveHoverFromSkillIcon(isHovering: boolean): void {
+    this.isSkillIconHovering = isHovering;
+  }
 }

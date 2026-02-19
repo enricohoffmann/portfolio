@@ -1,6 +1,6 @@
 <div class="skill-tooltip-wrapper">
     <ng-content select="[iconElement]"></ng-content>
     <div class="skill-tooltip-container">
-        <ng-content select="[tooltipElement]"></ng-content>
+        <ng-content select="[tooltipElement]" [hoverd]="childHoverd"></ng-content>
     </div>
 </div>

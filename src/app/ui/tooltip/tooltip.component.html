@@ -1,2 +1,17 @@
-<div class="tooltip-background"></div>
-<div class="tooltip-corner"></div>
+<div class="tooltip-background" [class.isVisible]="skillIconHoverd">
+    <article class="tooltip-content-cointainer">
+        <span class="tooltip-headline">I have a special interest in learning</span>
+        <aside class="tooltip-icon-grid">
+            <div class="tooltip-icon-column">
+                <img src="./../../../assets/icon/react.svg" alt="">
+                <span>React</span>
+            </div>
+            <div class="tooltip-icon-column">
+                <img src="./../../../assets/icon/vueJs.svg" alt="">
+                <span>Vue.js</span>
+            </div>
+        </aside>
+    </article>
+</div>
+
+<div class="tooltip-corner" [class.isVisible]="skillIconHoverd"></div>

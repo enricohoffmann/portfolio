@@ -31,8 +31,8 @@
             <app-skill-icon iconName="restApiIcon">REST-API</app-skill-icon>
             <app-skill-icon iconName="scrumIcon">Scrum</app-skill-icon>
             <app-skill-with-tooltip>
-                <app-skill-icon iconElement iconName="growthMindsetIcon" [textColorChange]=true>Growth mindset</app-skill-icon>
-                <app-tooltip tooltipElement></app-tooltip>
+                <app-skill-icon iconElement iconName="growthMindsetIcon" [textColorChange]=true (hoverSkillIconEvent)="receiveHoverFromSkillIcon($event)">Growth mindset</app-skill-icon>
+                <app-tooltip tooltipElement [skillIconHoverd]="isSkillIconHovering"></app-tooltip>
             </app-skill-with-tooltip>
             
         </div>

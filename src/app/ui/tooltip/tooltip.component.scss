@@ -1,3 +1,7 @@
+@import './../../../styles.scss';
+
+$animationTime: 250ms;
+
 .tooltip-background {
     position: absolute;
     z-index: 4;
@@ -7,8 +11,9 @@
     height: 112px;
     background-color: #fff;
     border-radius: 16px;
-    padding: 12px;
+    padding: 8px;
     opacity: 0;
+    transition: opacity $animationTime ease-in;
 }
 
 .tooltip-corner {
@@ -24,4 +29,52 @@
     left: 42px;
     top: -5px;
     opacity: 0;
+    transition: opacity $animationTime ease-in;
+}
+
+.tooltip-background.isVisible{
+    opacity: 1;
+}
+
+.tooltip-corner.isVisible{
+    opacity: 1;
+}
+
+.tooltip-content-cointainer{
+    position: relative;
+    @include display-flex-setup(column, center, center);
+}
+
+.tooltip-headline{
+    text-align: center;
+    font-family: 'Karla';
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--default-element-color);
+}
+
+.tooltip-icon-grid{
+    margin-top: 8px;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 16px;
+
+}
+
+.tooltip-icon-column{
+    @include display-flex-setup(column, center, center);
+
+    & img{
+        width: 32px;
+        height: 32px;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    & span {
+        font-family: 'Karla';
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--default-element-color);
+    }
 }

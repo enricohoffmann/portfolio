@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-tooltip',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './tooltip.component.scss'
 })
 export class TooltipComponent {
-
+  @Input() skillIconHoverd: boolean = false;
 }
