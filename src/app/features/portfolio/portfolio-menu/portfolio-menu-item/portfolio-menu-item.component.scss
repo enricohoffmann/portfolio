@@ -1,0 +1,51 @@
+@import './../../../../../styles.scss';
+
+.portfolio-menu-item-container {
+    @include display-flex-setup(row, space-between, center);
+    padding: 24px;
+    max-width: 880px;
+    width: 100%;
+}
+
+.portfolio-title-container {
+    @include display-flex-setup(row, flex-start, center, 4px);
+
+    & span {
+        font-family: 'Fira_Code';
+        font-size: 24px;
+        font-weight: 700;
+        color: #fff;
+    }
+
+}
+
+.menuItem-icon {
+    width: 23px;
+    height: 23px;
+    content: url('/assets/icon/arrowOutward.svg');
+    object-position: center;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 150ms ease-in;
+}
+
+.menuItemShow {
+    opacity: 1;
+}
+
+.portfolio-skill-container {
+    @include display-flex-setup(row, flex-end, center, 10px);
+}
+
+.portfolio-skill {
+    font-family: 'Karla';
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.protfolio-skill-seperator {
+    width: 2px;
+    height: 22px;
+    background-color: var(--default-element-color);
+}

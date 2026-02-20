@@ -1,0 +1,16 @@
+@if(projectEntries){
+    @for ( entry of projectEntries; track entry[0]; let last = $last; let first = $first) {
+        <div class="projects-line"></div>
+        <div class="project-item">
+            <app-portfolio-menu-item
+                [projectTitle]="entry[0]"
+                [projectSkills]="entry[1]"  
+            ></app-portfolio-menu-item>
+        </div>
+        
+        @if(last){
+            <div class="projects-line"></div>
+        }
+    }
+}
+

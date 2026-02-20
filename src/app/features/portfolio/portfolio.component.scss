@@ -13,7 +13,7 @@
 
 .portfolio-headline{
     margin-top: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 24px;
 }
 
 .portfolio-introduction{
@@ -24,6 +24,8 @@
     color: #fff;
 }
 
-.portfolio-grid-container{
+.portfolio-menu-container{
+    margin-top: 48px;
     display: grid;
+    grid-template-columns: 1fr 1fr; 
 }

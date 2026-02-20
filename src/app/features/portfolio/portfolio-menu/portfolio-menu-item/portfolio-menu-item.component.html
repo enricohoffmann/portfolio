@@ -1,0 +1,18 @@
+<article class="portfolio-menu-item-container" (mouseover)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    <div class="portfolio-title-container">
+        <span>{{ projectTitle }}</span>
+        <img src="" alt="" class="menuItem-icon" [class.menuItemShow]="showMenuIcon">
+    </div>
+    
+    <div class="portfolio-skill-container">
+
+        @for(skill of projectSkills; track skill; let last = $last){
+           
+            <span class="portfolio-skill">{{ skill }}</span>
+            @if(!last){
+                <div class="protfolio-skill-seperator"></div>
+            }
+        }
+
+    </div>
+</article>
