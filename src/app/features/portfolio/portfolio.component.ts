@@ -9,25 +9,12 @@ import { PortfolioMenuComponent } from "./portfolio-menu/portfolio-menu.componen
   styleUrl: './portfolio.component.scss'
 })
 export class PortfolioComponent {
-  portfolioPojects: Record<string, string[]> = {
-    "Join": [
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Firebase"
-    ],
-    "El Pollo Loco": [
-      "HTML",
-      "CSS",
-      "JavaScript"
-    ],
-    "Pokedex": [
-      "HTML",
-      "CSS",
-      "JavaScript"
-    ]
-
+  portfolioPojects= {
+    "Join" : [["JavaScript","HTML","CSS","Firebase"],"portfolio_join"],
+    "El Pollo Loco": [["HTML","CSS","JavaScript"], "portfolio_el-pollo-loco"],
+    "Pokedex": [["HTML","CSS","JavaScript"],"portfolio_pokedex"]
   };
 
   
+
 }

@@ -1,23 +1,26 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { PortfolioMenuItemComponent } from "./portfolio-menu-item/portfolio-menu-item.component";
+import { PortfolioMenuImageComponent } from "./portfolio-menu-image/portfolio-menu-image.component";
+
 
 @Component({
   selector: 'app-portfolio-menu',
   standalone: true,
-  imports: [PortfolioMenuItemComponent],
+  imports: [PortfolioMenuItemComponent, PortfolioMenuImageComponent, CommonModule],
   templateUrl: './portfolio-menu.component.html',
   styleUrl: './portfolio-menu.component.scss'
 })
-export class PortfolioMenuComponent implements AfterViewInit {
+export class PortfolioMenuComponent {
   @Input() portFolioProjects?: {};
-  projectEntries: [string, string[]][] = [];
+  projectEntries: [string, [string[], string]][] = [];
   isHoverd: boolean = false;
 
   constructor(){}
 
-  ngAfterViewInit(): void {
+  ngOnInit(){
     if (this.portFolioProjects) {
-      this.projectEntries = Object.entries(this.portFolioProjects) as [string, string[]][];
+      this.projectEntries = Object.entries(this.portFolioProjects) as [string, [string[], string]][];
     }
   }
 }

@@ -10,6 +10,7 @@ import { Component, Input } from '@angular/core';
 export class PortfolioMenuItemComponent {
   @Input() projectTitle: string = "";
   @Input() projectSkills: string[] = [];
+  @Input() menuItemIndex?: string;
   showMenuIcon: boolean = false;
 
   onMouseEnter(){
