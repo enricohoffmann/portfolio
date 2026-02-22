@@ -1,6 +1,10 @@
-<aside class="portfolio-img-container">
+<aside class="portfolio-img-container" 
+    [class.container-top]="isFirst"
+    [class.container-center]="(!isFirst && !isLast)"
+    [class.container-bottom]="isLast"
+    >
 
-    <div class="project-img-box">
+    <div class="project-img-box" [class.show-img-box]="isforeignMenuitemHoverd">
         <img src="/assets/img/{{imageName}}.jpg" alt="" class="project-img">
         <div class="project-background"></div>
     </div>

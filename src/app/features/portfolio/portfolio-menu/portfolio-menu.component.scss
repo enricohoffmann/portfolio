@@ -5,7 +5,7 @@ $backDrop: 4px;
 
 .projects-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 3fr 380px; 
 }
 
 .projects-items-column{
@@ -14,13 +14,13 @@ $backDrop: 4px;
 
 .projects-line{
     grid-column: 1;
-    max-width: 880px;
     width: 100%;
     height: 2px;
     background-color: var(--default-element-color);
 }
 
 .project-item{
+    width: 100%;
     grid-column: 1;
     position: relative;
     z-index: 2;

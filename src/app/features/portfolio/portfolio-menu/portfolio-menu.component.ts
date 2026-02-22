@@ -15,6 +15,7 @@ export class PortfolioMenuComponent {
   @Input() portFolioProjects?: {};
   projectEntries: [string, [string[], string]][] = [];
   isHoverd: boolean = false;
+  portfolioMenuItemHoverId: string = "";
 
   constructor(){}
 
@@ -23,4 +24,11 @@ export class PortfolioMenuComponent {
       this.projectEntries = Object.entries(this.portFolioProjects) as [string, [string[], string]][];
     }
   }
+
+  receiveMenuItemHoverId(id: string): void {
+    if(this.portfolioMenuItemHoverId !== id){
+      this.portfolioMenuItemHoverId = id;
+    }
+  }
+
 }

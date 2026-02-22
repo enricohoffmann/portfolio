@@ -15,6 +15,5 @@ export class PortfolioComponent {
     "Pokedex": [["HTML","CSS","JavaScript"],"portfolio_pokedex"]
   };
 
-  
 
 }
