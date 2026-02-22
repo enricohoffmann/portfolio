@@ -154,3 +154,19 @@ h2{
     background-color: var(--default-element-color);
     border-radius: 9999px;
 }
+
+@mixin fadeInOut($start: 0%, $end: 100%, $stepFromStart: 14%, $stepToEnd: 80%){
+    -webkit-mask-image: linear-gradient(to right,
+            transparent $start,
+            black $stepFromStart,
+            black $stepToEnd,
+            transparent $end );
+    mask-image: linear-gradient(to right,
+            transparent $start,
+            black $stepFromStart,
+            black $stepToEnd,
+            transparent $end );
+    overflow: hidden;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}

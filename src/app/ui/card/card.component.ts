@@ -9,4 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class CardComponent {
   @Input() cardType: 'aboutMe' | 'skills' | 'normal' = 'normal';
+  @Input() cardIsActiv: boolean = false;
 }

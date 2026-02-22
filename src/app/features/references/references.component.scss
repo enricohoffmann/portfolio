@@ -1,0 +1,131 @@
+@import './../../../styles.scss';
+
+.references-section {
+    margin-bottom: 120px;
+    /* width: 100%; */
+    
+}
+
+.references-headline{
+    @include display-flex-setup(row, center, center);
+
+    & h3{
+        font-family: "Fira_Code";
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--default-element-color);
+    }
+}
+
+.references-card-container{
+    margin-top: 48px;
+    @include display-flex-setup(row, center, center);
+    height: 274px;
+    margin-bottom: 48px;
+    overflow: hidden;
+}
+
+.fade-cards {
+    @include fadeInOut(0%, 100%, 14%, 80%);
+}
+
+.references-card{
+    flex-shrink: 0;
+    width: 632px;
+    height: 274px;
+    margin-left: 16px;
+    margin-right: 16px;
+}
+
+.references-card-activ{
+    filter: brightness(1.1);
+}
+
+.references-card-left{
+    filter: brightness(0.8);
+    scale: 80%;
+}
+
+.references-card-right{
+    filter: brightness(0.8);
+    scale: 80%;
+}
+
+.references-comment{
+    font-family: 'Karla';
+    font-size: 20px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.references-card-content{
+    @include display-flex-setup(column, space-between, center);
+    height: 100%;
+}
+
+.references-writer-container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto;
+
+}
+
+.writer-columns-one{
+    width: 100%;
+    @include display-flex-setup(row, center, center);
+    
+    & div{
+        width: 100%;
+        height: 1px;
+        background-color: #fff;
+    }
+
+}
+
+.references-writer{
+    padding-left: 12px;
+    font-family: 'Karla';
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+}
+
+.reference-button-container{
+    @include display-flex-setup(row, center, center, 20px);
+}
+
+.reference-swipe-btn{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    cursor: pointer;
+    border: unset;
+    outline: unset;
+    @include display-flex-setup(row, center, center);
+}
+
+.reference-swipe-btn-img-container{
+    position: relative;
+    box-sizing: border-box;
+    @include display-flex-setup(row, center, center);
+    height: 28px;
+    width: 28px;
+}
+
+.reference-arrow-left{
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: all 100ms ease-in;
+}
+
+.reference-arrow-left-white{ opacity: 1;}
+.btn-back:hover .reference-arrow-left-white {opacity: 0;}
+.btn-back:hover .reference-arrow-left-green {
+    opacity: 1;
+    transform: translateX(-3px);
+}

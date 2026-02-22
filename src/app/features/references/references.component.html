@@ -1,1 +1,46 @@
-<p>references works!</p>
+<section class="references-section">
+    <div class="references-headline">
+        <h3>What my colleagues say about me</h3>
+    </div>
+    <div class="references-card-container fade-cards">
+
+        @for (reference of referencesArray; track reference; let index = $index;) {
+
+        <div class="references-card" [class.references-card-left]="index === getIndexLeft()"
+            [class.references-card-activ]="index === currentIndex"
+            [class.references-card-right]="index === getIndexRight()">
+            <app-card [cardIsActiv]="index === currentIndex">
+                <article class="references-card-content z1" cardReferences>
+                    <p class="references-comment">
+                        {{ reference.comment }}
+                    </p>
+                    <aside class="references-writer-container">
+                        <div class="writer-columns-one">
+                            <div></div>
+                        </div>
+                        <span class="references-writer">{{ reference.writer }}</span>
+                    </aside>
+                </article>
+            </app-card>
+        </div>
+        }
+
+    </div>
+
+    <aside class="reference-button-container">
+        <button class="reference-swipe-btn btn-back" type="button">
+            <div class="reference-swipe-btn-img-container">
+                <img alt="icon" src="/assets/icon/arrowsLeftWhite.svg" class="reference-arrow-left reference-arrow-left-white">
+                <img alt="icon" src="/assets/icon/arrowBackGreen.svg" class="reference-arrow-left reference-arrow-left-green">
+            </div>
+
+        </button>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <button class="reference-swipe-btn btn-forward" type="button">
+            <img src="" alt="icon" class="reference-arrow-right">
+        </button>
+    </aside>
+
+</section>

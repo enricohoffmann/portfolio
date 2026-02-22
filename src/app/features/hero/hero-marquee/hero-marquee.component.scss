@@ -1,10 +1,6 @@
 @import './../../../../styles.scss';
 
 $backDrop: 5.3px;
-$linearGradientValue1: 0%;
-$linearGradientValue2: 14%;
-$linearGradientValue3: 80%;
-$linearGradientValue4: 100%;
 
 .marquee-container {
     position: absolute;
@@ -34,19 +30,7 @@ $linearGradientValue4: 100%;
 }
 
 .fade-viewport {
-    -webkit-mask-image: linear-gradient(to right,
-            transparent $linearGradientValue1,
-            black $linearGradientValue2,
-            black $linearGradientValue3,
-            transparent $linearGradientValue4 );
-    mask-image: linear-gradient(to right,
-            transparent $linearGradientValue1,
-            black $linearGradientValue2,
-            black $linearGradientValue3,
-            transparent $linearGradientValue4 );
-    overflow: hidden;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
+    @include fadeInOut(0%, 100%, 14%, 80%);
 }
 
 .marquee-track {
