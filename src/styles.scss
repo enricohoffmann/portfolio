@@ -147,11 +147,11 @@ h2{
 }
 
 
-@mixin createOneDot($width: 4px, $height: 4px){
+@mixin createOneDot($width: 4px, $height: 4px, $color: var(--default-element-color)){
     display: inline-block;
     height: $height;
     width: $width;
-    background-color: var(--default-element-color);
+    background-color: $color;
     border-radius: 9999px;
 }
 

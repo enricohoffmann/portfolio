@@ -28,18 +28,23 @@
     </div>
 
     <aside class="reference-button-container">
-        <button class="reference-swipe-btn btn-back" type="button">
+        <button class="reference-swipe-btn btn-back" type="button" (click)="referencesBackClick()">
             <div class="reference-swipe-btn-img-container">
                 <img alt="icon" src="/assets/icon/arrowsLeftWhite.svg" class="reference-arrow-left reference-arrow-left-white">
                 <img alt="icon" src="/assets/icon/arrowBackGreen.svg" class="reference-arrow-left reference-arrow-left-green">
             </div>
-
         </button>
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <button class="reference-swipe-btn btn-forward" type="button">
-            <img src="" alt="icon" class="reference-arrow-right">
+        @for(dot of [0,1,2]; track dot; let index = $index){
+            <div class="reference-swipe-dot"
+                [class.dot-green]="index === currentDotIndex"
+                [class.dot-white]="index !== currentDotIndex"
+            ></div>
+        }
+        <button class="reference-swipe-btn btn-forward" type="button" (click)="referencesForwardClick()">
+            <div class="reference-swipe-btn-img-container">
+                <img alt="icon" src="/assets/icon/arrowForwardWhite.svg" class="reference-arrow-left reference-arrow-right-white">
+                <img alt="icon" src="/assets/icon/arrowForwardGreen.svg" class="reference-arrow-left reference-arrow-right-green">
+            </div>
         </button>
     </aside>
 

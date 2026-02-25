@@ -11,6 +11,7 @@ import { CardComponent } from '../../ui/card/card.component';
 export class ReferencesComponent {
 
   currentIndex = 0;
+  currentDotIndex = 0;
 
   referencesArray = [
     {
@@ -25,14 +26,14 @@ export class ReferencesComponent {
       comment: "I had the good fortune of working with Simon in a group project at the Developer Akademie that involved a lot of effort. He always stayed calm, cool, and focused, and made sure our team was set up for success. He's super knowledgeable, easy to work with, and I'd happily work with him again given the chance.",
       writer: "A. Fischer - Team Partner"
     },
-    {
+    /* {
       comment: "Our project benefited enormously from Simon efficient way of working.",
       writer: "T.Schulz - Frontend Developer"
     },
     {
       comment: "Our project benefited enormously from Simon efficient way of working.",
       writer: "T.Schulz - Frontend Developer"
-    },
+    }, */
   ]
 
 
@@ -46,6 +47,16 @@ export class ReferencesComponent {
 
   getIndexRight(){
     return (this.currentIndex + 1) % this.referencesArray.length;
+  }
+
+  referencesBackClick(){
+    this.currentDotIndex = Math.floor(this.currentDotIndex - 1 + 3) % 3;
+    this.currentIndex = Math.floor(this.currentIndex - 1 + this.referencesArray.length) % this.referencesArray.length;
+  }
+
+  referencesForwardClick(){
+    this.currentDotIndex = Math.floor(this.currentDotIndex + 1) % 3;
+    this.currentIndex = Math.floor(this.currentIndex + 1) % this.referencesArray.length;
   }
 
 }
