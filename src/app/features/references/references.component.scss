@@ -40,9 +40,14 @@
     transition: transform 3000ms ease, filter 3000ms ease;
 }
 
-.references-card-activ{
-    filter: brightness(1.1);
-    transform: translateX(0);
+.references-card-left-out{
+    filter: brightness(0.8);
+    transform: translateX(-440%) scale(80%);
+}
+
+.references-card-left-off{
+    filter: brightness(0.8);
+    transform: translateX(-220%) scale(80%);
 }
 
 .references-card-left{
@@ -50,9 +55,27 @@
     transform: translateX(-110%) scale(80%);
 }
 
+.references-card-activ{
+    filter: brightness(1.1);
+    transform: translateX(0);
+}
+
 .references-card-right{
     filter: brightness(0.8);
     transform: translateX(110%) scale(80%);
+}
+
+.references-card-right-off{
+    filter: brightness(0.8);
+    transform: translateX(220%) scale(80%);
+}
+
+.references-card-right-out{
+    display: none;
+}
+
+.no-animation{
+    transition: none;
 }
 
 .references-comment{

@@ -6,9 +6,16 @@
 
         @for (reference of referencesArray; track reference; let index = $index;) {
 
-        <div class="references-card" [class.references-card-left]="index === getIndexLeft()"
+        <div class="references-card" 
+            [class.references-card-left-off]="(index === getIndexLeftOff())"
+            [class.references-card-left]="index === getIndexLeft()"
             [class.references-card-activ]="index === currentIndex"
-            [class.references-card-right]="index === getIndexRight()">
+            [class.references-card-right]="index === getIndexRight()"
+            [class.references-card-right-off]="(index === getIndexRightOff() && !isAnimating)"
+            [class.no-animation]="animationReset"
+            [class.references-card-right-off]="(isAnimating && direktion === 'left')"
+            >
+            
             <app-card [cardIsActiv]="index === currentIndex">
                 <article class="references-card-content z1" cardReferences>
                     <p class="references-comment">
