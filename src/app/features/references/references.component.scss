@@ -37,45 +37,42 @@
     height: 274px;
     margin-left: 16px;
     margin-right: 16px;
-    transition: transform 3000ms ease, filter 3000ms ease;
-}
-
-.references-card-left-out{
-    filter: brightness(0.8);
-    transform: translateX(-440%) scale(80%);
+    transition: transform 500ms ease, filter 500ms ease;
 }
 
 .references-card-left-off{
     filter: brightness(0.8);
-    transform: translateX(-220%) scale(80%);
+    transform: translateX(-220%) scale(0.8);
 }
 
 .references-card-left{
     filter: brightness(0.8);
-    transform: translateX(-110%) scale(80%);
+    transform: translateX(-110%) scale(0.8);
 }
 
 .references-card-activ{
+    opacity: 1;
     filter: brightness(1.1);
     transform: translateX(0);
 }
 
 .references-card-right{
     filter: brightness(0.8);
-    transform: translateX(110%) scale(80%);
+    transform: translateX(110%) scale(0.8);
 }
 
 .references-card-right-off{
     filter: brightness(0.8);
-    transform: translateX(220%) scale(80%);
+    transform: translateX(220%) scale(0.8);
 }
 
-.references-card-right-out{
-    display: none;
+.references-card-left-out{
+    filter: brightness(0.8);
+    transform: translateX(-440%) scale(0.8);
 }
 
 .no-animation{
-    transition: none;
+    transition: none !important;
 }
 
 .references-comment{
