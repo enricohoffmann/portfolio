@@ -15,10 +15,7 @@ export class ReferencesComponent {
   currentIndex = 0;
   currentDotIndex = 0;
   isAnimating = false;
-
   direktion: 'left' | 'right' | 'none' = 'none';
-
-  recycledIndex: number | null = null;
   noAnimationIndex: number | null = null;
 
 

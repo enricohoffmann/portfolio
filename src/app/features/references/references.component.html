@@ -15,7 +15,7 @@
                 [class.no-animation]="index === noAnimationIndex"
                 >
                 
-                <app-card [cardIsActiv]="index === currentIndex">
+                <app-card [cardIsActiv]="index === currentIndex" [isReverencesCard]="true">
                     <article class="references-card-content z1" cardReferences>
                         <p class="references-comment">
                             {{ reference.comment }}
@@ -30,6 +30,10 @@
                 </app-card>
             </div>
         }
+
+        <div class="quotes-container">
+            <img src="/assets/icon/quotes.svg" alt="icon" class="quotes-icon">
+        </div>
 
     </div>
 

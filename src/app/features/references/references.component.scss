@@ -2,12 +2,11 @@
 
 .references-section {
     margin-bottom: 120px;
-    /* width: 100%; */
-    
 }
 
 .references-headline{
     @include display-flex-setup(row, center, center);
+    margin-bottom: 48px;
 
     & h3{
         font-family: "Fira_Code";
@@ -19,10 +18,9 @@
 
 .references-card-container{
     position: relative;
-    margin-top: 48px;
     @include display-flex-setup(row, center, center);
-    height: 274px;
-    margin-bottom: 48px;
+    height: 310px;
+    padding-bottom: 16px;
     overflow: hidden;
 }
 
@@ -184,4 +182,12 @@
 
 .dot-white{
     background-color: #fff;
+}
+
+.quotes-container{
+    position: absolute;
+    z-index: 20;
+    inset: 0;
+    @include display-flex-setup(row, center, flex-start);
+    transform: translateX(-316px);
 }
