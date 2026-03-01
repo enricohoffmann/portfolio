@@ -8,7 +8,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './card.component.scss'
 })
 export class CardComponent {
-  @Input() cardType: 'aboutMe' | 'skills' | 'normal' = 'normal';
+  @Input() cardType: 'aboutMe' | 'skills' | 'references' | 'normal' = 'normal';
   @Input() cardIsActiv: boolean = false;
-  @Input() isReverencesCard: boolean = false;
 }

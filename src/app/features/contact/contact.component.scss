@@ -1,0 +1,65 @@
+@import './../../../styles.scss';
+
+.contact-section{
+    position: relative;
+    padding-left: 96px;
+    padding-right: 96px;
+    padding-top: 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contact-column-one{
+    grid-column: 1;
+    @include display-flex-setup(column, flex-start, flex-start);
+}
+
+.contact-column-two{
+    grid-column: 2;
+    padding-left: 32px;
+}
+
+.contact-eyebrow{
+    font-family: 'Karla';
+    font-weight: 500;
+    font-size: 24px;
+    color: var(--default-element-color);
+    margin-bottom: 16px;
+}
+
+.contact-description{
+    margin-top: 24px;
+    width: 100%;
+    @include display-flex-setup(column, flex-start, flex-start, 16px);
+
+    & p, span{
+        font-family: 'Karla';
+        font-weight: 400;
+        font-size: 16px;
+        color: #fff;
+        line-height: 120%;
+    }
+
+    & p:first-of-type{
+        font-family: 'Fira_Code';
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 120%;
+        color: var(--default-element-color);
+        overflow: hidden;
+    }
+
+    & span{
+        color: var(--default-element-color);
+    }
+}
+
+.contact-item-container{
+    margin: 24px;
+}
+
+.contact-line{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(61, 207, 182, 0.50);
+}

@@ -15,7 +15,7 @@
                 [class.no-animation]="index === noAnimationIndex"
                 >
                 
-                <app-card [cardIsActiv]="index === currentIndex" [isReverencesCard]="true">
+                <app-card [cardIsActiv]="index === currentIndex" [cardType]="'references'">
                     <article class="references-card-content z1" cardReferences>
                         <p class="references-comment">
                             {{ reference.comment }}

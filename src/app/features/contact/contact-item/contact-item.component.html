@@ -1,0 +1,22 @@
+
+<article class="contact-input-container" (mouseover)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+
+    <div class="contact-item-line"></div>
+
+    <div class="contact-input-field-container">
+        <label for="{{contactItemIndex}}" class="contact-item-title">{{ contactTitle }}</label>
+        <input 
+            #inputField
+            id="{{contactItemIndex}}" 
+            name="{{contactItemIndex}}" 
+            class="contact-input-field" 
+            type="text" 
+            placeholder="{{placeHolderText}}"
+            (input)="onInput()"
+            (blur)="onBlur(inputField.value)"
+            [class.inputHasError]="hasError"
+            >
+    </div>
+
+    
+</article>

@@ -1,0 +1,67 @@
+@import './../../../../styles.scss';
+
+.contact-input-container{
+    width: 100%;
+    @include display-flex-setup(column, center, flex-start, 24px);
+
+    & label{
+        font-family: 'Fira_Code';
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 120%;
+        color: var(--default-element-color);
+        overflow: hidden;
+    }
+}
+
+.contact-input-field-container{
+    width: 100%;
+    @include display-flex-setup(column, center, flex-start, 10px);
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+}
+
+.contact-input-field{
+    width: 100%;
+    font-family: 'Karla';
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+    outline: unset;
+    border: unset;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.contact-input-field::placeholder{
+    font-family: 'Karla';
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(255 ,255 ,255 ,0.8);
+    transition: color 100ms ease-in;
+}
+
+.contact-input-container:hover .contact-input-field::placeholder{
+    color: rgba(255 ,255 ,255 ,1);
+}
+
+.contact-input-field.inputHasError::placeholder{
+    color: rgba(1236, 123, 123, 0.8);
+}
+
+.contact-input-container:hover .contact-input-field.inputHasError::placeholder{
+    color: rgba(1236, 123, 123, 1);
+}
+
+.contact-item-line{
+    width: 100%;
+    height: 1px;
+    background-color: rgba(61, 207, 182, 0.50);
+    transition: background-color 100ms ease-in;
+}
+
+.contact-input-container:hover .contact-item-line{
+    background-color: rgba(61, 207, 182, 1);
+}
+

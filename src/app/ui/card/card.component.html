@@ -2,7 +2,11 @@
     <span class="card-eyebrow">
         <ng-content select="[cardEyebrow]"></ng-content>
     </span>
-    <article class="card-container"  [class.card-normal]="!cardIsActiv"  [class.card-isActive]="cardIsActiv" [class.references-card]="isReverencesCard">
+    <article class="card-container"  
+        [class.card-normal]="!cardIsActiv"  
+        [class.card-isActive]="cardIsActiv" 
+        [class.references-card]="cardType==='references'"
+        >
         <ng-content select="[cardTitle]"></ng-content>
         <ng-content select="[cardBody]"></ng-content>
         <ng-content select="[cardItems]"></ng-content>
