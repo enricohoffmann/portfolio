@@ -4,17 +4,18 @@
     <div class="contact-item-line"></div>
 
     <div class="contact-input-field-container">
-        <label for="{{contactItemIndex}}" class="contact-item-title">{{ contactTitle }}</label>
+        <label for="{{contactFieldIndex}}" class="contact-item-title">{{ contactData?.title }}</label>
         <input 
             #inputField
-            id="{{contactItemIndex}}" 
-            name="{{contactItemIndex}}" 
+            id="{{contactFieldIndex}}" 
+            name="{{contactFieldIndex}}" 
             class="contact-input-field" 
-            type="text" 
+            type="{{contactData?.contactType}}" 
             placeholder="{{placeHolderText}}"
             (input)="onInput()"
             (blur)="onBlur(inputField.value)"
             [class.inputHasError]="hasError"
+            required
             >
     </div>
 

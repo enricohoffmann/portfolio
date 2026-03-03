@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
+import { ContactData } from '../../../interfaces/contact.interface';
 @Component({
   selector: 'app-contact-item',
   standalone: true,
@@ -8,17 +8,18 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrl: './contact-item.component.scss'
 })
 export class ContactItemComponent {
-  @Input() contactTitle: string = "";
-  @Input() contactPlacholder: string = "";
-  @Input() contactItemIndex: string = "";
-  @Input() contactErrorText: string = "";
+  @Input() contactData?: ContactData;
+  @Input() contactFieldIndex?: string;
   inputValue?: string;
   isChanged: boolean = false;
   placeHolderText: string = "";
   hasError: boolean = false;
 
   ngOnInit(){
-    this.placeHolderText = this.contactPlacholder;
+    if(this.contactData){
+      this.placeHolderText = this.contactData.placeholterText;
+    }
+    
   }
 
   onMouseEnter(){
@@ -36,13 +37,16 @@ export class ContactItemComponent {
 
   onBlur(value: string){
     if(value){
-      this.inputValue = value;
+      if(this.contactData){
+        this.contactData.contactType = value;
+      }
     }else{
-      this.placeHolderText = this.contactErrorText;
+      if(this.contactData){
+        this.placeHolderText = this.contactData.errorText;
       this.hasError = true;
+      }
+      
     }
-
-
   }
 
 }

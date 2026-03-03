@@ -17,25 +17,23 @@
 
     <aside class="contact-column-two">
 
-        @if(contactFields){
+        @if(contactDataFields){
 
-            <form action="">
+            <form #contactForm="ngForm" (ngSubmit)="onContactFormSubmit(contactForm)">
 
-            @for(field of contactFields; track field; let index = $index; let last = $last){
-                
-                <app-contact-item 
-                    [contactTitle]="field.title" 
-                    [contactPlacholder]="field.placeholterText"
-                    [contactItemIndex]="'contact_id_' + index"
-                    [contactErrorText]="field.errorText"
-                    >
+                @for(contactField of contactDataFields; track contactField; let index = $index; let last = $last){
+                    
+                    <app-contact-item 
+                        [contactData]="contactField"
+                        [contactFieldIndex]="'contact_id_' + index"
+                        >
 
-                </app-contact-item>
+                    </app-contact-item>
 
-                @if(last){
-                    <div class="contact-line"></div>
+                    @if(last){
+                        <div class="contact-line"></div>
+                    }
                 }
-            }
 
 
             </form>
