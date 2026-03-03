@@ -30,9 +30,39 @@
     color: #fff;
     outline: unset;
     border: unset;
-    cursor: pointer;
+    cursor: text;
     background-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 0;
+    caret-color: #fff;
+    -webkit-text-fill-color: #fff;
 }
+
+.contact-input-field:focus,
+.contact-input-field:focus-visible,
+.contact-input-field:active{
+  outline: none;
+  border: none;
+  background-color: transparent !important;
+  color: #fff !important;
+}
+
+.contact-input-field:-webkit-autofill,
+.contact-input-field:-webkit-autofill:hover,
+.contact-input-field:-webkit-autofill:focus,
+.contact-input-field:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff !important;
+  caret-color: #fff !important;
+
+  /* “Hintergrund” von Autofill neutralisieren (Overlay) */
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+  box-shadow: 0 0 0 1000px transparent inset !important;
+
+  /* Optional: verhindert dieses “Flashen” beim Aktivieren */
+  transition: background-color 99999s ease-out 0s;
+}
+
 
 .contact-input-field::placeholder{
     font-family: 'Karla';
@@ -47,11 +77,11 @@
 }
 
 .contact-input-field.inputHasError::placeholder{
-    color: rgba(1236, 123, 123, 0.8);
+    color: rgba(123, 123, 123, 0.8);
 }
 
 .contact-input-container:hover .contact-input-field.inputHasError::placeholder{
-    color: rgba(1236, 123, 123, 1);
+    color: rgba(123, 123, 123, 1);
 }
 
 .contact-item-line{

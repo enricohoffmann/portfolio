@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ContactData } from '../../../interfaces/contact.interface';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-contact-item',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './contact-item.component.html',
   styleUrl: './contact-item.component.scss'
 })
@@ -35,18 +36,15 @@ export class ContactItemComponent {
     this.hasError = false;
   }
 
-  onBlur(value: string){
-    if(value){
-      if(this.contactData){
-        this.contactData.contactType = value;
-      }
+  onBlur(){
+
+    if(this.contactData?.contactValue){ 
+      this.hasError = false;
     }else{
-      if(this.contactData){
-        this.placeHolderText = this.contactData.errorText;
+      this.placeHolderText = this.contactData?.errorText ?? "";
       this.hasError = true;
-      }
-      
     }
+    
   }
 
 }

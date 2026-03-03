@@ -156,6 +156,22 @@ h2{
     border-radius: 9999px;
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #fff !important;
+    caret-color: #fff !important;
+    -webkit-box-shadow: 0 0 0 1000px var(--background-dark) inset !important;
+    box-shadow: 0 0 0 1000px var(--background-dark) inset !important;
+    transition: background-color 99999s ease-out 0s, color 99999s ease-out 0s;
+}
+
 @mixin fadeInOut($start: 0%, $end: 100%, $stepFromStart: 14%, $stepToEnd: 80%){
     -webkit-mask-image: linear-gradient(to right,
             transparent $start,
