@@ -5,13 +5,14 @@
 
     <div class="contact-input-field-container">
         <label [for]="contactFieldIndex" class="contact-item-title">{{ contactData.title }}</label>
-        <input 
+
+        <div class="input-wrapper">
+            <input 
             [(ngModel)]="contactData.contactValue"
             [id]="contactFieldIndex" 
             [name]="contactData.contactField" 
             class="contact-input-field" 
             [attr.type]="contactData.contactField == 'email' ? 'email' : 'text'" 
-            [placeholder]="placeHolderText"
             (input)="onInput()"
             (blur)="onBlur()"
             [class.inputHasError]="hasError"
@@ -20,8 +21,17 @@
             [attr.minlength]="4"
             [attr.pattern]="contactData.contactField === 'email' ? '[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}' : null"
             title="Contact field"
+            #field="ngModel"
             >
-    </div>
 
-    
+            <!-- Als Overlay -->
+            <span>
+                {{ hasError ? contactData.errorText : contactData.placeholterText }}
+            </span>
+
+        </div>
+
+        
+    </div>
+   
 </article>

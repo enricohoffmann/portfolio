@@ -39,6 +39,11 @@ export class ContactComponent {
 
 
   onContactFormSubmit(contactForm: NgForm){
+
+    console.log(contactForm.valid);
+    console.log(contactForm.errors);
+     
+
     if(contactForm.valid && contactForm.submitted){
       console.log(contactForm.value);
       //console.log(this.contactDataFields);
