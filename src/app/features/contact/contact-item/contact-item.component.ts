@@ -1,16 +1,19 @@
 import { Component, Input } from '@angular/core';
 import { ContactData } from '../../../interfaces/contact.interface';
-import { FormsModule } from '@angular/forms';
+import { ControlContainer, FormsModule, NgForm } from '@angular/forms';
 @Component({
   selector: 'app-contact-item',
   standalone: true,
   imports: [FormsModule],
   templateUrl: './contact-item.component.html',
-  styleUrl: './contact-item.component.scss'
+  styleUrl: './contact-item.component.scss',
+  viewProviders: [
+    {provide: ControlContainer, useExisting: NgForm}
+  ]
 })
 export class ContactItemComponent {
-  @Input() contactData?: ContactData;
-  @Input() contactFieldIndex?: string;
+  @Input({required: true}) contactData!: ContactData;
+  @Input({required: true}) contactFieldIndex!: string;
   inputValue?: string;
   isChanged: boolean = false;
   placeHolderText: string = "";
@@ -38,7 +41,7 @@ export class ContactItemComponent {
 
   onBlur(){
 
-    if(this.contactData?.contactValue){ 
+    if(this.contactData.contactValue){ 
       this.hasError = false;
     }else{
       this.placeHolderText = this.contactData?.errorText ?? "";

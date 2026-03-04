@@ -32,11 +32,10 @@
     border: unset;
     cursor: text;
     background-color: transparent;
-    appearance: none;
     -webkit-appearance: none;
+    appearance: none;
     border-radius: 0;
     caret-color: #fff;
-    -webkit-text-fill-color: #fff;
 }
 
 .contact-input-field:focus,
@@ -69,19 +68,23 @@
     font-size: 18px;
     font-weight: 400;
     color: rgba(255 ,255 ,255 ,0.8);
+    -webkit-text-fill-color: rgba(255 ,255 ,255 ,0.8);
     transition: color 100ms ease-in;
 }
 
 .contact-input-container:hover .contact-input-field::placeholder{
-    color: rgba(255 ,255 ,255 ,1);
+    color: rgb(255, 255, 255, 1);
+    -webkit-text-fill-color: rgb(255, 255, 255, 1);
 }
 
 .contact-input-field.inputHasError::placeholder{
-    color: rgba(123, 123, 123, 0.8);
+    color: rgba(236, 123, 123, 0.8);
+    -webkit-text-fill-color: rgba(236, 123, 123, 0.8);
 }
 
 .contact-input-container:hover .contact-input-field.inputHasError::placeholder{
-    color: rgba(123, 123, 123, 1);
+    color: rgba(236, 123, 123, 1);
+    -webkit-text-fill-color: rgba(236, 123, 123, 1);
 }
 
 .contact-item-line{

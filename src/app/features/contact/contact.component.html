@@ -21,20 +21,12 @@
 
             <form #contactForm="ngForm" (ngSubmit)="onContactFormSubmit(contactForm)">
 
-                @for(contactField of contactDataFields; track contactField; let index = $index; let last = $last){
+                @for(contactItem of contactDataFields; track contactItem; let index = $index; let last = $last){
                     
-                    <app-contact-item 
-                        [contactData]="contactField"
-                        [contactFieldIndex]="'contact_id_' + index"
-                        >
-
-                    </app-contact-item>
-
-                    @if(last){
-                        <div class="contact-line"></div>
-                    }
+                    <app-contact-item [contactData]="contactItem" [contactFieldIndex]="'contact_id_' + index"></app-contact-item>
+                    @if(last){<div class="contact-line"></div>}
                 }
-
+                <app-button [type]="'submit'" [variant]="'primary'">Say Hello</app-button>
 
             </form>
         }

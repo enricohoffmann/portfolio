@@ -2,11 +2,12 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { ContactItemComponent } from './contact-item/contact-item.component';
 import { NgForm, FormsModule } from '@angular/forms';
 import { ContactData } from '../../interfaces/contact.interface';
+import { ButtonComponent } from "../../ui/button/button.component";
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ContactItemComponent, FormsModule],
+  imports: [ContactItemComponent, FormsModule, ButtonComponent],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
@@ -16,21 +17,21 @@ export class ContactComponent {
     {
       title: 'What\'s your name?',
       contactValue: '',
-      contactType: 'name',
+      contactField: 'name',
       placeholterText: 'Your name goes here',
       errorText: 'Oops! it seems your name is missing'
     },
     {
       title: 'What\'s your email?',
       contactValue: '',
-      contactType: 'email',
+      contactField: 'email',
       placeholterText: 'youremail@email.com',
       errorText: 'Hoppla! your email is required'
     },
     {
       title: 'How can I help you?',
       contactValue: '',
-      contactType: 'message',
+      contactField: 'message',
       placeholterText: 'Hello Lukas, I am interested in...',
       errorText: 'What do you need to develop?'
     }
@@ -39,8 +40,8 @@ export class ContactComponent {
 
   onContactFormSubmit(contactForm: NgForm){
     if(contactForm.valid && contactForm.submitted){
-      console.log(contactForm);
-      
+      console.log(contactForm.value);
+      //console.log(this.contactDataFields);
     }
   }
 

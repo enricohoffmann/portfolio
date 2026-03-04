@@ -1,7 +1,10 @@
+
+type ContactField = 'name' | 'email' | 'message';
+
 export interface ContactData {
   title: string;
   contactValue: string;
-  contactType: string;
+  contactField: ContactField;
   placeholterText: string;
   errorText: string;
 }
