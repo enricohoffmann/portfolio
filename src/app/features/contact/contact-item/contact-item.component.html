@@ -8,28 +8,39 @@
 
         <div class="input-wrapper">
             <input 
-            [(ngModel)]="contactData.contactValue"
-            [id]="contactFieldIndex" 
-            [name]="contactData.contactField" 
-            class="contact-input-field" 
-            [attr.type]="contactData.contactField == 'email' ? 'email' : 'text'" 
-            (input)="onInput()"
-            (blur)="onBlur()"
-            [class.inputHasError]="hasError"
-            required
-            [attr.autocomplete]="contactData.contactField === 'email' ? 'email' : 'off'"
-            [attr.minlength]="4"
-            [attr.pattern]="contactData.contactField === 'email' ? '[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}' : null"
-            title="Contact field"
-            #field="ngModel"
+                [(ngModel)]="contactData.contactValue"
+                [id]="contactFieldIndex" 
+                [name]="contactData.contactField" 
+                class="contact-input-field" 
+                [type]="contactData.contactField === 'email' ? 'email' : 'text'"
+                [inputMode]="contactData.contactField === 'email' ? 'email' : 'text'" 
+                (input)="onInput(field)"
+                (blur)="hasFocus = false; onBlur(field)"
+                (focus)="hasFocus = true"
+                required
+                [autocomplete]="contactData.contactField === 'email' ? 'email' : 'off'"
+                [pattern]="contactData.contactField === 'email' ? emailPattern : '.*'"
+                [minlength]="contactData.contactField === 'email' ? null : 4"
+                title="Contact field"
+                #field="ngModel"
             >
 
             <!-- Als Overlay -->
-            <span>
-                {{ hasError ? contactData.errorText : contactData.placeholterText }}
+            <span 
+                class="input-overlay"
+                [class.placeHolderError]="field.invalid && field.touched"
+                [class.placeHolderNormal]="!field.touched && !hasText(field)"
+                [class.hidden]="hasText(field)"
+                >
+                {{ field.invalid && field.touched ? contactData.errorText : contactData.placeholterText }}
             </span>
 
         </div>
+
+        <!-- muss ich noch umbauen -->
+        <span [class.hidden]="field.invalid && field.touched">
+            {{errorMessage}}
+        </span>
 
         
     </div>
