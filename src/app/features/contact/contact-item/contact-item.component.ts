@@ -8,12 +8,12 @@ import { ControlContainer, FormsModule, NgForm, NgModel } from '@angular/forms';
   templateUrl: './contact-item.component.html',
   styleUrl: './contact-item.component.scss',
   viewProviders: [
-    {provide: ControlContainer, useExisting: NgForm}
+    { provide: ControlContainer, useExisting: NgForm }
   ]
 })
 export class ContactItemComponent {
-  @Input({required: true}) contactData!: ContactData;
-  @Input({required: true}) contactFieldIndex!: string;
+  @Input({ required: true }) contactData!: ContactData;
+  @Input({ required: true }) contactFieldIndex!: string;
   readonly emailPattern = '[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}';
   isChanged: boolean = false;
   placeHolderText: string = "";
@@ -22,59 +22,46 @@ export class ContactItemComponent {
   errorMessage: string = "";
 
 
-  ngOnInit(){
-    if(this.contactData){
+  ngOnInit() {
+    if (this.contactData) {
       this.placeHolderText = this.contactData.placeholterText;
     }
-    
+
   }
 
-  onMouseEnter(){
-    
+  onMouseEnter() {
+
   }
 
-  onMouseLeave(){
-    
+  onMouseLeave() {
+
   }
 
-  onInput(field: NgModel): void{
+  onInput(field: NgModel): void {
     this.isChanged = true;
     this.checkFildValidation(field);
   }
 
-  onBlur(field: NgModel): void{
+  onBlur(field: NgModel): void {
     this.isChanged = false;
     this.checkFildValidation(field);
   }
 
-  checkFildValidation(field: NgModel): void{
-    const showErrors = !!field.touched;
+  checkFildValidation(field: NgModel): void {
+    const showErrors = this.shouldShowErrors(field);
     this.hasError = showErrors && !!field.invalid;
+    this.errorMessage = this.getErrorMessage(field);
+  }
 
-    if(!showErrors){
-      this.errorMessage = "";
-      return;
-    }
+  shouldShowErrors(field: NgModel): boolean {
+    return !!field.touched;
+  }
 
-    if(field.errors?.['required']){
-      this.errorMessage = this.contactData.errorText;
-      return;
-    }
-
-    if(field.errors?.['pattern']){
-      this.errorMessage = 'The email address is invalid.';
-      return;
-    }
-
-    if(field.errors?.['minlength']){
-      this.errorMessage = `The input is too short. (minimum ${field.errors['minlength'].requiredLength} characters)`;
-      return;
-    }
-
-    if(field.valid){
-      this.errorMessage = "";
-    }
-
+  getErrorMessage(field: NgModel): string {
+    if (field.errors?.['required']) { return this.contactData.errorText; }
+    if (field.errors?.['pattern']) { return 'The email address is invalid.'; }
+    if (field.errors?.['minlength']) { return `The input is too short. (minimum ${field.errors['minlength'].requiredLength} characters)`; }
+    return '';
   }
 
   hasText(field: NgModel): boolean {

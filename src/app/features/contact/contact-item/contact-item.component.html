@@ -25,7 +25,6 @@
                 #field="ngModel"
             >
 
-            <!-- Als Overlay -->
             <span 
                 class="input-overlay"
                 [class.placeHolderError]="field.invalid && field.touched"
@@ -37,8 +36,9 @@
 
         </div>
 
-        <!-- muss ich noch umbauen -->
-        <span [class.hidden]="field.invalid && field.touched">
+        <span 
+            class="input-error"
+            [class.visible]="(field.invalid && hasText(field))">
             {{errorMessage}}
         </span>
 
