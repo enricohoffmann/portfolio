@@ -63,3 +63,56 @@
     height: 1px;
     background-color: rgba(61, 207, 182, 0.50);
 }
+
+
+.contact-privacy-submit-grid{
+    margin-top: 24px;
+    position: relative;
+    display: grid;
+    grid-template-rows: auto;
+    row-gap: 16px;
+}
+
+
+.privacy-accept-grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 35px 1fr;
+}
+
+.privacy-accept-check-container{
+    @include display-flex-setup(row, flex-start, center);
+}
+
+.privacy-accept-notice{
+    @include display-flex-setup(row, flex-start, center);
+
+    & span{
+        font-family: 'Karla';
+        font-size: 15px;
+        font-weight: 400;
+        color: #fff;
+        padding: 8px 0;
+
+        & a{
+            text-decoration: unset;
+            padding-bottom: 6px;
+            cursor: pointer;
+            font-family: 'Karla';
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--default-element-color);
+            border-bottom: solid 0px transparent;
+            transition: color 125ms ease-in, border-bottom 125ms ease-in;
+        }
+
+        & a:hover{
+            color: #fff;
+            border-bottom: solid 1px var(--default-element-color);
+        }
+    }
+}
+
+.contact-submit{
+    @include display-flex-setup(row, center, center);
+}
