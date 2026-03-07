@@ -5,6 +5,7 @@
     padding-left: 96px;
     padding-right: 96px;
     padding-top: 70px;
+    padding-bottom: 96px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -115,4 +116,17 @@
 
 .contact-submit{
     @include display-flex-setup(row, center, center);
+}
+
+.privacy-error-message{
+    font-family: 'Karla';
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(236, 123, 123, 1);
+    opacity: 0;
+    transition: opacity 125ms ease-in;
+}
+
+.privacy-error-message.visible{
+    opacity: 1;
 }

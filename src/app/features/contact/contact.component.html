@@ -28,34 +28,24 @@
                 }
 
                 <div class="contact-privacy-submit-grid">
-
-                    <!-- row 1-->
-
                     <div class="privacy-accept-grid">
-                        <!-- column 1-->
-                        <!-- Die Checkbox als UI-Element -->
-                        <div class="privacy-accept-check-container">
-                            Ch
+                           <div class="privacy-accept-check-container">
+                            <app-check-box [privacyCheck]="privacyCheck"></app-check-box>
                         </div>
 
-                        <!-- column 2 -->
                         <div class="privacy-accept-notice">
                             <span>I've read the <a>privacy policy</a> and agree to the processing of my data as outlined.</span>
                         </div>
                     </div>
 
-                    <!-- row 2-->
+                    <span 
+                        class="privacy-error-message"
+                        [class.visible]="contactForm.submitted && !privacyCheck.checked"
+                    >{{privacyCheckErrorMessage}}</span>
 
-                    <span>Error</span>
-
-
-                    <!-- row 3 -->
                     <app-button [type]="'submit'" [variant]="'primary'" class="contact-submit">Say Hello</app-button>
 
                 </div>
-
-
-                
 
             </form>
         }

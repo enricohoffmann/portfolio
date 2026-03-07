@@ -1,0 +1,15 @@
+
+<label class="privacy-checkbox">
+    <input 
+        id="privacy-check" 
+        name="privacy-check" 
+        type="checkbox" 
+        [(ngModel)]="privacyCheck.checked">
+    <span class="checkbox-box" aria-hidden="true">
+        <img class="privacy-check-icon" [class.visble]="privacyCheck.checked" src="./assets/icon/checkBoxCheck.svg" alt="">
+    </span>
+    
+    <span class="checkbox-text">I agree to the privacy policy</span>
+</label>
+
+

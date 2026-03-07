@@ -1,0 +1,74 @@
+@import './../../../styles.scss';
+
+.privacy-checkbox{
+    height: 24px;
+    width: 24px;
+    @include display-flex-setup(row, center, center);
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    -webkit-user-select: none;
+    border-radius: 9999px;
+}
+
+.privacy-checkbox::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(61, 207, 182, 0.3);
+    opacity: 0;
+    transition: opacity 125ms ease-in;
+}
+
+.privacy-checkbox:hover::before{
+    opacity: 1;
+}
+
+.privacy-checkbox .checkbox-text{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.privacy-checkbox input{
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+} 
+
+.privacy-checkbox input:focus-visible {
+    outline: none;
+}
+
+.checkbox-box{
+    width: 18px;
+    height: 18px;
+    border: solid 2px var(--default-element-color);
+    border-radius: 2px;
+    @include display-flex-setup(row, center, center);
+    position: relative;
+    overflow: hidden;
+}
+
+.privacy-check-icon{
+    height: 18px;
+    width: 18px;
+    object-position: center;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 125ms ease-in;
+}
+
+.privacy-check-icon.visble{
+    opacity: 1;
+}
+
