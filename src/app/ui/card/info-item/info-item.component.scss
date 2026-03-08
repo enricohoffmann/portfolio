@@ -1,3 +1,5 @@
+@import './../../../../styles.scss';
+
 :host {
     position: relative;
     z-index: 1;
@@ -23,10 +25,7 @@
 
 .card-list-item-content {
     grid-column: 2;
-    font-family: 'Karla';
-    font-size: 18px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.80);
+    @include font-setup('Karla', 18px, 400, rgba(255, 255, 255, 0.80));
     transition: color 100ms ease-in;
 }
 

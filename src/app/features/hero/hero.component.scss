@@ -25,17 +25,13 @@ article {
     z-index: 2;
 
     & span {
-        font-family: 'Fira_Code';
-        font-size: 40px;
-        font-weight: 400;
-        color: var(--text-color-default);
+        @include font-setup('Fira_Code', 40px, 400, var(--text-color-default));
+        overflow: hidden;
     }
 
     & h1 {
-        font-family: 'Karla';
-        font-size: 128px;
-        font-weight: 700;
-        color: var(--text-color-default);
+        @include font-setup('Karla', 128px, 700, var(--text-color-default));
+        overflow: hidden;
     }
 
 }

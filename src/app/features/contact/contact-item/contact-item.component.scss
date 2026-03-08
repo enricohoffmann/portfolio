@@ -5,11 +5,7 @@
     @include display-flex-setup(column, center, flex-start, 24px);
 
     & label{
-        font-family: 'Fira_Code';
-        font-size: 24px;
-        font-weight: 500;
-        line-height: 120%;
-        color: var(--default-element-color);
+        @include font-setup('Fira_Code', 24px, 500, var(--default-element-color), 120%);
         overflow: hidden;
     }
 }
@@ -31,10 +27,7 @@
 
 .contact-input-field{
     width: 100%;
-    font-family: 'Karla';
-    font-size: 18px;
-    font-weight: 400;
-    color: #fff;
+    @include font-setup('Karla', 18px, 400, #fff);
     outline: unset;
     border: unset;
     cursor: text;
@@ -71,12 +64,9 @@
     left: 0;
     top: 0;
     z-index: 1;
-    font-family: 'Karla';
-    font-size: 18px;
-    font-weight: 400;   
+    @include font-setup('Karla', 18px, 400, rgba(255 ,255 ,255 ,0.8));
     background-color: transparent; 
     opacity: 1;
-    color: rgba(255 ,255 ,255 ,0.8);
     transition: opacity 100ms ease-in;
 }
 
@@ -108,11 +98,8 @@
     opacity: 0;
     width: 100%;
     pointer-events: none;
-    font-family: 'Karla';
-    font-size: 16px;
-    font-weight: 400;   
+    @include font-setup('Karla', 16px, 400, rgba(236, 123, 123, 1));
     background-color: transparent; 
-    color: rgba(236, 123, 123, 1);
     transition: max-height 250ms ease-in, opacity 250ms ease-in;
 }
 

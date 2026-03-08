@@ -54,10 +54,7 @@ article>* {
 .card-eyebrow {
     grid-row: 1;
     margin-bottom: 20px;
-    font-family: 'Karla';
-    font-size: 24px;
-    font-weight: 500;
-    color: var(--default-element-color);
+    @include font-setup('Karla', 24px, 500, var(--default-element-color));
 }
 
 .card-eyebrow:empty{

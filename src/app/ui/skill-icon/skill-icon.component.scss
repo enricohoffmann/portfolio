@@ -31,10 +31,7 @@
 .skill-item-text {
     grid-row: 2;
     @include display-flex-setup(row, center, flex-start);
-    font-family: 'Fira_Code';
-    font-size: 18px;
-    font-weight: 400;
-    color: #ffff;
+    @include font-setup('Fira_Code', 18px, 400, #fff);
     text-align: center;
     transition: color 150ms ease-in;
 }

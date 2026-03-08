@@ -10,10 +10,7 @@
 
 .menu-item-text{
     grid-row: 1;
-    font-family: 'Fira_Code';
-    font-size: 20px;
-    font-weight: 400;
-    color: #FFFFFF;
+    @include font-setup('Fira_Code', 20px, 400, #fff);
 }
 
 .dot-cell-container{

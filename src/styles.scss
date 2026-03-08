@@ -21,6 +21,7 @@ body{
     gap: $gap;
 }
 
+
 @font-face {
     font-family: 'Karla';
     src: url('./assets/font/karla/Karla-Regular.ttf') format('truetype');
@@ -112,7 +113,13 @@ body{
     font-style: normal;
 }
 
-
+@mixin font-setup($fontFamiliy: 'Karla', $fontSize: 16px, $fontWeight: 400, $fontColor: #fff, $lineHeight: auto){
+    font-family: $fontFamiliy;
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    color: $fontColor;
+    line-height: $lineHeight;
+}
 
 .visually-hidden {
     position: absolute;

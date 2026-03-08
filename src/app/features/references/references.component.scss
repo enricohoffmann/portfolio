@@ -9,10 +9,8 @@
     margin-bottom: 48px;
 
     & h3{
-        font-family: "Fira_Code";
-        font-size: 32px;
-        font-weight: 700;
-        color: var(--default-element-color);
+        @include font-setup("Fira_Code", 32px, 700, var(--default-element-color), 120%);
+        overflow: hidden;
     }
 }
 
@@ -74,10 +72,7 @@
 }
 
 .references-comment{
-    font-family: 'Karla';
-    font-size: 20px;
-    font-weight: 400;
-    color: #fff;
+    @include font-setup('Karla', 20px, 400, #fff);
 }
 
 .references-card-content{
@@ -106,10 +101,7 @@
 
 .references-writer{
     padding-left: 12px;
-    font-family: 'Karla';
-    font-size: 18px;
-    font-weight: 400;
-    color: #fff;
+    @include font-setup('Karla', 18px, 400, #fff);
 }
 
 .reference-button-container{

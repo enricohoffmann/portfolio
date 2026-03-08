@@ -21,10 +21,8 @@
 }
 
 .contact-eyebrow{
-    font-family: 'Karla';
-    font-weight: 500;
-    font-size: 24px;
-    color: var(--default-element-color);
+    @include font-setup('Karla', 24px, 500, var(--default-element-color));
+    overflow: hidden;
     margin-bottom: 16px;
 }
 
@@ -34,19 +32,11 @@
     @include display-flex-setup(column, flex-start, flex-start, 16px);
 
     & p, span{
-        font-family: 'Karla';
-        font-weight: 400;
-        font-size: 16px;
-        color: #fff;
-        line-height: 120%;
+        @include font-setup('Karla', 16px, 400, #fff, 120%);
     }
 
     & p:first-of-type{
-        font-family: 'Fira_Code';
-        font-size: 24px;
-        font-weight: 700;
-        line-height: 120%;
-        color: var(--default-element-color);
+        @include font-setup('Fira_Code', 24px, 700, var(--default-element-color), 120%);
         overflow: hidden;
     }
 
@@ -89,20 +79,14 @@
     @include display-flex-setup(row, flex-start, center);
 
     & span{
-        font-family: 'Karla';
-        font-size: 15px;
-        font-weight: 400;
-        color: #fff;
+        @include font-setup('Karla', 15px, 400, #fff);
         padding: 8px 0;
 
         & a{
             text-decoration: unset;
             padding-bottom: 6px;
             cursor: pointer;
-            font-family: 'Karla';
-            font-size: 15px;
-            font-weight: 400;
-            color: var(--default-element-color);
+            @include font-setup('Karla', 15px, 400, var(--default-element-color));
             border-bottom: solid 0px transparent;
             transition: color 125ms ease-in, border-bottom 125ms ease-in;
         }
@@ -119,10 +103,7 @@
 }
 
 .privacy-error-message{
-    font-family: 'Karla';
-    font-size: 14px;
-    font-weight: 400;
-    color: rgba(236, 123, 123, 1);
+    @include font-setup('Karla', 14px, 400, rgba(236, 123, 123, 1));
     opacity: 0;
     transition: opacity 125ms ease-in;
 }

@@ -68,10 +68,7 @@ $backDrop: 5.3px;
 }
 
 .marquee-text {
-    font-family: 'Karla';
-    font-weight: 400;
-    font-size: var(--marqueeFontSize);
-    color: var(--default-element-color);
+    @include font-setup('Karla', var(--marqueeFontSize), 400, var(--default-element-color), 120%);
     white-space: nowrap;
 }
 

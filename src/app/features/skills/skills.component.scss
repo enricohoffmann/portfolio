@@ -60,10 +60,7 @@
 
 .card-subtitle {
     margin-top: 24px;
-    font-family: "Fira_Code";
-    font-size: 24px;
-    font-weight: 700;
-    color: #fff;
+    @include font-setup('Fira_Code', 24px, 700, #fff);
 }
 
 .colored {
@@ -73,10 +70,7 @@
 .card-subtext{
     width: 330px;
     margin-top: 20px;
-    font-family: 'Karla';
-    font-size: 16px;
-    font-weight: 400;
-    color: #fff;
+    @include font-setup('Karla', 16px, 400, #fff);
 }
 
 .skills-btn-container{

@@ -18,9 +18,7 @@ $column2: 14px;
 
 .mail-link {
     text-decoration: none;
-    font-family: 'Karla';
-    font-size: 18px;
-    color: #FFFFFF;
+    @include font-setup('Karla', 18px, 400, #FFFFFF);
     writing-mode: vertical-rl;
     transform: rotate(180deg);
     transition: color 75ms ease-in-out;

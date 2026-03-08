@@ -10,10 +10,8 @@
     @include display-flex-setup(row, flex-start, center, 4px);
 
     & span {
-        font-family: 'Fira_Code';
-        font-size: 24px;
-        font-weight: 700;
-        color: #fff;
+        @include font-setup('Fira_Code', 24px, 700, #ffff, 120%);
+        overflow: hidden;
     }
 
 }
@@ -37,10 +35,8 @@
 }
 
 .portfolio-skill {
-    font-family: 'Karla';
-    font-size: 18px;
-    font-weight: 400;
-    color: #fff;
+    @include font-setup('Karla', 18px, 400, #fff, 120%);
+  
 }
 
 .protfolio-skill-seperator {

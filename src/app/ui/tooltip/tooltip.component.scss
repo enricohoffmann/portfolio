@@ -47,10 +47,7 @@ $animationTime: 250ms;
 
 .tooltip-headline{
     text-align: center;
-    font-family: 'Karla';
-    font-size: 16px;
-    font-weight: 400;
-    color: var(--default-element-color);
+    @include font-setup('Karla', 16px, 400, var(--default-element-color));
 }
 
 .tooltip-icon-grid{
@@ -72,9 +69,6 @@ $animationTime: 250ms;
     }
 
     & span {
-        font-family: 'Karla';
-        font-size: 12px;
-        font-weight: 700;
-        color: var(--default-element-color);
+        @include font-setup('Karla', 12px, 700, var(--default-element-color));
     }
 }
