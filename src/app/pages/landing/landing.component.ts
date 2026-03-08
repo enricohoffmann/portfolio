@@ -5,11 +5,13 @@ import { SkillsComponent } from "../../features/skills/skills.component";
 import { PortfolioComponent } from "../../features/portfolio/portfolio.component";
 import { ReferencesComponent } from '../../features/references/references.component';
 import { ContactComponent } from '../../features/contact/contact.component';
+import { FooterComponent } from '../../layout/footer/footer.component';
+
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [HeroComponent, AboutMeComponent, SkillsComponent, PortfolioComponent, ReferencesComponent, ContactComponent],
+  imports: [HeroComponent, AboutMeComponent, SkillsComponent, PortfolioComponent, ReferencesComponent, ContactComponent, FooterComponent],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })

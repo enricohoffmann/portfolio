@@ -1,0 +1,38 @@
+@import './../../../styles.scss';
+
+section {
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.dot-column{
+    @include display-flex-setup(row, flex-start, center);
+    width: 16px;
+}
+
+.link-dot {
+   
+    height: 6.4px;
+    width: 6.4px;
+    background-color: var(--default-element-color);
+    border-radius: 9999px;
+    opacity: 0;
+    transition: opacity 125ms ease-in;
+}
+
+
+.footer-link{
+    @include font-setup('Karla', 16px, 400, #fff, 120%);
+    text-decoration: none;
+    transition: color 120ms ease-in;
+}
+
+.footer-link:hover{
+    color: var(--default-element-color);
+}
+
+section:has(.footer-link:hover) .link-dot,
+section:has(.footer-link:focus-visible) .link-dot {
+    opacity: 1;
+}

@@ -1,0 +1,33 @@
+@import './../../../styles.scss';
+
+.footer-section{
+    padding: 0 96px 76px 96px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+}
+
+.footer-left{
+    @include display-flex-setup(column, center, flex-start, 6px);
+
+    & p {
+        padding-left: 9px;
+        @include font-setup('Karla', 16px, 400, #ffff, 120%);
+    }
+}
+
+.footer-left > app-logo{
+    margin-bottom: 8px;
+}
+
+.footer-center{
+    @include display-flex-setup(row, center, center);
+
+    & span {
+        @include font-setup('Fira_Code', 18px, 100, var(--default-element-color), 120%);
+    }
+}
+
+.footer-right{
+    position: relative;
+    @include display-flex-setup(column, center, flex-start, 8px);
+}

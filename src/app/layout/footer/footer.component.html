@@ -1,0 +1,19 @@
+<section class="footer-section">
+
+    <div class="footer-left">
+        <app-logo></app-logo>
+        <p>Web Developer</p>
+        <p>Tübingen Germany</p>
+    </div>
+
+    <div class="footer-center">
+        <span>© Enrico Hoffmann 2026</span>
+    </div>
+
+    <div class="footer-right">
+        @for(link of footerLinks; track link;){
+            <app-dot-link [link]="link"></app-dot-link>
+        }
+    </div>
+
+</section>

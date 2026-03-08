@@ -1,0 +1,36 @@
+import { Component } from '@angular/core';
+import { LogoComponent } from "../../ui/logo/logo.component";
+import { Link } from '../../interfaces/link.interface';
+import { DotLinkComponent } from '../../ui/dot-link/dot-link.component';
+
+@Component({
+  selector: 'app-footer',
+  standalone: true,
+  imports: [LogoComponent, DotLinkComponent],
+  templateUrl: './footer.component.html',
+  styleUrl: './footer.component.scss'
+})
+export class FooterComponent {
+  footerLinks: Link[] = [
+    {
+      isActive: false,
+      linkName: 'Github',
+      linkTarget: 'https://github.com/enricohoffmann'
+    },
+    {
+      isActive: false,
+      linkName: 'LinkedIn',
+      linkTarget: '#'
+    },
+    {
+      isActive: false,
+      linkName: 'Email',
+      linkTarget: '#'
+    },
+    {
+      isActive: false,
+      linkName: 'Legal Notice',
+      linkTarget: '#'
+    }
+  ]
+}
