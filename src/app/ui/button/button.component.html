@@ -1,6 +1,6 @@
 
 <button [type]="type" [class.is-hovered]="isHovered" class="button {{variant}}" [attr.aria-disabled]="disabled" [disabled]="disabled" 
-    (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+    (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="onClick()">
 
     @if(iconPath && iconPosition === 'left'){
         <img [src]="iconPath" alt="icon">

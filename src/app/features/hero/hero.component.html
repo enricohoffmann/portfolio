@@ -5,8 +5,18 @@
         <span>Frontend Developer</span>
         <h1>Enrico Hoffmann</h1>
         <div class="btn-container">
-            <app-button [type]="'button'" [variant]="'primary'">Check my work</app-button>
-            <app-button [type]="'button'" [variant]="'primary'">Contact me</app-button>
+            <app-button 
+                [type]="'button'" 
+                [variant]="'primary'"
+                [target]="'/'"
+                [targetFragment]="'portfolio'"
+                >Check my work</app-button>
+            <app-button 
+                [type]="'button'" 
+                [variant]="'primary'"
+                [target]="'/'"
+                [targetFragment]="'contact'"
+            >Contact me</app-button>
         </div>
     </article>
 

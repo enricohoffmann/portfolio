@@ -11,6 +11,10 @@ import { Component, Input } from '@angular/core';
 })
 export class ContactIconComponent {
   @Input() iconName?: string;
+
+  onClick(){
+    
+  }
   
 }
 

@@ -15,22 +15,30 @@ export class FooterComponent {
     {
       isActive: false,
       linkName: 'Github',
-      linkTarget: 'https://github.com/enricohoffmann'
+      linkTarget: 'https://github.com/enricohoffmann',
+      linkTargetFragment: null,
+      linkTargetPlace: '_blank'
     },
     {
       isActive: false,
       linkName: 'LinkedIn',
-      linkTarget: '#'
+      linkTarget: '#',
+      linkTargetFragment: null,
+      linkTargetPlace: '_blank'
     },
     {
       isActive: false,
       linkName: 'Email',
-      linkTarget: '#'
+      linkTarget: 'mailto:enrico@enrico-hoffmann.de',
+      linkTargetFragment: null,
+      linkTargetPlace: '_self'
     },
     {
       isActive: false,
       linkName: 'Legal Notice',
-      linkTarget: '#'
+      linkTarget: '#',
+      linkTargetFragment: null,
+      linkTargetPlace: '_self'
     }
   ]
 }

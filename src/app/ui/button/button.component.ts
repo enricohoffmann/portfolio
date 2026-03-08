@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, ElementRef, ViewChild} from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-button',
@@ -15,13 +16,19 @@ export class ButtonComponent {
   @Input() iconPosition: 'left' | 'right' = 'left';
   @Input() iconPath?: string;
   @Input() disabled: boolean = false;
+  @Input() target?: string;
+  @Input() targetFragment?: string;
 
   isHovered: boolean = false;
 
   @ViewChild('label', { static: true }) labelRef!: ElementRef<HTMLSpanElement>;
 
-  constructor() {
+  constructor(private router: Router) {}
 
+  onClick(){
+    if(this.targetFragment){
+      this.router.navigate([this.target || '/'], { fragment: this.targetFragment });
+    }
   }
 
   onMouseEnter() {

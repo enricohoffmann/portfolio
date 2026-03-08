@@ -9,5 +9,6 @@ import { Link } from '../../interfaces/link.interface';
   styleUrl: './dot-link.component.scss'
 })
 export class DotLinkComponent {
-  @Input({required: true}) link!: Link; 
+  @Input({ required: true }) link!: Link;
+
 }
