@@ -1,9 +1,15 @@
-<button type="button" class="contact-button" (click)="onClick()">
+<a
+    class="contact-button"
+    [href]="iconLink.linkTarget"
+    [target]="iconLink.linkTargetPlace"
+    [attr.rel]="iconLink.linkTargetPlace === '_blank' ? 'noopener noreferrer' : null"
+    [attr.aria-label]="iconLink.linkName"
+>
     <div class="icon-container">
-        <img alt="icon" [src]="'/assets/icon/' + iconName + 'Colored.svg'" class="icon icon-colored">
-        <img alt="icon" [src]="'/assets/icon/' + iconName + 'White.svg'" class="icon icon-white">
+        <img alt="icon" [src]="'/assets/icon/' + iconLink.linkName + 'Colored.svg'" class="icon icon-colored">
+        <img alt="icon" [src]="'/assets/icon/' + iconLink.linkName + 'White.svg'" class="icon icon-white">
     </div>
     <div class="dot-cell">
         <div class="dot"></div>
     </div>
-</button>
+</a>
