@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { PortfolioMenuComponent } from "./portfolio-menu/portfolio-menu.component";
 
 @Component({
@@ -15,5 +15,11 @@ export class PortfolioComponent {
     "Pokedex": [["HTML","CSS","JavaScript"],"portfolio_pokedex"]
   };
 
+
+  @Output() projectSelectRelay = new EventEmitter<object>();
+
+  onProjectRelay(projectEntry: {}): void{
+    this.projectSelectRelay.emit(projectEntry);
+  }
 
 }

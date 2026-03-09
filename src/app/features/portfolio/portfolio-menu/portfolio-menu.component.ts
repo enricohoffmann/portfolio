@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioMenuItemComponent } from "./portfolio-menu-item/portfolio-menu-item.component";
 import { PortfolioMenuImageComponent } from "./portfolio-menu-image/portfolio-menu-image.component";
@@ -16,6 +16,7 @@ export class PortfolioMenuComponent {
   projectEntries: [string, [string[], string]][] = [];
   isHoverd: boolean = false;
   portfolioMenuItemHoverId: string = "";
+  @Output() projektSelectEvent = new EventEmitter<object>();
 
   constructor(){}
 
@@ -30,5 +31,10 @@ export class PortfolioMenuComponent {
       this.portfolioMenuItemHoverId = id;
     }
   }
+
+  projectSelect(projektEntry: {}){
+    this.projektSelectEvent.emit(projektEntry);
+  }
+
 
 }

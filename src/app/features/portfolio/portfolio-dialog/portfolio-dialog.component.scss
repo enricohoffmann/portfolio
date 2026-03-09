@@ -1,0 +1,11 @@
+@import './../../../../styles.scss';
+
+.dialog-overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    @include display-flex-setup(row, center, center);
+    overflow-y: auto;
+}
+

@@ -13,6 +13,14 @@ body{
     background-color: var(--background-dark);
 }
 
+body.no-scroll{
+    overflow: hidden;
+}
+
+html.no-scroll{
+    overflow: hidden;
+}
+
 app-root {
     display: block;
     min-height: 100dvh;

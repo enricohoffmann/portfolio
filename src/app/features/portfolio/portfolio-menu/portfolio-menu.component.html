@@ -10,10 +10,11 @@
                 <div class="projects-line"></div>
                 <div class="project-item">
                     <app-portfolio-menu-item 
-                    [projectTitle]="entry[0]" 
-                    [projectSkills]="entry[1][0]" 
-                    [menuItemIndex]="'project_id_' + index"
-                    (hoverPortfolioMenuEvent)="receiveMenuItemHoverId($event)"
+                        [projectTitle]="entry[0]" 
+                        [projectSkills]="entry[1][0]" 
+                        [menuItemIndex]="'project_id_' + index"
+                        (hoverPortfolioMenuEvent)="receiveMenuItemHoverId($event)"
+                        (click)="projectSelect(entry)"
                     ></app-portfolio-menu-item>
                 </div>
 
