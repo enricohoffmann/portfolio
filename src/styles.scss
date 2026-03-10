@@ -13,13 +13,12 @@ body{
     background-color: var(--background-dark);
 }
 
+html.no-scroll,
 body.no-scroll{
     overflow: hidden;
+    padding-right: 10px;
 }
 
-html.no-scroll{
-    overflow: hidden;
-}
 
 app-root {
     display: block;

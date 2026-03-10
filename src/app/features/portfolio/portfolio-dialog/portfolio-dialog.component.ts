@@ -1,15 +1,17 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { PortfolioDialogContentComponent } from "./portfolio-dialog-content/portfolio-dialog-content.component";
+import { ProjectEntry } from '../../../interfaces/projectEntry.interface';
 
 @Component({
   selector: 'app-portfolio-dialog',
   standalone: true,
-  imports: [],
+  imports: [PortfolioDialogContentComponent],
   templateUrl: './portfolio-dialog.component.html',
   styleUrl: './portfolio-dialog.component.scss'
 })
 export class PortfolioDialogComponent {
 
-  @Input() projectData?: {} | null;
+  @Input() projectData?: ProjectEntry | null;
   @Output() dialogClose = new EventEmitter<boolean>()
 
   ngOnInit(){
@@ -17,7 +19,9 @@ export class PortfolioDialogComponent {
   }
 
   ngOnDestroy(){
-    this.closeDialog();
+    document.body.classList.remove('no-scroll');
+    document.documentElement.classList.remove('no-scroll');
+    this.projectData = null;
   }
 
   openDialog(){

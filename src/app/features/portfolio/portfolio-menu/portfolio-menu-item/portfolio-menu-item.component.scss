@@ -4,6 +4,7 @@
     @include display-flex-setup(row, space-between, center);
     padding: 38px 24px;
     width: 100%;
+    cursor: pointer;
 }
 
 .portfolio-title-container {

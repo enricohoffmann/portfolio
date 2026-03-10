@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioMenuItemComponent } from "./portfolio-menu-item/portfolio-menu-item.component";
 import { PortfolioMenuImageComponent } from "./portfolio-menu-image/portfolio-menu-image.component";
+import { ProjectEntry } from '../../../interfaces/projectEntry.interface';
 
 
 @Component({
@@ -12,18 +13,15 @@ import { PortfolioMenuImageComponent } from "./portfolio-menu-image/portfolio-me
   styleUrl: './portfolio-menu.component.scss'
 })
 export class PortfolioMenuComponent {
-  @Input() portFolioProjects?: {};
-  projectEntries: [string, [string[], string]][] = [];
+  @Input() portFolioProjects?: ProjectEntry[];
   isHoverd: boolean = false;
   portfolioMenuItemHoverId: string = "";
-  @Output() projektSelectEvent = new EventEmitter<object>();
+  @Output() projektSelectEvent = new EventEmitter<ProjectEntry>();
 
   constructor(){}
 
   ngOnInit(){
-    if (this.portFolioProjects) {
-      this.projectEntries = Object.entries(this.portFolioProjects) as [string, [string[], string]][];
-    }
+    
   }
 
   receiveMenuItemHoverId(id: string): void {
@@ -32,7 +30,7 @@ export class PortfolioMenuComponent {
     }
   }
 
-  projectSelect(projektEntry: {}){
+  projectSelect(projektEntry: ProjectEntry){
     this.projektSelectEvent.emit(projektEntry);
   }
 
