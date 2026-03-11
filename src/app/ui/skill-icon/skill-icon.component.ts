@@ -10,15 +10,24 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class SkillIconComponent {
   @Input() iconName?: string;
   @Input() textColorChange: boolean = false;
+  @Input() skillIconType: 'SkillSet' | 'ProjectSkills' = 'SkillSet'
   @Output() hoverSkillIconEvent = new EventEmitter<boolean>();
 
 
   onMouseEnter(){
-    this.hoverSkillIconEvent.emit(true);
+    if(this.skillIconType !== 'ProjectSkills'){ 
+      this.hoverSkillIconEvent.emit(true);
+      return;
+    }
+    
   }
 
   onMouseLeave(){
-    this.hoverSkillIconEvent.emit(false);
+    if(this.skillIconType !== 'ProjectSkills'){
+      this.hoverSkillIconEvent.emit(false);
+      return;
+    }
+    
   }
 
 }

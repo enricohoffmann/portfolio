@@ -7,5 +7,6 @@
     z-index: 1000;
     @include display-flex-setup(row, center, center);
     overflow-y: auto;
+    box-sizing: border-box;
 }
 

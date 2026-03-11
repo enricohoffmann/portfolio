@@ -1,9 +1,24 @@
-<article class="skill-item-grid" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
-    <aside class="skill-item-icon-contaier">
-        <img class="skill-item-icon" [src]="'/assets/icon/' + iconName + '.svg'" alt="">
+<article 
+    [class.skill-item-grid-row]="skillIconType !== 'ProjectSkills'" 
+    [class.skill-item-grid-column]="skillIconType === 'ProjectSkills'"
+    (mouseenter)="onMouseEnter()" 
+    (mouseleave)="onMouseLeave()">
+    <aside 
+        class="skill-item-icon-contaier"
+        [class.projectSkills]="skillIconType === 'ProjectSkills'"
+        >
+        @if(skillIconType !== 'ProjectSkills'){
+            <img class="skill-item-icon" [src]="'/assets/icon/' + iconName + '.svg'" alt="">
+        }@else{
+            <img class="skill-item-icon-sm" [src]="'/assets/icon/' + iconName + 'Colored.svg'" alt="">
+        }
+        
     </aside>
     
-    <span class="skill-item-text" [class.textColorChange]="textColorChange">
+    <span 
+        class="skill-item-text" 
+        [class.column]="skillIconType === 'ProjectSkills'"
+        [class.textColorChange]="textColorChange">
         <ng-content></ng-content>
     </span>
 </article>

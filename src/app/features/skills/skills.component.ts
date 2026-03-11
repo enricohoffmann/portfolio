@@ -4,6 +4,7 @@ import { ButtonComponent } from "../../ui/button/button.component";
 import { SkillIconComponent } from "../../ui/skill-icon/skill-icon.component";
 import { SkillWithTooltipComponent } from "./skill-with-tooltip/skill-with-tooltip.component";
 import { TooltipComponent } from "../../ui/tooltip/tooltip.component";
+import { Skill } from '../../interfaces/skill.interface';
 
 @Component({
   selector: 'app-skills',
@@ -15,7 +16,7 @@ import { TooltipComponent } from "../../ui/tooltip/tooltip.component";
 export class SkillsComponent {
 
   isSkillIconHovering: boolean = false;
-  skillItems: { iconName: string; iconText: string }[] = [];
+  skillItems: Skill[] = [];
 
   constructor(){
     this.skillItems = [

@@ -1,6 +1,9 @@
+import { Skill } from "./skill.interface"
+
 export interface ProjectEntry{
     id: string,
     projectTitle: string,
-    skills: string[],
-    imageKey: string
+    skills: Skill[],
+    imageKey: string,
+    description: string
 }

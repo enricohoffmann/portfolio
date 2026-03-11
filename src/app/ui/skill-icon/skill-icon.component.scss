@@ -1,6 +1,6 @@
 @import './../../../styles.scss';
 
-.skill-item-grid {
+.skill-item-grid-row {
     display: grid;
     width: 104px;
     height: 129px;
@@ -9,8 +9,14 @@
     cursor: pointer;
 }
 
+.skill-item-grid-column{
+    display: grid;
+    grid-template-columns: auto auto;
+    place-content: center;
+    cursor: unset;
+}
+
 .skill-item-icon-contaier{
-    grid-row: 1;
     position: relative;
     height: 76px;
     width: 64px;
@@ -18,6 +24,12 @@
     padding-top: 4px;
     justify-self: center;
     @include display-flex-setup(row, center, center);
+}
+
+.skill-item-icon-contaier.projectSkills{
+    width: auto;
+    height: auto;
+    padding: 0;
 }
 
 .skill-item-icon {
@@ -28,12 +40,24 @@
     transition: all 150ms ease-in;
 }
 
+.skill-item-icon-sm {
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    object-position: center;
+}
+
 .skill-item-text {
-    grid-row: 2;
     @include display-flex-setup(row, center, flex-start);
     @include font-setup('Fira_Code', 18px, 400, #fff);
     text-align: center;
     transition: color 150ms ease-in;
+}
+
+.skill-item-text.column {
+    padding-left: 6px;
+    @include display-flex-setup(row, flex-start, center);
+    @include font-setup('Karla', 16px, 400, #fff, 120%);
 }
 
 .skill-item-grid:hover .skill-item-icon{

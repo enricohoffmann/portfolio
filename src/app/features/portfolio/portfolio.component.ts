@@ -13,22 +13,38 @@ export class PortfolioComponent {
 
   portfolioPojects: ProjectEntry[] = [
     {
-      id: 'join',
+      id: '01',
       projectTitle: 'Join',
-      skills: ['JavaScript','HTML','CSS','Firebase'],
-      imageKey: 'portfolio_join'
+      skills: [
+        { iconText: 'JavaScript', iconName: 'jsIcon' },
+        { iconText: 'HTML', iconName: 'htmlIcon' },
+        { iconText: 'CSS', iconName: 'cssIcon' },
+        { iconText: 'Firebase', iconName: 'fireBaseIcon' }
+      ],
+      imageKey: 'portfolio_join',
+      description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.'
     },
     {
-      id: 'el-pollo-loco',
+      id: '02',
       projectTitle: 'El Pollo Loco',
-      skills: ['HTML','CSS','JavaScript'],
-      imageKey: 'portfolio_el-pollo-loco'
+      skills: [
+        { iconText: 'JavaScript', iconName: 'jsIcon' },
+        { iconText: 'HTML', iconName: 'htmlIcon' },
+        { iconText: 'CSS', iconName: 'cssIcon' }
+      ],
+      imageKey: 'portfolio_el-pollo-loco',
+      description: ''
     },
     {
-      id: 'pokedex',
+      id: '03',
       projectTitle: 'Pokedex',
-      skills: ['HTML','CSS','JavaScript'],
-      imageKey: 'portfolio_pokedex'
+      skills: [
+        { iconText: 'JavaScript', iconName: 'jsIcon' },
+        { iconText: 'HTML', iconName: 'htmlIcon' },
+        { iconText: 'CSS', iconName: 'cssIcon' }
+      ],
+      imageKey: 'portfolio_pokedex',
+      description: ''
     }
 
   ]

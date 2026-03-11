@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Skill } from '../../../../interfaces/skill.interface';
 
 @Component({
   selector: 'app-portfolio-menu-item',
@@ -9,7 +10,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class PortfolioMenuItemComponent {
   @Input() projectTitle: string = "";
-  @Input() projectSkills: string[] = [];
+  @Input() projectSkills: Skill[]= [];
   @Input() menuItemIndex: string = "";
   @Output() hoverPortfolioMenuEvent = new EventEmitter<string>();
   showMenuIcon: boolean = false;
