@@ -1,4 +1,4 @@
-<section class="dialog">
+<section class="dialog" (click)="$event.stopPropagation()">
     <div class="content-card">
         <app-card [cardType]="'dialog'">
             <h2 class="project-id" cardTitle>{{projectEntry.id}}</h2>
@@ -12,9 +12,36 @@
                     </app-skill-icon>
                 }
             </div>
+            <div cardButton class="project-buttons">
+                <app-button 
+                    [type]="'button'"
+                    [variant]="'tertiary'"
+                    [iconPosition]="'right'"
+                    [iconPath]="'./assets/icon/arrowOutwardGreen.svg'"
+                    [externalLink]="projectEntry.githubUrl"
+                >GitHub</app-button>
+                <app-button
+                    [type]="'button'"
+                    [variant]="'tertiary'"
+                    [iconPosition]="'right'"
+                    [iconPath]="'./assets/icon/arrowOutwardGreen.svg'"
+                    [externalLink]="projectEntry.projectUrl"
+                >Live Test</app-button>
+            </div>
         </app-card>
     </div>
-    <div class="close_image_next">
-        
-    </div>
+    <aside class="close_image_next">
+        <div class="project-close-area">
+            
+        </div>
+        <div class="project-image-area">
+             <img src="/assets/img/{{projectEntry.imageKey}}.jpg" alt="" class="">
+        </div>
+        <div class="project-next-area">
+            <span class="next-text">Next project</span>
+            <div class="next-icon-container">
+                <img class="next-icon" src="./assets/icon/arrowForwardGreen.svg" alt="">
+            </div>
+        </div>
+    </aside>
 </section>

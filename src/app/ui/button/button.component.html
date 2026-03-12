@@ -1,17 +1,29 @@
 
-<button [type]="type" [class.is-hovered]="isHovered" class="button {{variant}}" [attr.aria-disabled]="disabled" [disabled]="disabled" 
-    (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()" (click)="onClick()">
+<button 
+    [type]="type" 
+    [class.is-hovered]="isHovered" 
+    class="button {{variant}}" 
+    [attr.aria-disabled]="disabled" 
+    [disabled]="disabled" 
+    (mouseenter)="onMouseEnter()" 
+    (mouseleave)="onMouseLeave()" 
+    (click)="onClick()">
 
     @if(iconPath && iconPosition === 'left'){
         <img [src]="iconPath" alt="icon">
     }
 
-    <span #label class="label">
+    <span #label class="label" [class.isAnimated]="isHovered && variant !== 'tertiary'">
         <ng-content></ng-content>
     </span>
 
     @if(iconPath && iconPosition === 'right'){
-        <img [src]="iconPath" alt="icon">
+        <img 
+            [src]="iconPath" 
+            alt="icon" 
+            class="button-icon"
+           [class.hovered]="isHovered && variant === 'tertiary'"
+            >
     }
     
 </button>

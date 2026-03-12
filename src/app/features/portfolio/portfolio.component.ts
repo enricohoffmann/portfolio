@@ -22,7 +22,9 @@ export class PortfolioComponent {
         { iconText: 'Firebase', iconName: 'fireBaseIcon' }
       ],
       imageKey: 'portfolio_join',
-      description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.'
+      description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
+      githubUrl: 'https://github.com/enricohoffmann/Join-1316',
+      projectUrl: ''
     },
     {
       id: '02',
@@ -33,7 +35,9 @@ export class PortfolioComponent {
         { iconText: 'CSS', iconName: 'cssIcon' }
       ],
       imageKey: 'portfolio_el-pollo-loco',
-      description: ''
+      description: '',
+      githubUrl: 'https://github.com/enricohoffmann/el-pollo-loco',
+      projectUrl: ''
     },
     {
       id: '03',
@@ -44,7 +48,9 @@ export class PortfolioComponent {
         { iconText: 'CSS', iconName: 'cssIcon' }
       ],
       imageKey: 'portfolio_pokedex',
-      description: ''
+      description: '',
+      githubUrl: 'https://github.com/enricohoffmann/pokedex',
+      projectUrl: ''
     }
 
   ]

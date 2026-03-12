@@ -20,13 +20,6 @@
 
 .button.is-hovered {
     border-color: var(--default-element-color);
-
-    .label {
-        color: var(--default-element-color);
-        animation:
-            marqueeAnimation 2s ease,
-            slideTextIn 3s linear 2s infinite;
-    }
 }
 
 .label {
@@ -34,6 +27,26 @@
     @include font-setup('Karla', 18px, 400, #fff);
     transition: transform 300ms ease-out, color 125ms ease-in-out;
 }
+
+.button.is-hovered .label {
+    color: var(--default-element-color);
+}
+
+.isAnimated {
+    animation:
+        marqueeAnimation 2s ease,
+        slideTextIn 3s linear 2s infinite;
+}
+
+.button-icon {
+    margin-left: 6px;
+    transition: all 125ms ease-in;
+}
+
+.button-icon.hovered{
+    transform: translateX(4px) translateY(-2px);
+}
+
 
 @keyframes marqueeAnimation {
     0% {

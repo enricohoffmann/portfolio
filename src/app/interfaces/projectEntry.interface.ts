@@ -5,5 +5,7 @@ export interface ProjectEntry{
     projectTitle: string,
     skills: Skill[],
     imageKey: string,
-    description: string
+    description: string,
+    githubUrl: string,
+    projectUrl: string
 }

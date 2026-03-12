@@ -18,6 +18,7 @@ export class ButtonComponent {
   @Input() disabled: boolean = false;
   @Input() target?: string;
   @Input() targetFragment?: string;
+  @Input() externalLink?: string;
 
   isHovered: boolean = false;
 
@@ -26,8 +27,14 @@ export class ButtonComponent {
   constructor(private router: Router) {}
 
   onClick(){
+    if(this.disabled){ return; }
+
     if(this.targetFragment){
       this.router.navigate([this.target || '/'], { fragment: this.targetFragment });
+    }
+
+    if(this.externalLink){
+      window.open(this.externalLink, '_blank', 'noopener,noreferrer');
     }
   }
 

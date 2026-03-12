@@ -18,6 +18,12 @@ export class PortfolioDialogComponent {
     this.openDialog();
   }
 
+  onOverlayClick(event: MouseEvent): void {
+    if(event.target === event.currentTarget){
+      this.closeDialog();
+    }
+  }
+
   ngOnDestroy(){
     document.body.classList.remove('no-scroll');
     document.documentElement.classList.remove('no-scroll');
