@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { PortfolioMenuComponent } from "./portfolio-menu/portfolio-menu.component";
 import { ProjectEntry } from '../../interfaces/projectEntry.interface';
+import { PortfolioDataService } from '../../services/portfolio-data.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -11,55 +12,16 @@ import { ProjectEntry } from '../../interfaces/projectEntry.interface';
 })
 export class PortfolioComponent {
 
-  portfolioPojects: ProjectEntry[] = [
-    {
-      id: '01',
-      projectTitle: 'Join',
-      skills: [
-        { iconText: 'JavaScript', iconName: 'jsIcon' },
-        { iconText: 'HTML', iconName: 'htmlIcon' },
-        { iconText: 'CSS', iconName: 'cssIcon' },
-        { iconText: 'Firebase', iconName: 'fireBaseIcon' }
-      ],
-      imageKey: 'portfolio_join',
-      description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
-      githubUrl: 'https://github.com/enricohoffmann/Join-1316',
-      projectUrl: ''
-    },
-    {
-      id: '02',
-      projectTitle: 'El Pollo Loco',
-      skills: [
-        { iconText: 'JavaScript', iconName: 'jsIcon' },
-        { iconText: 'HTML', iconName: 'htmlIcon' },
-        { iconText: 'CSS', iconName: 'cssIcon' }
-      ],
-      imageKey: 'portfolio_el-pollo-loco',
-      description: '',
-      githubUrl: 'https://github.com/enricohoffmann/el-pollo-loco',
-      projectUrl: ''
-    },
-    {
-      id: '03',
-      projectTitle: 'Pokedex',
-      skills: [
-        { iconText: 'JavaScript', iconName: 'jsIcon' },
-        { iconText: 'HTML', iconName: 'htmlIcon' },
-        { iconText: 'CSS', iconName: 'cssIcon' }
-      ],
-      imageKey: 'portfolio_pokedex',
-      description: '',
-      githubUrl: 'https://github.com/enricohoffmann/pokedex',
-      projectUrl: ''
-    }
+  portfolioPojects: ProjectEntry[] = [];
+   
+  @Output() selectPortfolioProjectByIdRelay = new EventEmitter<string>();
 
-  ]
+  constructor(private portfolioData: PortfolioDataService){
+    this.portfolioPojects = this.portfolioData.getProjects();
+  }
 
-
-  @Output() projectSelectRelay = new EventEmitter<ProjectEntry>();
-
-  onProjectRelay(projectEntry: ProjectEntry): void{
-    this.projectSelectRelay.emit(projectEntry);
+  onProjectIdRelaying(projectId: string): void{
+    this.selectPortfolioProjectByIdRelay.emit(projectId);
   }
 
 }

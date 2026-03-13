@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PortfolioDialogContentComponent } from "./portfolio-dialog-content/portfolio-dialog-content.component";
 import { ProjectEntry } from '../../../interfaces/projectEntry.interface';
+import { PortfolioDataService } from '../../../services/portfolio-data.service';
 
 @Component({
   selector: 'app-portfolio-dialog',
@@ -11,10 +12,19 @@ import { ProjectEntry } from '../../../interfaces/projectEntry.interface';
 })
 export class PortfolioDialogComponent {
 
-  @Input() projectData?: ProjectEntry | null;
+  projectData: ProjectEntry | undefined | null;
+  @Input() projectId?: string;
   @Output() dialogClose = new EventEmitter<boolean>()
 
+  constructor(private projectDataService: PortfolioDataService){
+
+  }
+
   ngOnInit(){
+
+    if(!this.projectId){return;}
+    this.projectData = this.projectDataService.getProjectById(this.projectId);
+    if(this.projectData === undefined){return;}
     this.openDialog();
   }
 
@@ -31,7 +41,6 @@ export class PortfolioDialogComponent {
   }
 
   openDialog(){
-    console.log(this.projectData);
     document.body.classList.add('no-scroll');
     document.documentElement.classList.add('no-scroll');
   }

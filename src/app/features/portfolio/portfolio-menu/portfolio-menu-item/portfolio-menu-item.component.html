@@ -8,7 +8,7 @@
 
         @for(skill of projectSkills; track skill; let last = $last){
            
-            <span class="portfolio-skill">{{ skill }}</span>
+            <span class="portfolio-skill">{{ skill.iconText }}</span>
             @if(!last){
                 <div class="protfolio-skill-seperator"></div>
             }

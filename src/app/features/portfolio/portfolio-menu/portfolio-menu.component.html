@@ -14,7 +14,7 @@
                         [projectSkills]="entry.skills" 
                         [menuItemIndex]="'project_id_' + index"
                         (hoverPortfolioMenuEvent)="receiveMenuItemHoverId($event)"
-                        (click)="projectSelect(entry)"
+                        (click)="selectPortfolioProjectById(entry.id)"
                     ></app-portfolio-menu-item>
                 </div>
 

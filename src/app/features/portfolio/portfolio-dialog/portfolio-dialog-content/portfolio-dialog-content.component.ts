@@ -3,6 +3,7 @@ import { CardComponent } from "../../../../ui/card/card.component";
 import { ProjectEntry } from '../../../../interfaces/projectEntry.interface';
 import { SkillIconComponent } from '../../../../ui/skill-icon/skill-icon.component';
 import { ButtonComponent } from "../../../../ui/button/button.component";
+import { PortfolioDataService } from '../../../../services/portfolio-data.service';
 
 @Component({
   selector: 'app-portfolio-dialog-content',
@@ -13,5 +14,12 @@ import { ButtonComponent } from "../../../../ui/button/button.component";
 })
 export class PortfolioDialogContentComponent {
   @Input({required: true}) projectEntry!: ProjectEntry;
+
+  constructor(private projectDataService: PortfolioDataService){}
+
+
+  onNextProject(): void{
+    this.projectEntry = this.projectDataService.getNextProject(this.projectEntry.id);
+  }
 
 }

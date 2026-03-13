@@ -4,7 +4,7 @@
     <p class="portfolio-introduction">Explore a selection of my work here - Interact with projects to see my skills in action.</p>
 
     <div class="portfolio-menu-container">
-        <app-portfolio-menu [portFolioProjects]="portfolioPojects"  (projektSelectEvent)="onProjectRelay($event)"></app-portfolio-menu>
+        <app-portfolio-menu [portFolioProjects]="portfolioPojects"  (selectedProjectSender)="onProjectIdRelaying($event)"></app-portfolio-menu>
     </div>
 
 </section>

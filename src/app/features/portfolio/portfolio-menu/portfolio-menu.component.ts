@@ -16,7 +16,7 @@ export class PortfolioMenuComponent {
   @Input() portFolioProjects?: ProjectEntry[];
   isHoverd: boolean = false;
   portfolioMenuItemHoverId: string = "";
-  @Output() projektSelectEvent = new EventEmitter<ProjectEntry>();
+  @Output() selectedProjectSender = new EventEmitter<string>();
 
   constructor(){}
 
@@ -30,8 +30,8 @@ export class PortfolioMenuComponent {
     }
   }
 
-  projectSelect(projektEntry: ProjectEntry){
-    this.projektSelectEvent.emit(projektEntry);
+  selectPortfolioProjectById(projektId: string): void{
+    this.selectedProjectSender.emit(projektId);
   }
 
 

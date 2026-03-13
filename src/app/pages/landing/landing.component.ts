@@ -7,7 +7,6 @@ import { ReferencesComponent } from '../../features/references/references.compon
 import { ContactComponent } from '../../features/contact/contact.component';
 import { FooterComponent } from '../../layout/footer/footer.component';
 import { PortfolioDialogComponent } from '../../features/portfolio/portfolio-dialog/portfolio-dialog.component';
-import { ProjectEntry } from '../../interfaces/projectEntry.interface';
 
 
 @Component({
@@ -28,10 +27,10 @@ import { ProjectEntry } from '../../interfaces/projectEntry.interface';
 })
 export class LandingComponent {
   portfolioDialogOpen: boolean = false;
-  selectedProject?: ProjectEntry;
+  selectedPortfolioById?: string;
 
-  onDialogOpenSignal(projektEntry: ProjectEntry){
-    this.selectedProject = projektEntry;
+  receiveProjectId(projectId: string){
+    this.selectedPortfolioById = projectId;
     this.portfolioDialogOpen = true;
   }
 
