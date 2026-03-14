@@ -32,7 +32,10 @@
     </div>
     <aside class="close_image_next">
         <div class="project-close-area">
-            
+            <div class="project-close-icons-container" (click)="onDialogContentCloseAction()">
+                <img class="project-close-sm" src="./assets/icon/closeSmall.svg" alt="">
+                <img class="project-close-lg" src="./assets/icon/closeGreen.svg" alt="">
+            </div>
         </div>
         <div class="project-image-area">
              <img src="/assets/img/{{projectEntry.imageKey}}.jpg" alt="" class="">

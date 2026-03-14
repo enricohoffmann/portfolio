@@ -66,8 +66,8 @@
     @include display-flex-setup(row, flex-end, center);
 
     img {
-        max-width: 520px;
-        width: 100%;
+        max-height: 350px;
+        height: 100%;
         border-radius: 30px;
         object-fit: contain;
         object-position: center;
@@ -75,7 +75,47 @@
 }
 
 .project-close-area {
-    height: 90px;
+    @include display-flex-setup(row, flex-end, center);
+}
+
+.project-close-icons-container {
+    position: relative;
+    width: 26px;
+    height: 26px;
+    @include display-flex-setup(row, center, center);
+    overflow: hidden;
+}
+
+.project-close-sm,
+.project-close-lg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    object-position: center center;
+    object-fit: fill;
+    transition: opacity 125ms ease-in;
+    cursor: pointer;
+}
+
+.project-close-sm {
+    top: 10%;
+    left: 10%;
+    height: 80%;
+    width: 80%;
+    opacity: 1;
+}
+
+.project-close-lg {
+   opacity: 0;
+}
+
+.project-close-icons-container:hover .project-close-sm {
+    opacity: 0;
+}
+
+.project-close-icons-container:hover .project-close-lg {
+    opacity: 1;
 }
 
 .project-next-area {

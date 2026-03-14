@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CardComponent } from "../../../../ui/card/card.component";
 import { ProjectEntry } from '../../../../interfaces/projectEntry.interface';
 import { SkillIconComponent } from '../../../../ui/skill-icon/skill-icon.component';
@@ -14,12 +14,17 @@ import { PortfolioDataService } from '../../../../services/portfolio-data.servic
 })
 export class PortfolioDialogContentComponent {
   @Input({required: true}) projectEntry!: ProjectEntry;
+  @Output() dialogContentCloseEvent = new EventEmitter();
 
   constructor(private projectDataService: PortfolioDataService){}
 
 
   onNextProject(): void{
     this.projectEntry = this.projectDataService.getNextProject(this.projectEntry.id);
+  }
+
+  onDialogContentCloseAction(){
+    this.dialogContentCloseEvent.emit();
   }
 
 }

@@ -59,9 +59,7 @@ export class PortfolioDataService {
   getNextProject(currentId: string): ProjectEntry{
     const currentIndex = this.projectsData.findIndex(project => project.id === currentId);
 
-    if(currentIndex === -1){
-        return this.projectsData[0];
-    }
+    if(currentIndex === -1){ return this.projectsData[0]; }
 
     const nextIndex = (currentIndex + 1) % this.projectsData.length;
     return this.projectsData[nextIndex];
