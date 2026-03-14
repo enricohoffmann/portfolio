@@ -13,7 +13,7 @@ export class PortfolioDataService {
         { iconText: 'CSS', iconName: 'cssIcon' },
         { iconText: 'Firebase', iconName: 'fireBaseIcon' }
       ],
-      imageKey: 'portfolio_join',
+      imageUrl: './assets/img/portfolio_join.png',
       description: 'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
       githubUrl: 'https://github.com/enricohoffmann/Join-1316',
       projectUrl: ''
@@ -26,7 +26,7 @@ export class PortfolioDataService {
         { iconText: 'HTML', iconName: 'htmlIcon' },
         { iconText: 'CSS', iconName: 'cssIcon' }
       ],
-      imageKey: 'portfolio_el-pollo-loco',
+      imageUrl: './assets/img/el-pollo-loco.png',
       description: 'Jump-and-run browser game built with JavaScript. Help Pepe collect coins and salsa bottles while avoiding enemies and defeating the final boss.',
       githubUrl: 'https://github.com/enricohoffmann/el-pollo-loco',
       projectUrl: ''
@@ -40,7 +40,7 @@ export class PortfolioDataService {
         { iconText: 'CSS', iconName: 'cssIcon' },
         { iconText: 'Rest-API', iconName: 'restApi'}
       ],
-      imageKey: 'portfolio_pokedex',
+      imageUrl: './assets/img/pokedex.png',
       description: 'Interactive Pokédex application using a public API. Browse, search and explore Pokémon with detailed information such as types, abilities and stats.',
       githubUrl: 'https://github.com/enricohoffmann/pokedex',
       projectUrl: ''

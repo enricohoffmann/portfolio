@@ -60,10 +60,10 @@
     @include font-setup('Karla', 16px, 400, #fff, 120%);
 }
 
-.skill-item-grid:hover .skill-item-icon{
+.skill-item-grid-row:hover .skill-item-icon{
     transform: scale(1.1);
 }
 
-.skill-item-grid:hover .skill-item-text.textColorChange{
+.skill-item-grid-row:hover .skill-item-text.textColorChange{
     color: var(--default-element-color);
 }

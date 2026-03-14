@@ -8,7 +8,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
   styleUrl: './portfolio-menu-image.component.scss'
 })
 export class PortfolioMenuImageComponent implements OnChanges {
-  @Input() imageName?: string;
+  @Input() imagePath?: string;
   @Input() currentMenuItemIndex?: string;
   @Input() isFirst: boolean = false;
   @Input() isLast: boolean = false;

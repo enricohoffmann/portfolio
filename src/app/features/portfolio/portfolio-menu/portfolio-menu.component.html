@@ -27,7 +27,7 @@
         <div class="projects-img-column">
             @for ( entry of portFolioProjects; track entry.id; let index = $index; let first = $first; let last = $last;){
                 <app-portfolio-menu-image 
-                    [imageName]="entry.imageKey" 
+                    [imagePath]="entry.imageUrl" 
                     [currentMenuItemIndex]="'project_id_' + index"
                     [isFirst]="first"
                     [isLast]="last"

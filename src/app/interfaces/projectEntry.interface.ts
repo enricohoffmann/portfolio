@@ -4,7 +4,7 @@ export interface ProjectEntry{
     id: string,
     projectTitle: string,
     skills: Skill[],
-    imageKey: string,
+    imageUrl: string,
     description: string,
     githubUrl: string,
     projectUrl: string

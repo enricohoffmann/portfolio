@@ -27,7 +27,6 @@ export class SkillIconComponent {
       this.hoverSkillIconEvent.emit(false);
       return;
     }
-    
   }
 
 }
