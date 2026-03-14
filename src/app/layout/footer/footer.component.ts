@@ -36,8 +36,8 @@ export class FooterComponent {
     {
       isActive: false,
       linkName: 'Legal Notice',
-      linkTarget: '#',
-      linkTargetFragment: null,
+      linkTarget: '/legal-notice',
+      linkTargetFragment: 'null',
       linkTargetPlace: '_self'
     }
   ]

@@ -3,5 +3,20 @@
     <div class="dot-column">
         <span class="link-dot visible"></span>
     </div>
-    <a class="footer-link" [href]="link.linkTarget" [target]="link.linkTargetPlace">{{link.linkName}}</a>
+    @if(link.linkTarget.startsWith('/') && link.linkTargetPlace === '_self'){
+        <a 
+            class="footer-link" 
+            [routerLink]="link.linkTarget" 
+            [fragment]="link.linkTargetFragment || undefined"
+            [target]="link.linkTargetPlace"
+            >{{link.linkName}}</a>
+    } @else {
+        <a
+            class="footer-link" 
+            [href]="link.linkTarget" 
+            [target]="link.linkTargetPlace"
+            rel="noopener noreferrer"
+            >{{link.linkName}}</a>
+    }
+    
 </section>

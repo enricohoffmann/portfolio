@@ -1,16 +1,4 @@
 @import './../../../styles.scss';
 
-.landing-wrapper {
-    width: 100%;
-    max-width: 1920px;
-    margin-inline: auto;
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-}
 
-.landing-wrapper > app-footer {
-    margin-top: auto;
-    width: 100%;
-}
 

@@ -1,0 +1,39 @@
+<section id="legalNotice" class="page-wrapper">
+    <app-header></app-header>
+
+    <aside class="text-page-content">
+        @if(imprintData){
+            <h1 class="page-title">{{imprintData.pageTitle}}</h1>
+
+            @for(textSection of imprintData.sections; track $index; let firstSection = $first){
+
+                <article class="text-section">
+                    <h5 class="section-title" [class.more-space]="firstSection">{{textSection.title}}</h5>
+
+                    <div>
+                        @for(article of textSection.paragraphs; track $index){
+                        <p>
+                            @for(textRun of article.runs; track $index){
+                            <span 
+                                class="normal" 
+                                [class.dot]="textRun.style === 'dot'"
+                                [class.accent]="textRun.style === 'accent'"
+                            >{{textRun.text}}</span>
+                            }
+                        </p>
+                        }
+                    </div>
+                </article>
+
+
+
+
+            }
+
+        }
+    </aside>
+
+
+
+    <app-footer></app-footer>
+</section>

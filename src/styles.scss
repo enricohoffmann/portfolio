@@ -206,3 +206,61 @@ select:-webkit-autofill:focus {
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
 }
+
+.page-wrapper {
+    width: 100%;
+    max-width: 1920px;
+    margin-inline: auto;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-wrapper > app-footer {
+    margin-top: auto;
+    width: 100%;
+}
+
+.text-page-content{
+    padding-left: 170px;
+    padding-right: 170px;
+}
+
+.page-title{
+    margin-top: 40px;
+    margin-bottom: 80px;
+    text-align: center;
+    @include font-setup('Fira_Code', 64px, 700, var(--default-element-color), 120%);
+    overflow: hidden
+}
+
+.text-section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    @include font-setup('Karla', 19px, 700, #fff, 120%);
+}
+
+.section-title.more-space {
+    margin-bottom: 16px;
+}
+
+.normal {
+    @include font-setup('Karla', 16px, 400, var(--default-element-color), 120%);
+}
+
+.normal.accent {
+    color: #fff;
+}
+
+.strong {
+
+}
+
+.dot {
+    @include createOneDot(4px, 4px);
+    transform: translateY(-3.5px);
+    margin-right: 6px;
+    margin-left: 4px;
+}
