@@ -18,7 +18,9 @@ export class ImprintService {
             },
             {
                 title: 'Exploring the Board',
-                paragraphs: [{ runs: [{ text: 'Email: ' }, {text: 'enrico@enrico-hoffmann.de', style: 'mailLink', mailRef: 'mailto:enrico@enrico-hoffmann.de'}] }]
+                paragraphs: [{ runs: [{ text: 'Email: ' }, {text: 'enrico@enrico-hoffmann.de', style: 'link', link: {
+                    linkTarget: 'mailto:enrico@enrico-hoffmann.de'
+                }}] }]
             },
             {
                 title: 'Acceptance of terms',
@@ -128,7 +130,9 @@ export class ImprintService {
                     {
                         runs: [
                             {text: 'For any questions or notices, please contact us at '},
-                            {text: 'enrico@enrico-hoffmann.de', style: 'mailLink', mailRef: 'mailto:enrico@enrico-hoffmann.de'}
+                            {text: 'enrico@enrico-hoffmann.de', style: 'link', link: {
+                                linkTarget: 'mailto:enrico@enrico-hoffmann.de'
+                            }}
                         ]
                     },
                     {

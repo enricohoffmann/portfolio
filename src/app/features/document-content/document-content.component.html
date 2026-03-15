@@ -1,0 +1,33 @@
+
+<aside class="text-page-content">
+    @if(pageContent){
+        <h1 class="page-title">{{pageContent.pageTitle}}</h1>
+
+        @for(textSection of pageContent.sections; track $index; let firstSection = $first){
+
+            <h5 class="section-title" [class.more-space]="firstSection">{{textSection.title}}</h5>
+
+            <article>
+                @for(paragraph of textSection.paragraphs; track $index){
+                    <p class="text-paragraph">
+                        @for(textRun of paragraph.runs; track $index){
+                            @if(textRun.style === 'lineBreak'){
+                                <br>
+                            } @else if (textRun.style === 'link') {
+                                <span>
+                                    <a [href]="textRun.link?.linkTarget" class="normal mail-link">{{textRun.text}}</a>
+                                </span>
+                            } @else{
+                                <span 
+                                class="normal" 
+                                [class.dot]="textRun.style === 'dot'"
+                                [class.accent]="textRun.style === 'accent'"
+                                >{{textRun.text}}</span>
+                            }
+                        }
+                    </p>
+                }
+            </article>
+        }
+    }
+</aside>

@@ -1,0 +1,52 @@
+@import './../../../styles.scss';
+
+.text-page-content{
+    padding-left: 170px;
+    padding-right: 170px;
+    margin-bottom: 96px;
+}
+
+.page-title{
+    margin-top: 40px;
+    margin-bottom: 80px;
+    text-align: center;
+    @include font-setup('Fira_Code', 64px, 700, var(--default-element-color), 120%);
+    overflow: hidden
+}
+
+.text-paragraph {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    @include font-setup('Karla', 19px, 700, #fff, 120%);
+}
+
+.section-title.more-space {
+    margin-bottom: 16px;
+}
+
+.normal {
+    @include font-setup('Karla', 16px, 400, var(--default-element-color), 120%);
+}
+
+.normal.accent {
+    color: #fff;
+}
+
+.normal.mail-link {
+    text-decoration: none;
+    transition: color 125ms ease-in;
+}
+
+.normal:hover, .mail-link:hover{
+     color: #fff
+}   
+
+
+.dot {
+    @include createOneDot(4px, 4px);
+    transform: translateY(-3.5px);
+    margin-right: 6px;
+    margin-left: 4px;
+}

@@ -1,37 +1,5 @@
-<section id="legalNotice" class="page-wrapper">
+<section id="legalNotice" class="page-wrapper document-background">
     <app-header></app-header>
-
-    <aside class="text-page-content">
-        @if(imprintData){
-            <h1 class="page-title">{{imprintData.pageTitle}}</h1>
-
-            @for(textSection of imprintData.sections; track $index; let firstSection = $first){
-
-                <h5 class="section-title" [class.more-space]="firstSection">{{textSection.title}}</h5>
-
-                <article>
-                    @for(paragraph of textSection.paragraphs; track $index){
-                        <p class="text-paragraph">
-                            @for(textRun of paragraph.runs; track $index){
-                                @if(textRun.style === 'lineBreak'){
-                                    <br>
-                                } @else if (textRun.style === 'mailLink') {
-                                    <span>
-                                        <a [href]="textRun.mailRef" class="normal mail-link">{{textRun.text}}</a>
-                                    </span>
-                                } @else{
-                                    <span 
-                                    class="normal" 
-                                    [class.dot]="textRun.style === 'dot'"
-                                    [class.accent]="textRun.style === 'accent'"
-                                    >{{textRun.text}}</span>
-                                }
-                            }
-                        </p>
-                    }
-                </article>
-            }
-        }
-    </aside>
+    <app-document-content [pageContent]="imprintData"></app-document-content>
     <app-footer></app-footer>
 </section>

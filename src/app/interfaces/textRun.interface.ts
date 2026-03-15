@@ -1,7 +1,9 @@
-export type TextRunStyle = 'accent' | 'dot' | 'lineBreak' | 'mailLink';
+import { Link } from "./link.interface";
+
+export type TextRunStyle = 'accent' | 'dot' | 'lineBreak' | 'link';
 
 export interface TextRun {
     text: string,
     style?: TextRunStyle,
-    mailRef?: string
+    link?: Link
 }

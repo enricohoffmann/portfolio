@@ -3,7 +3,7 @@
     <div class="dot-column">
         <span class="link-dot visible"></span>
     </div>
-    @if(link.linkTarget.startsWith('/') && link.linkTargetPlace === '_self'){
+    @if(link.linkTarget!.startsWith('/') && link.linkTargetPlace === '_self'){
         <a 
             class="footer-link" 
             [routerLink]="link.linkTarget" 
