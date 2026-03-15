@@ -224,6 +224,7 @@ select:-webkit-autofill:focus {
 .text-page-content{
     padding-left: 170px;
     padding-right: 170px;
+    margin-bottom: 96px;
 }
 
 .page-title{
@@ -234,7 +235,7 @@ select:-webkit-autofill:focus {
     overflow: hidden
 }
 
-.text-section {
+.text-paragraph {
     margin-bottom: 20px;
 }
 
@@ -254,9 +255,15 @@ select:-webkit-autofill:focus {
     color: #fff;
 }
 
-.strong {
-
+.normal.mail-link {
+    text-decoration: none;
+    transition: color 125ms ease-in;
 }
+
+.normal:hover, .mail-link:hover{
+     color: #fff
+}   
+
 
 .dot {
     @include createOneDot(4px, 4px);

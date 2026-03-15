@@ -7,33 +7,31 @@
 
             @for(textSection of imprintData.sections; track $index; let firstSection = $first){
 
-                <article class="text-section">
-                    <h5 class="section-title" [class.more-space]="firstSection">{{textSection.title}}</h5>
+                <h5 class="section-title" [class.more-space]="firstSection">{{textSection.title}}</h5>
 
-                    <div>
-                        @for(article of textSection.paragraphs; track $index){
-                        <p>
-                            @for(textRun of article.runs; track $index){
-                            <span 
-                                class="normal" 
-                                [class.dot]="textRun.style === 'dot'"
-                                [class.accent]="textRun.style === 'accent'"
-                            >{{textRun.text}}</span>
+                <article>
+                    @for(paragraph of textSection.paragraphs; track $index){
+                        <p class="text-paragraph">
+                            @for(textRun of paragraph.runs; track $index){
+                                @if(textRun.style === 'lineBreak'){
+                                    <br>
+                                } @else if (textRun.style === 'mailLink') {
+                                    <span>
+                                        <a [href]="textRun.mailRef" class="normal mail-link">{{textRun.text}}</a>
+                                    </span>
+                                } @else{
+                                    <span 
+                                    class="normal" 
+                                    [class.dot]="textRun.style === 'dot'"
+                                    [class.accent]="textRun.style === 'accent'"
+                                    >{{textRun.text}}</span>
+                                }
                             }
                         </p>
-                        }
-                    </div>
+                    }
                 </article>
-
-
-
-
             }
-
         }
     </aside>
-
-
-
     <app-footer></app-footer>
 </section>

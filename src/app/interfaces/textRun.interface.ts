@@ -1,6 +1,7 @@
-export type TextRunStyle = 'nornal' | 'accent' | 'strong' | 'dot';
+export type TextRunStyle = 'accent' | 'dot' | 'lineBreak' | 'mailLink';
 
 export interface TextRun {
     text: string,
-    style?: TextRunStyle
+    style?: TextRunStyle,
+    mailRef?: string
 }
