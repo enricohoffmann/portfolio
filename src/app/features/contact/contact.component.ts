@@ -5,6 +5,7 @@ import { ContactData } from '../../interfaces/contact.interface';
 import { ButtonComponent } from "../../ui/button/button.component";
 import { CheckBoxComponent } from '../../ui/check-box/check-box.component';
 import { PrivacyCheck } from '../../interfaces/privacy.interface';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-contact',

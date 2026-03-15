@@ -5,6 +5,14 @@
 
         @for(textSection of pageContent.sections; track $index; let firstSection = $first){
 
+            @if(textSection.sectionH2){
+                <h2 class="sectionH2">{{textSection.sectionH2}}</h2>
+            }
+
+            @if(textSection.sectionH3){
+                <h3 class="sectionH3">{{textSection.sectionH3}}</h3>
+            }
+
             <h5 class="section-title" [class.more-space]="firstSection">{{textSection.title}}</h5>
 
             <article>
@@ -15,7 +23,7 @@
                                 <br>
                             } @else if (textRun.style === 'link') {
                                 <span>
-                                    <a [href]="textRun.link?.linkTarget" class="normal mail-link">{{textRun.text}}</a>
+                                    <a [href]="textRun.link?.linkTarget" rel="noopener noreferrer" class="normal external-link">{{textRun.text}}</a>
                                 </span>
                             } @else{
                                 <span 

@@ -6,6 +6,7 @@
     margin-bottom: 96px;
 }
 
+
 .page-title{
     margin-top: 40px;
     margin-bottom: 80px;
@@ -14,13 +15,27 @@
     overflow: hidden
 }
 
-.text-paragraph {
-    margin-bottom: 20px;
+.sectionH2{
+    @include font-setup('Fira_Code', 42px, 700, #fff, 120%);
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.sectionH3{
+    @include font-setup('Fira_Code', 32px, 700, #fff, 120%);
+    margin-bottom: 12px;
+    overflow: hidden;
 }
 
 .section-title {
     @include font-setup('Karla', 19px, 700, #fff, 120%);
 }
+
+.text-paragraph {
+    margin-bottom: 20px;
+}
+
+
 
 .section-title.more-space {
     margin-bottom: 16px;
@@ -34,12 +49,13 @@
     color: #fff;
 }
 
-.normal.mail-link {
+.normal.external-link {
+    cursor: pointer;
     text-decoration: none;
     transition: color 125ms ease-in;
 }
 
-.normal:hover, .mail-link:hover{
+.normal.external-link:hover {
      color: #fff
 }   
 

@@ -1,6 +1,8 @@
 import { Paragraph } from "./paragraph.interface";
 
 export interface TextSection {
-    title: string;
+    sectionH2?: string;
+    sectionH3?: string;
+    title?: string;
     paragraphs: Paragraph[];
 }
