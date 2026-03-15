@@ -9,8 +9,12 @@ export class PrivacyPolicyService {
     private readonly privacyPolicyEn: PageTextContent = PrivacyPolicyDataEn;
     private readonly privacyPolicyDe: PageTextContent = PrivacyPolicyDataDe;
 
-    getPrivacyPolicy() {
+    getPrivacyPolicyEn() {
         return this.privacyPolicyEn;
+    }
+
+    getPrivacyPolicyDe() {
+        return this.privacyPolicyDe;
     }
 
 }

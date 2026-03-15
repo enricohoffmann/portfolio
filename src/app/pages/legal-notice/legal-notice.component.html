@@ -1,5 +1,5 @@
 <section id="legalNotice" class="page-wrapper document-background">
     <app-header></app-header>
-    <app-document-content [pageContent]="imprintData"></app-document-content>
+    <app-document-content [pageContent]="(imprintData$ | async) ?? undefined"></app-document-content>
     <app-footer></app-footer>
 </section>

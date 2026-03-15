@@ -9,7 +9,11 @@ export class ImprintService {
     private readonly legalNoticeEn: PageTextContent = LegalNoticeEn;
     private readonly legalNoticeDe: PageTextContent = LegalNoticeDe;
 
-    getLegalNoticeEn() {
+    getLegalNoticeEn(): PageTextContent {
+        return this.legalNoticeEn;
+    }
+
+    getLegalNoticeDe(): PageTextContent{
         return this.legalNoticeDe;
     }
 }

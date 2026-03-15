@@ -1,6 +1,7 @@
 <div class="toggle">
-    <input class="lang-en" id="language-en" type="radio" name="language-toggle" value="EN" checked="checked" [(ngModel)]="language"/>
+    <input class="lang-en" id="language-en" type="radio" name="language-toggle" value="EN" 
+        checked="checked" [(ngModel)]="language" (ngModelChange)="onLanguageChange()"/>
     <label class="lang-en-label" for="language-en">EN</label>
-    <input id="language-de"type="radio" name="language-toggle" value="DE" [(ngModel)]="language">
+    <input id="language-de"type="radio" name="language-toggle" value="DE" [(ngModel)]="language" (ngModelChange)="onLanguageChange()">
     <label class="lang-de-label" for="language-de" >DE</label>
 </div>

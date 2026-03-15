@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-language-toggle',
@@ -10,4 +11,14 @@ import { FormsModule } from '@angular/forms';
 })
 export class LanguageToggleComponent {
   language: 'EN' | 'DE' = 'EN';
+
+  constructor(private languageService: LanguageService){}
+
+  ngOnInit(){
+    this.language = this.languageService.getCurrentLanguage();
+  }
+
+  onLanguageChange(): void {
+    this.languageService.setLanguage(this.language);
+  }
 }
