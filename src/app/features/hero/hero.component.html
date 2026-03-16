@@ -2,21 +2,18 @@
 <section>
     <app-header class="hero-header"></app-header>
     <article>
-        <span>Frontend Developer</span>
+        <span>{{(developer$! | async)}}</span>
         <h1>Enrico Hoffmann</h1>
         <div class="btn-container">
-            <app-button 
+
+            @for(buttonLink of (heroButtonLinks$! | async); track $index){
+                <app-button 
                 [type]="'button'" 
                 [variant]="'primary'"
-                [target]="'/'"
-                [targetFragment]="'portfolio'"
-                >Check my work</app-button>
-            <app-button 
-                [type]="'button'" 
-                [variant]="'primary'"
-                [target]="'/'"
-                [targetFragment]="'contact'"
-            >Contact me</app-button>
+                [target]="buttonLink.linkTarget"
+                [targetFragment]="'buttonLink.linkTargetFragment'"
+                >{{buttonLink.linkName}}</app-button>
+            }
         </div>
     </article>
 

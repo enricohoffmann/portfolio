@@ -1,10 +1,13 @@
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, AfterViewInit, ElementRef, ViewChild, QueryList, ViewChildren, ChangeDetectorRef, Input } from '@angular/core';
+import { LanguageService } from '../../../services/language.service';
+import { MarqueeService } from '../../../services/marquee.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-hero-marquee',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, AsyncPipe],
   templateUrl: './hero-marquee.component.html',
   styleUrl: './hero-marquee.component.scss'
 })
@@ -16,18 +19,15 @@ export class HeroMarqueeComponent implements AfterViewInit {
   public copies: number[] = [0, 1];
 
 
-  marqueeTextArrayEN: Array<string> = [
-    'Available for remote work',
-    'Frontend Developer',
-    'Based in Tübingen',
-    'Open to work',
-  ];
+  marqueeTextArray$ = this.languageService.language$.pipe(
+    map(lang => lang === 'DE' ? this.marqueeService.getMarqueeTextArrayDe() : this.marqueeService.getMarqueeTextArrayEn())
+  );
 
   @ViewChild('track', { static: true }) trackElement!: ElementRef<HTMLElement>;
   @ViewChildren('group') groupElements!: QueryList<ElementRef<HTMLElement>>;
   @Input() marqueeFontSize: number = 32;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef) { }
+  constructor(private changeDetectorRef: ChangeDetectorRef, private languageService: LanguageService, private marqueeService: MarqueeService) { }
 
   /**
    * @description This lifecycle hook is called after the component's view has been fully initialized. It performs several asynchronous operations to set up the marquee animation. 
