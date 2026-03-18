@@ -10,26 +10,22 @@
         </aside>
         <aside class="aboutMe-boxGrid">
             <div class="aboutMe-container">
-                <app-card cardType="aboutMe">
-                    <span cardEyebrow>Who I Am</span>
-                    <h2 class="mb-24 z1" cardTitle>About Me</h2>
-                    <p class="card-body z1" cardBody>
-                        Hey there, I'm Lukas! Write some information about yourself that is IT related. 
-                        Why are you passionate about coding? 
-                        What is your source of inspiration for improving your programming skills?
-                    </p>
-                    <ul cardItems>
 
-                        <!--  Forschleife -->
-
-                        <li app-info-item iconName="location_on">Where are you based? Would you be open to working remotely or potentially relocating?<li>
-                        <li app-info-item iconName="cognition">Show that you are open-minded. Are you enthusiastic about learning new technologies and continually improving your skills?</li>
-                        <li app-info-item iconName="new_releases">A brief description of your problem-solving approach. 
-                            Do you learn from each challenge as you search for the most efficient or elegant solution? 
-                            You can include some keywords like: analytical thinking, creativity, persistence and  collaboration.
-                        </li>
-                    </ul>
-                </app-card>
+                @if(aboutMeData$ | async; as aboutMeData){
+                    <app-card cardType="aboutMe">
+                        <span cardEyebrow>{{aboutMeData.aboutMeEyeBrow}}</span>
+                        <h2 class="mb-24 z1" cardTitle>{{aboutMeData.aboutMeTitle}}</h2>
+                        <p class="card-body z1" cardBody>
+                            {{aboutMeData.aboutMeDescription}}
+                        </p>
+                        <ul cardItems>
+                            @for(bullentPoint of aboutMeData.aboutMeEntrys; track $index){
+                                <li app-info-item [iconName]="bullentPoint.entryIconName">{{bullentPoint.entryMessage}}</li>
+                            }
+                        </ul>
+                    </app-card>
+                }
+               
             </div>
         </aside>
     </article>

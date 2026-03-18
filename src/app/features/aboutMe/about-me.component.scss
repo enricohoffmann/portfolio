@@ -17,7 +17,8 @@
     padding-right: 108px;
     display: grid;
     grid-template-columns: minmax(0, 609px) 1fr minmax(0, 609px);
-    height: 700px;
+    min-height: 700px;
+    height: 100%;
 }
 
 .foto-grid{
@@ -29,7 +30,7 @@
 .aboutMe-boxGrid{
     grid-column: 3;
     display: grid;
-    grid-template-rows: 102px 598px;
+    grid-template-rows: 102px auto;
 }
 
 .foto-container{

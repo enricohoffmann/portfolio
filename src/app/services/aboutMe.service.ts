@@ -12,23 +12,21 @@ export class AboutMeService{
         aboutMeEntrys: [
             {
                 entryIconName: 'location_on',
-                entryMessage: 'Where are you based? Would you be open to working remotely or potentially relocating?'
+                entryMessage: 'I’m based near Tübingen and open to remote work as well as new professional opportunities.'
             },
             {
                 entryIconName: 'cognition',
-                entryMessage: 'Show that you are open-minded. Are you enthusiastic about learning new technologies and continually improving your skills?'
+                entryMessage: 'I enjoy learning new technologies and continuously improving my skills to build better solutions.'
             },
             {
                 entryIconName: 'new_releases',
-                entryMessage: `A brief description of your problem-solving approach. 
-                            Do you learn from each challenge as you search for the most efficient or elegant solution? 
-                            You can include some keywords like: analytical thinking, creativity, persistence and  collaboration.`
+                entryMessage: `I approach challenges in a structured and solution-oriented way, focusing on efficient, clean and sustainable solutions.`
             }
         ]
     };
 
-    getAboutMeDataEn(){
-        return this.getAboutMeDataEn;
+    getAboutMeDataEn(): AboutMe{
+        return this.aboutMeEn;
     }
 
     private readonly aboutMeDe: AboutMe = {
@@ -41,18 +39,20 @@ export class AboutMeService{
         aboutMeEntrys: [
             {
                 entryIconName: 'location_on',
-                entryMessage: 'Where are you based? Would you be open to working remotely or potentially relocating?'
+                entryMessage: 'Ich lebe in der Nähe von Tübingen und bin offen für Remote-Arbeit sowie neue berufliche Möglichkeiten.'
             },
             {
                 entryIconName: 'cognition',
-                entryMessage: 'Show that you are open-minded. Are you enthusiastic about learning new technologies and continually improving your skills?'
+                entryMessage: 'Ich arbeite mich gerne in neue Technologien ein und entwickle meine Fähigkeiten kontinuierlich weiter, um immer bessere Lösungen zu finden.'
             },
             {
                 entryIconName: 'new_releases',
-                entryMessage: `A brief description of your problem-solving approach. 
-                            Do you learn from each challenge as you search for the most efficient or elegant solution? 
-                            You can include some keywords like: analytical thinking, creativity, persistence and  collaboration.`
+                entryMessage: `Ich gehe Herausforderungen strukturiert und lösungsorientiert an und lege Wert auf effiziente, saubere und nachhaltige Lösungen.`
             }
         ]
     };
+
+    getAboutMeDataDe(): AboutMe {
+        return this.aboutMeDe;
+    }
 }
