@@ -1,23 +1,25 @@
 <section class="skills-section">
     <article class="skills-content-grid">
         <div class="skill-set-container">
-            <app-card>
-                <span cardEyebrow>Technologies</span>
-                <h2 class="mb-24 z1" cardTitle>Skill Set</h2>
-                <p class="card-body z1" cardBody>
-                    A short introduction of your skills. 
-                    Highlight your experience of using different front-end technologies and 
-                    emphasise your openness to learning and adapting to new technologies. 
-                    Show how important it is for you to keep up with the rapid changes in web development.
-                </p>
-                <span cardSubtitle class="card-subtitle white z1">You need <span class="colored">another skill?</span></span>
-                <p cardSubtext class="card-subtext z1">Feel free to contact me. 
-                    I look forward to expanding on my previous knowledge.
-                </p>
-                <div cardButton class="skills-btn-container z1">
-                    <app-button variant="primary" target="/" targetFragment="contact">Let's Talk</app-button>
-                </div>
-            </app-card>
+            @if(skillCardData$ | async; as skillCardDate){
+                <app-card>
+                    <span cardEyebrow>{{skillCardDate.skillCardEyebrow}}</span>
+                    <h2 class="mb-24 z1" cardTitle>{{skillCardDate.skillCardTitle}}</h2>
+                    <p class="card-body z1" cardBody>
+                        {{skillCardDate.skillCardBodyContent}}
+                    </p>
+                    <span cardSubtitle class="card-subtitle white z1">{{skillCardDate.skillCardSubTitlePartOne}}
+                        <span class="colored">{{skillCardDate.skillCardSubTitlePartTwo}}</span>
+                    </span>
+                    <p cardSubtext class="card-subtext z1">
+                        {{skillCardDate.skillCardSubText}}
+                    </p>
+                    <div cardButton class="skills-btn-container z1">
+                        <app-button variant="primary" target="/" targetFragment="contact">{{skillCardDate.skillCardButtonText}}</app-button>
+                    </div>
+                </app-card>
+            }
+            
         </div>
         <div class="skillset-grid">
 

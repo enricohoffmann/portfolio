@@ -5,11 +5,17 @@ import { SkillIconComponent } from "../../ui/skill-icon/skill-icon.component";
 import { SkillWithTooltipComponent } from "./skill-with-tooltip/skill-with-tooltip.component";
 import { TooltipComponent } from "../../ui/tooltip/tooltip.component";
 import { Skill } from '../../interfaces/skill.interface';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { LanguageService } from '../../services/language.service';
+import { SkillCardService } from '../../services/skillCard.service';
+import { SkillCard } from '../../interfaces/skillCard.interface';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CardComponent, ButtonComponent, SkillIconComponent, SkillWithTooltipComponent, TooltipComponent],
+  imports: [CardComponent, ButtonComponent, SkillIconComponent, SkillWithTooltipComponent, TooltipComponent, AsyncPipe],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })
@@ -18,7 +24,7 @@ export class SkillsComponent {
   isSkillIconHovering: boolean = false;
   skillItems: Skill[] = [];
 
-  constructor(){
+  constructor(private languageService: LanguageService, private skillCardService: SkillCardService){
     this.skillItems = [
       { iconName: 'htmlIcon', iconText: 'HTML' },
       { iconName: 'cssIcon', iconText: 'CSS' },
@@ -37,4 +43,8 @@ export class SkillsComponent {
   receiveHoverFromSkillIcon(isHovering: boolean): void {
     this.isSkillIconHovering = isHovering;
   }
+
+  skillCardData$: Observable<SkillCard> = this.languageService.language$.pipe(
+    map(lang => lang === 'DE' ? this.skillCardService.getSkillCardDataDe() : this.skillCardService.getSkillCardDataEn())
+  );
 }

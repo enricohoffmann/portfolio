@@ -3,7 +3,7 @@ import { CardComponent } from "../../ui/card/card.component";
 import { InfoItemComponent } from "../../ui/card/info-item/info-item.component";
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgForOf } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 import { AboutMeService } from '../../services/aboutMe.service';
 import { AboutMe } from '../../interfaces/aboutMe.interface';
@@ -11,7 +11,7 @@ import { AboutMe } from '../../interfaces/aboutMe.interface';
 @Component({
   selector: 'app-about-me',
   standalone: true,
-  imports: [CardComponent, InfoItemComponent, AsyncPipe],
+  imports: [CardComponent, InfoItemComponent, AsyncPipe, NgForOf],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss'
 })

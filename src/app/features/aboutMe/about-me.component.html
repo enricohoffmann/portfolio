@@ -18,11 +18,11 @@
                         <p class="card-body z1" cardBody>
                             {{aboutMeData.aboutMeDescription}}
                         </p>
-                        <ul cardItems>
-                            @for(bullentPoint of aboutMeData.aboutMeEntrys; track $index){
-                                <li app-info-item [iconName]="bullentPoint.entryIconName">{{bullentPoint.entryMessage}}</li>
+                        <div cardItems>
+                            @for(bulletPoint of aboutMeData.aboutMeEntrys; track $index){
+                                <div app-info-item [iconName]="bulletPoint.entryIconName">{{bulletPoint.entryMessage}}</div>
                             }
-                        </ul>
+                        </div>
                     </app-card>
                 }
                
