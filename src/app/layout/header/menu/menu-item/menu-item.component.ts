@@ -1,5 +1,5 @@
 import { Component, Input} from '@angular/core';
-import { ActivatedRoute, RouterLink, RouterLinkActive } from "@angular/router";
+import { ActivatedRoute, RouterLink } from "@angular/router";
 import { map } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
 

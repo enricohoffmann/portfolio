@@ -1,56 +1,53 @@
 <section class="contact-section">
-    <aside class="contact-column-one">
-        <p class="contact-eyebrow">Contact me</p>
-        <h2>Let's work together</h2>
-        <article class="contact-description">
-            <p>Got a problem to solve?</p>
-            <p>
-                Encourage people to contact you and describe what role you are interested in.
-                Show that you will add value to their projects through your work.
-            </p>
-            <p>
-                Need a Frontend developer?
-                <span> Let’s talk!</span>
-            </p>
-        </article>
-    </aside>
 
-    <aside class="contact-column-two">
+    @if(contactSectionData$ | async; as contactSectionData){
 
-        @if(contactDataFields){
+        <aside class="contact-column-one">
+            
+            <p class="contact-eyebrow">{{contactSectionData.contactSectionEyebrow}}</p>
+            <h2>{{contactSectionData.contactSectionHeadline}}</h2>
+            <article class="contact-description">
+                <p>{{contactSectionData.contactSectionSubtile}}</p>
+                <p>{{contactSectionData.contactSectionDescription}}</p>
+                <p>{{contactSectionData.contactSectionEndTextPartOne}}<span>{{contactSectionData.contactSectionEndTextPartTwo}}</span></p>
+            </article>
+        </aside>
+
+        <aside class="contact-column-two">
 
             <form #contactForm="ngForm" (ngSubmit)="onContactFormSubmit(contactForm)">
 
-                @for(contactItem of contactDataFields; track contactItem; let index = $index; let last = $last){
-                    
-                    <app-contact-item [contactData]="contactItem" [contactFieldIndex]="'contact_id_' + index"></app-contact-item>
+                @for(contactItem of (contactDataFields$ | async); track contactItem; let index = $index; let last = $last){
+                    <app-contact-item [contactData]="contactItem"
+                        [contactFieldIndex]="'contact_id_' + index"></app-contact-item>
                     @if(last){<div class="contact-line"></div>}
                 }
 
                 <div class="contact-privacy-submit-grid">
                     <div class="privacy-accept-grid">
-                           <div class="privacy-accept-check-container">
+                        <div class="privacy-accept-check-container">
                             <app-check-box [privacyCheck]="privacyCheck"></app-check-box>
                         </div>
 
                         <div class="privacy-accept-notice">
-                            <span>I've read the <a [href]="'/privacy-policy'">privacy policy</a> and agree to the processing of my data as outlined.</span>
+                            <span>{{contactSectionData.contactSectionPrivacyPartOne}}<a [href]="'/privacy-policy'">{{contactSectionData.contactSectionPrivacyLinkName}}</a>{{contactSectionData.contactSectionPrivacyPartTwo}}</span>
                         </div>
                     </div>
 
-                    <span 
-                        class="privacy-error-message"
-                        [class.visible]="contactForm.submitted && !privacyCheck.checked"
-                    >{{privacyCheckErrorMessage}}</span>
+                    <span class="privacy-error-message"
+                        [class.visible]="contactForm.submitted && !privacyCheck.checked">{{privacyCheckErrorMessage}}</span>
 
-                    <app-button [type]="'submit'" [variant]="'primary'" class="contact-submit">Say Hello</app-button>
+                    <app-button [type]="'submit'" [variant]="'primary'" class="contact-submit">{{contactSectionData.contactSectionFormSubmitBtnText}}</app-button>
 
                 </div>
 
             </form>
-        }
 
-        
-    </aside>
+
+        </aside>
+
+    }@else {
+        <span>Loading...</span>
+    }
 
 </section>

@@ -79,14 +79,14 @@
     @include display-flex-setup(row, flex-start, center);
 
     & span{
-        @include font-setup('Karla', 15px, 400, #fff);
+        @include font-setup('Karla', 15px, 400, #fff, 180%);
         padding: 8px 0;
 
         & a{
             text-decoration: unset;
             padding-bottom: 6px;
             cursor: pointer;
-            @include font-setup('Karla', 15px, 400, var(--default-element-color));
+            @include font-setup('Karla', 15px, 400, var(--default-element-color), 100%);
             border-bottom: solid 0px transparent;
             transition: color 125ms ease-in, border-bottom 125ms ease-in;
         }

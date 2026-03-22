@@ -1,44 +1,34 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ContactItemComponent } from './contact-item/contact-item.component';
 import { NgForm, FormsModule } from '@angular/forms';
-import { ContactData } from '../../interfaces/contact.interface';
+import { ContactData, ContactSectionData } from '../../interfaces/contact.interface';
 import { ButtonComponent } from "../../ui/button/button.component";
 import { CheckBoxComponent } from '../../ui/check-box/check-box.component';
 import { PrivacyCheck } from '../../interfaces/privacy.interface';
-import { RouterLink } from "@angular/router";
+import { Observable } from 'rxjs';
+import { LanguageService } from '../../services/language.service';
+import { ContactDataService } from '../../services/contact.service';
+import { map } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ContactItemComponent, FormsModule, ButtonComponent, CheckBoxComponent],
+  imports: [ContactItemComponent, FormsModule, ButtonComponent, CheckBoxComponent, AsyncPipe],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
 
-  contactDataFields: ContactData[] = [
-    {
-      title: 'What\'s your name?',
-      contactValue: '',
-      contactField: 'name',
-      placeholterText: 'Your name goes here',
-      errorText: 'Oops! it seems your name is missing'
-    },
-    {
-      title: 'What\'s your email?',
-      contactValue: '',
-      contactField: 'email',
-      placeholterText: 'youremail@email.com',
-      errorText: 'Hoppla! your email is required'
-    },
-    {
-      title: 'How can I help you?',
-      contactValue: '',
-      contactField: 'message',
-      placeholterText: 'Hello Lukas, I am interested in...',
-      errorText: 'What do you need to develop?'
-    }
-  ];
+  constructor(private languageService: LanguageService, private contactService: ContactDataService){}
+
+  contactDataFields$: Observable<ContactData[]> = this.languageService.language$.pipe(
+    map(lang => lang === 'DE' ? this.contactService.getContactFormFieldsDe() : this.contactService.getContactFormFieldsEn())
+  );
+
+  contactSectionData$: Observable<ContactSectionData> = this.languageService.language$.pipe(
+    map(lang => lang === 'DE' ? this.contactService.getContactSectionDataDe() : this.contactService.getContactSectionDataEn())
+  );
 
   privacyCheck: PrivacyCheck = {
     checked: false

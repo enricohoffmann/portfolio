@@ -1,4 +1,4 @@
-export class ReferenceEntry {
+export interface ReferenceEntry {
     referenceComment?: string;
     referenceWriter?: string;
 }
