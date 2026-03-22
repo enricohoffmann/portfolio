@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, Observable, map } from "rxjs";
 
 type Language = 'DE' | 'EN';
 
@@ -16,5 +16,11 @@ export class LanguageService {
 
     getCurrentLanguage(): Language {
         return this.language.getValue();
+    }
+
+    selectByLanguage<T>(deValue: T, enValue: T): Observable<T> {
+        return this.language$.pipe(
+            map(lang => lang === 'DE' ? deValue : enValue)
+        );
     }
 }
