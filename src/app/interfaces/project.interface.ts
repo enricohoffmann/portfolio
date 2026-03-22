@@ -11,7 +11,8 @@ export interface ProjectEntry{
     projectTitle: string,
     skills: Skill[],
     imageUrl: string,
-    description: string,
+    descriptionDe: string,
+    descriptionEn: string,
     githubUrl: string,
-    projectUrl: string
+    projectUrl: string,
 }

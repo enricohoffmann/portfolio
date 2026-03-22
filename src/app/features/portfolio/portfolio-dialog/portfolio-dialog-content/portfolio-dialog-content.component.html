@@ -3,8 +3,8 @@
         <app-card [cardType]="'dialog'">
             <h2 class="project-id" cardTitle>{{projectEntry.id}}</h2>
             <h3 class="project-title" cardBody>{{projectEntry.projectTitle}}</h3>
-            <h5 class="project-sub" cardSubtitle>What is this project about?</h5>
-            <p class="project-description" cardSubtext>{{projectEntry.description}}</p>
+            <h5 class="project-sub" cardSubtitle>{{getCurrentProjectSubtitle()}}</h5>
+            <p class="project-description" cardSubtext>{{ getCurrentDescription() }}</p>
             <div cardSkills class="project-skills">
                 @for(skill of projectEntry.skills; track skill){
                     <app-skill-icon [skillIconType]="'ProjectSkills'" [iconName]="skill.iconName">
@@ -20,13 +20,18 @@
                     [iconPath]="'./assets/icon/arrowOutwardGreen.svg'"
                     [externalLink]="projectEntry.githubUrl"
                 >GitHub</app-button>
-                <app-button
-                    [type]="'button'"
-                    [variant]="'tertiary'"
-                    [iconPosition]="'right'"
-                    [iconPath]="'./assets/icon/arrowOutwardGreen.svg'"
-                    [externalLink]="projectEntry.projectUrl"
-                >Live Test</app-button>
+                @if(liveTestButtonText$ | async; as liveTestButtonText){
+                    <app-button
+                        [type]="'button'"
+                        [variant]="'tertiary'"
+                        [iconPosition]="'right'"
+                        [iconPath]="'./assets/icon/arrowOutwardGreen.svg'"
+                        [externalLink]="projectEntry.projectUrl"
+                    >{{liveTestButtonText}}</app-button>
+                }@else {
+                    <span>Loading...</span>
+                }
+                
             </div>
         </app-card>
     </div>
@@ -41,7 +46,12 @@
              <img src="{{projectEntry.imageUrl}}" alt="" class="">
         </div>
         <div class="project-next-area">
-            <span class="next-text" (click)="onNextProject()">Next project</span>
+            @if(nextProjectBottonText$ | async; as nextProjectBottonText){
+                <span class="next-text" (click)="onNextProject()">{{nextProjectBottonText}}</span>
+            }@else {
+                <span>Loading...</span>
+            }
+            
             <div class="next-icon-container">
                 <img class="next-icon" src="./assets/icon/arrowForwardGreen.svg" alt="">
             </div>
