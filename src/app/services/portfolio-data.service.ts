@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ProjectEntry } from "../interfaces/projectEntry.interface";
+import { ProjectEntry, ProjectSectionData } from "../interfaces/project.interface";
 
 @Injectable({providedIn: 'root'})
 export class PortfolioDataService {
@@ -63,6 +63,26 @@ export class PortfolioDataService {
 
     const nextIndex = (currentIndex + 1) % this.projectsData.length;
     return this.projectsData[nextIndex];
+  }
+
+  private readonly projectSectionDataEn: ProjectSectionData = {
+    projectSectionEyebrow: 'Portfolio',
+    projectSectionHeadline: 'Featured Projects',
+    projectSectionDescription: 'Explore a selection of my work here - Interact with projects to see my skills in action.'
+  };
+
+  getProjectSectionDataEn(): ProjectSectionData{
+    return this.projectSectionDataEn;
+  }
+
+  private readonly projectSectionDataDe: ProjectSectionData = {
+    projectSectionEyebrow: 'Portfolio',
+    projectSectionHeadline: 'Ausgewählte Projekte',
+    projectSectionDescription: 'Entdecke hier eine Auswahl meiner Projekte – interagiere mit ihnen, um meine Fähigkeiten in Aktion zu sehen.'
+  };
+
+  getProjectSectionDataDe(): ProjectSectionData{
+    return this.projectSectionDataDe;
   }
 
 }

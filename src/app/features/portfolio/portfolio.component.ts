@@ -1,12 +1,15 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { PortfolioMenuComponent } from "./portfolio-menu/portfolio-menu.component";
-import { ProjectEntry } from '../../interfaces/projectEntry.interface';
 import { PortfolioDataService } from '../../services/portfolio-data.service';
-
+import {ProjectEntry, ProjectSectionData} from '../../interfaces/project.interface';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { LanguageService } from '../../services/language.service';
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [PortfolioMenuComponent],
+  imports: [PortfolioMenuComponent, AsyncPipe],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss'
 })
@@ -16,9 +19,13 @@ export class PortfolioComponent {
    
   @Output() selectPortfolioProjectByIdRelay = new EventEmitter<string>();
 
-  constructor(private portfolioData: PortfolioDataService){
+  constructor(private portfolioData: PortfolioDataService, private languageService: LanguageService){
     this.portfolioPojects = this.portfolioData.getProjects();
   }
+
+  portfolioSectionData$: Observable<ProjectSectionData> = this.languageService.language$.pipe(
+    map(lang => lang === 'DE' ? this.portfolioData.getProjectSectionDataDe() : this.portfolioData.getProjectSectionDataEn())
+  );
 
   onProjectIdRelaying(projectId: string): void{
     this.selectPortfolioProjectByIdRelay.emit(projectId);

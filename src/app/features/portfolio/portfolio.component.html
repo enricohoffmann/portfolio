@@ -1,7 +1,13 @@
 <section class="portfolio-section">
-    <span class="portfolio-label">Portfolio</span>
-    <h2 class="portfolio-headline">Featured Projects</h2>
-    <p class="portfolio-introduction">Explore a selection of my work here - Interact with projects to see my skills in action.</p>
+
+    @if(portfolioSectionData$ | async; as portfolioSectionData ){
+        <span class="portfolio-label">{{portfolioSectionData.projectSectionEyebrow}}</span>
+        <h2 class="portfolio-headline">{{portfolioSectionData.projectSectionHeadline}}</h2>
+        <p class="portfolio-introduction">{{portfolioSectionData.projectSectionDescription}}</p>
+    }@else{
+        <span>Loading...</span>
+    }
+    
 
     <div class="portfolio-menu-container">
         <app-portfolio-menu [portFolioProjects]="portfolioPojects"  (selectedProjectSender)="onProjectIdRelaying($event)"></app-portfolio-menu>

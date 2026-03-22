@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PortfolioMenuItemComponent } from "./portfolio-menu-item/portfolio-menu-item.component";
 import { PortfolioMenuImageComponent } from "./portfolio-menu-image/portfolio-menu-image.component";
-import { ProjectEntry } from '../../../interfaces/projectEntry.interface';
+import { ProjectEntry } from '../../../interfaces/project.interface';
 
 
 @Component({

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PortfolioDialogContentComponent } from "./portfolio-dialog-content/portfolio-dialog-content.component";
-import { ProjectEntry } from '../../../interfaces/projectEntry.interface';
+import { ProjectEntry } from '../../../interfaces/project.interface';
 import { PortfolioDataService } from '../../../services/portfolio-data.service';
 
 @Component({

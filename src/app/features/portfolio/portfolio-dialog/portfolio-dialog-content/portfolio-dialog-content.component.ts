@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CardComponent } from "../../../../ui/card/card.component";
-import { ProjectEntry } from '../../../../interfaces/projectEntry.interface';
+import { ProjectEntry } from '../../../../interfaces/project.interface';
 import { SkillIconComponent } from '../../../../ui/skill-icon/skill-icon.component';
 import { ButtonComponent } from "../../../../ui/button/button.component";
 import { PortfolioDataService } from '../../../../services/portfolio-data.service';
