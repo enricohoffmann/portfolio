@@ -1,89 +1,104 @@
 import { Component } from '@angular/core';
 import { CardComponent } from '../../ui/card/card.component';
 import { CommonModule } from '@angular/common';
-
+import { map } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
+import { AsyncPipe } from '@angular/common';
+import { LanguageService } from '../../services/language.service';
+import { ReferenceEntry } from '../../interfaces/reference.interface';
+import { ReferenceDateService } from '../../services/reference.service';
 
 @Component({
   selector: 'app-references',
   standalone: true,
-  imports: [CardComponent, CommonModule],
+  imports: [CardComponent, CommonModule, AsyncPipe],
   templateUrl: './references.component.html',
   styleUrl: './references.component.scss'
 })
 export class ReferencesComponent {
 
-  currentIndex = 0;
-  currentDotIndex = 0;
-  isAnimating = false;
+  currentIndex: number = 0;
+  currentDotIndex: number = 0;
+  isAnimating: boolean = false;
   direktion: 'left' | 'right' | 'none' = 'none';
   noAnimationIndex: number | null = null;
+  currentArrayLenght: number = 0;
+  private referencesSubscription?: Subscription;
 
+  constructor(private languageService: LanguageService, private referenceService: ReferenceDateService){}
 
-  referencesArray = [
-    {
-      comment: "Lukas has proven to be a reliable group partner. His technical skills and proactive approach were crucial to the success of our project.",
-      writer: "H.Janisch - Team Partner"
-    },
-    {
-      comment: "Our project benefited enormously from Lukas efficient way of working.",
-      writer: "T.Schulz - Frontend Developer"
-    },
-    {
-      comment: "I had the good fortune of working with Simon in a group project at the Developer Akademie that involved a lot of effort. He always stayed calm, cool, and focused, and made sure our team was set up for success. He's super knowledgeable, easy to work with, and I'd happily work with him again given the chance.",
-      writer: "A. Fischer - Team Partner"
-    },
-    {
-      comment: "Our project benefited enormously from Simon efficient way of working.",
-      writer: "T.Schulz - Frontend Developer"
-    },
-    {
-      comment: "Our project benefited enormously from Simon efficient way of working.",
-      writer: "T.Schulz - Frontend Developer"
-    },
-  ]
+  currentReferencesHeadline$: Observable<string> = this.languageService.language$.pipe(
+    map(lang => lang === 'DE' ? 'So arbeite ich': 'This is how I work')
+  );
 
+  referencesArray$: Observable<ReferenceEntry[]> = this.languageService.language$.pipe(
+    map(lang => lang === 'DE' ? this.referenceService.getReferneceArrayDe() : this.referenceService.getReferneceArrayEn())
+  );
 
+ 
   ngOnInit() {
-    this.currentIndex = Math.floor((0 + this.referencesArray.length) / 2);
+    this.referencesSubscription = this.referencesArray$.subscribe(array => {
+      const isFirstLoad = this.currentArrayLenght === 0;
+      this.currentArrayLenght = array.length;
+
+      if(this.currentArrayLenght === 0){
+          this.currentIndex = 0;
+          return;
+      }
+
+      if(isFirstLoad) {
+        this.currentIndex = Math.floor(array.length / 2);
+        return;
+      }
+
+      if(this.currentIndex >= this.currentArrayLenght){
+        this.currentIndex = this.currentArrayLenght - 1;
+      }
+      
+    });
   }
 
-  getIndexLeft() {
-    return (this.currentIndex - 1 + this.referencesArray.length) % this.referencesArray.length;
+  ngOnDestroy(){
+    this.referencesSubscription?.unsubscribe();
   }
 
-  getIndexLeftOff() {
-    return (this.currentIndex - 2 + this.referencesArray.length) % this.referencesArray.length;
+  getIndexLeft(): number {
+    return (this.currentIndex - 1 + this.currentArrayLenght) % this.currentArrayLenght;
   }
 
-  getIndexRight() {
-    return (this.currentIndex + 1) % this.referencesArray.length;
+  getIndexLeftOff(): number {
+    return (this.currentIndex - 2 + this.currentArrayLenght) % this.currentArrayLenght;
   }
 
-  getIndexRightOff() {
-    return (this.currentIndex + 2) % this.referencesArray.length;
+  getIndexRight(): number {
+    return (this.currentIndex + 1) % this.currentArrayLenght;
   }
 
-  referencesBackClick() {
+  getIndexRightOff(): number {
+    return (this.currentIndex + 2) % this.currentArrayLenght;
+  }
+
+  referencesBackClick():void  {
     if (this.isAnimating) { return; }
     this.isAnimating = true;
     this.direktion = 'left';
     this.currentDotIndex = Math.floor(this.currentDotIndex - 1 + 3) % 3;
-    this.currentIndex = Math.floor(this.currentIndex - 1 + this.referencesArray.length) % this.referencesArray.length;
+    this.currentIndex = Math.floor(this.currentIndex - 1 + this.currentArrayLenght) % this.currentArrayLenght;
     this.calculateNoAnimationIndex();
 
   }
 
-  referencesForwardClick() {
+  referencesForwardClick():void {
     if (this.isAnimating) { return; }
     this.isAnimating = true;
     this.direktion = 'right'
     this.currentDotIndex = Math.floor(this.currentDotIndex + 1) % 3;
-    this.currentIndex = Math.floor(this.currentIndex + 1) % this.referencesArray.length;
+    this.currentIndex = Math.floor(this.currentIndex + 1) % this.currentArrayLenght;
     this.calculateNoAnimationIndex();
 
   }
 
-  resetCardAnimation(event: Event) {
+  resetCardAnimation(event: Event): void {
 
     if(!this.isAnimating){return;}
 
@@ -98,13 +113,13 @@ export class ReferencesComponent {
   }
 
 
-  calculateNoAnimationIndex(){
+  calculateNoAnimationIndex(): void{
     if (this.direktion === 'left' && this.isAnimating) {
       const noAniIndex = this.getIndexRightOff() + 1;
-      this.noAnimationIndex = noAniIndex === this.referencesArray.length ? 0 : noAniIndex;
+      this.noAnimationIndex = noAniIndex === this.currentArrayLenght ? 0 : noAniIndex;
     }else if(this.direktion === 'right' && this.isAnimating){
       const noAniIndex = this.getIndexLeftOff() - 1;
-      this.noAnimationIndex = noAniIndex === -1 ? this.referencesArray.length - 1 : noAniIndex;
+      this.noAnimationIndex = noAniIndex === -1 ? this.currentArrayLenght - 1 : noAniIndex;
     }
   }
 

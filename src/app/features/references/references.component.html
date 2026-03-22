@@ -1,10 +1,15 @@
 <section class="references-section">
     <div class="references-headline">
-        <h3>What my colleagues say about me</h3>
+        @if(currentReferencesHeadline$ | async; as currentReferencesHeadline){
+            <h3>{{currentReferencesHeadline}}</h3>
+        }@else {
+            <span>Loading...</span>
+        }
+        
     </div>
     <div class="references-card-container fade-cards" (transitionend)="resetCardAnimation($event)">
 
-        @for (reference of referencesArray; track reference; let index = $index;) {
+        @for (reference of (referencesArray$ | async); track reference; let index = $index;) {
 
             <div class="references-card" 
                 [class.references-card-left-off]="(index === getIndexLeftOff())"
@@ -18,13 +23,13 @@
                 <app-card [cardIsActiv]="index === currentIndex" [cardType]="'references'">
                     <article class="references-card-content z1" cardReferences>
                         <p class="references-comment">
-                            {{ reference.comment }}
+                            {{ reference.referenceComment }}
                         </p>
                         <aside class="references-writer-container">
                             <div class="writer-columns-one">
                                 <div></div>
                             </div>
-                            <span class="references-writer">{{ reference.writer }}</span>
+                            <span class="references-writer">{{ reference.referenceWriter }}</span>
                         </aside>
                     </article>
                 </app-card>
