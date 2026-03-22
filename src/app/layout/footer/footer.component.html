@@ -1,9 +1,14 @@
 <section class="footer-section">
 
     <div class="footer-left">
-        <app-logo target="/" targetFragment="header"></app-logo>
-        <p>Web Developer</p>
-        <p>Tübingen Germany</p>
+
+        @if(footerSectionData$ | async; as footerSectionData){
+            <app-logo target="/" targetFragment="header"></app-logo>
+            <p>{{footerSectionData.footerDeveloper}}</p>
+            <p>{{footerSectionData.footerLocation}}</p>
+        }@else {
+            <span>Loading...</span>
+        }
     </div>
 
     <div class="footer-center">
@@ -11,7 +16,7 @@
     </div>
 
     <div class="footer-right">
-        @for(link of footerLinks; track link;){
+        @for(link of (footerLinks$ |async) ; track link;){
             <app-dot-link [link]="link"></app-dot-link>
         }
     </div>
