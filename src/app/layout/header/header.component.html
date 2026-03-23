@@ -1,7 +1,10 @@
-<header id="header">
-    <section class="headerContainer">
+<header id="header" class="header" [class.header-desktop]="(isDesktop$ | async)">
+    <section class="headerContainer-desktop">
         <app-menu-desktop class="menu-desktop"></app-menu-desktop>
         <app-logo [width]="200" [hoverable]="true" [variant]="'auto'" class="logo-desktop" [routerLink]="'/'"></app-logo>
+    </section>
+    <section class="headerContainer-mobile">
+
     </section>
 </header>
 

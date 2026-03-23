@@ -13,7 +13,7 @@ header {
 
 }
 
-header::before {
+header.header-desktop::before{
     z-index: 0;
     content: '';
     position: absolute;
@@ -33,11 +33,12 @@ header>* {
     max-width: var(--max-content-width);
 }
 
-.headerContainer {
+.headerContainer-desktop {
     width: 100%;
     height: 100%;
     padding: 0 24px;
-    display: grid;
+    display: none;
+    /* display: grid; */
     grid-template-columns: 1fr auto;
     grid-template-rows: var(--header-row-firstAndEnd) var(--header-row-height) var(--header-row-middle) var(--header-row-height) var(--header-row-firstAndEnd);
     align-self: stretch;
@@ -55,4 +56,8 @@ header>* {
     grid-row: 2 / span 3;
     justify-self: flex-end;
     overflow: hidden;
+}
+
+@media (max-width: 1440px){
+
 }

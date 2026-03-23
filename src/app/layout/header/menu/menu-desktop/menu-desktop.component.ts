@@ -4,7 +4,6 @@ import { LanguageToggleComponent } from '../../../../ui/language-toggle/language
 import { LanguageService } from '../../../../services/language.service';
 import { LinksService } from '../../../../services/links.service';
 import { Link } from '../../../../interfaces/link.interface';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
