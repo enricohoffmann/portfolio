@@ -18,7 +18,6 @@ import { AboutMe } from '../../interfaces/aboutMe.interface';
 export class AboutMeComponent {
   constructor(private languageService: LanguageService, private aboutMeDataService: AboutMeService){}
 
-  aboutMeData$: Observable<AboutMe> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.aboutMeDataService.getAboutMeDataDe() : this.aboutMeDataService.getAboutMeDataEn())
-  );
+  aboutMeData$: Observable<AboutMe> = this.languageService.selectByLanguage(this.aboutMeDataService.getAboutMeDataDe(), this.aboutMeDataService.getAboutMeDataEn());
+
 }

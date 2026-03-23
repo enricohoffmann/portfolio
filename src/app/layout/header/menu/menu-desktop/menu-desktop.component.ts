@@ -18,8 +18,6 @@ import { AsyncPipe } from '@angular/common';
 export class MenuDesktopComponent {
   constructor(private languageService: LanguageService, private linksService: LinksService){}
 
-  headerLinks$: Observable<Link[]> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.linksService.getHeaderlinksDe() : this.linksService.getHeaderlinksEn())
-  );
+  headerLinks$: Observable<Link[]> = this.languageService.selectByLanguage(this.linksService.getHeaderlinksDe(), this.linksService.getHeaderlinksEn());
 
 }

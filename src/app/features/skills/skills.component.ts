@@ -44,7 +44,6 @@ export class SkillsComponent {
     this.isSkillIconHovering = isHovering;
   }
 
-  skillCardData$: Observable<SkillCard> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.skillCardService.getSkillCardDataDe() : this.skillCardService.getSkillCardDataEn())
-  );
+  skillCardData$: Observable<SkillCard> = this.languageService.selectByLanguage(this.skillCardService.getSkillCardDataDe(), this.skillCardService.getSkillCardDataEn());
+
 }

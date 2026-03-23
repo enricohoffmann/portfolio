@@ -20,7 +20,5 @@ export class LegalNoticeComponent {
 
   constructor(private imprintDataService: ImprintService, private languageService: LanguageService) { }
 
-  imprintData$: Observable<PageTextContent> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.imprintDataService.getLegalNoticeDe() : this.imprintDataService.getLegalNoticeEn())
-  );
+  imprintData$: Observable<PageTextContent> = this.languageService.selectByLanguage(this.imprintDataService.getLegalNoticeDe(), this.imprintDataService.getLegalNoticeEn());
 }

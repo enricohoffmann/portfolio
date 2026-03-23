@@ -6,7 +6,6 @@ import { HeroLateralComponent } from "./hero-lateral/hero-lateral.component";
 import { LanguageService } from '../../services/language.service';
 import { LinksService } from '../../services/links.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
 import { Link } from '../../interfaces/link.interface';
 
@@ -20,13 +19,8 @@ import { Link } from '../../interfaces/link.interface';
 export class HeroComponent {
   constructor(private languageService: LanguageService, private linksService: LinksService){}
 
-  developer$: Observable<string> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? 'Frontend Entwickler' : "Frontend Developer")
-  );
+  developer$: Observable<string> = this.languageService.selectByLanguage('Frontend Entwickler', "Frontend Developer");
 
-  heroButtonLinks$: Observable<Link[]> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.linksService.getHeroButtonLinksDe() : this.linksService.getHeroButtonLinksEn())
-  );
-
+  heroButtonLinks$: Observable<Link[]> = this.languageService.selectByLanguage(this.linksService.getHeroButtonLinksDe(), this.linksService.getHeroButtonLinksEn());
 
 }

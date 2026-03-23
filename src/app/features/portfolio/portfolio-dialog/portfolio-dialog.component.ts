@@ -20,7 +20,7 @@ export class PortfolioDialogComponent {
 
   }
 
-  ngOnInit(){
+  ngOnInit(): void{
 
     if(!this.projectId){return;}
     this.projectData = this.projectDataService.getProjectById(this.projectId);
@@ -34,18 +34,18 @@ export class PortfolioDialogComponent {
     }
   }
 
-  ngOnDestroy(){
+  ngOnDestroy(): void{
     document.body.classList.remove('no-scroll');
     document.documentElement.classList.remove('no-scroll');
     this.projectData = null;
   }
 
-  openDialog(){
+  openDialog(): void{
     document.body.classList.add('no-scroll');
     document.documentElement.classList.add('no-scroll');
   }
 
-  closeDialog(){  
+  closeDialog(): void{  
     document.body.classList.remove('no-scroll');
     document.documentElement.classList.remove('no-scroll');
     this.projectData = null;

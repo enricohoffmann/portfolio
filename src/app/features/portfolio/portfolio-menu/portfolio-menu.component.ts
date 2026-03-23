@@ -20,10 +20,6 @@ export class PortfolioMenuComponent {
 
   constructor(){}
 
-  ngOnInit(){
-    
-  }
-
   receiveMenuItemHoverId(id: string): void {
     if(this.portfolioMenuItemHoverId !== id){
       this.portfolioMenuItemHoverId = id;

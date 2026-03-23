@@ -1,14 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactIconComponent } from "../../../../ui/contact-icon/contact-icon.component";
-
-interface Link {
-  isActive: boolean;
-  linkName: string;
-  linkTarget: string;
-  linkTargetFragment: string | null;
-  linkTargetPlace: string;
-}
-
+import { LinksService } from '../../../../services/links.service';
+import { Link } from '../../../../interfaces/link.interface';
 @Component({
   selector: 'app-lateral-right',
   standalone: true,
@@ -17,20 +10,9 @@ interface Link {
   styleUrl: './lateral-right.component.scss'
 })
 export class LateralRightComponent {
-  heroContactLinks: Link[] = [
-      {
-        isActive: false,
-        linkName: 'github',
-        linkTarget: 'https://github.com/enricohoffmann',
-        linkTargetFragment: null,
-        linkTargetPlace: '_blank'
-      },
-      {
-        isActive: false,
-        linkName: 'linkedin',
-        linkTarget: '#',
-        linkTargetFragment: null,
-        linkTargetPlace: '_blank'
-      }
-    ]
+
+  constructor(private linkService: LinksService){}
+
+  heroContactLinks: Link[] = this.linkService.getHeroContactLinks();
+      
 }

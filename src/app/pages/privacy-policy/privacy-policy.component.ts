@@ -21,8 +21,6 @@ export class PrivacyPolicyComponent {
 
   constructor(private privacyDataService: PrivacyPolicyService, private languageService: LanguageService){}
 
-  privacyPolicyData$: Observable<PageTextContent> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.privacyDataService.getPrivacyPolicyDe() : this.privacyDataService.getPrivacyPolicyEn())
-  );
+  privacyPolicyData$: Observable<PageTextContent> =  this.languageService.selectByLanguage(this.privacyDataService.getPrivacyPolicyDe(), this.privacyDataService.getPrivacyPolicyEn());
 
 }

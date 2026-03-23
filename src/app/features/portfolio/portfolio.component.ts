@@ -22,10 +22,8 @@ export class PortfolioComponent {
   constructor(private portfolioData: PortfolioDataService, private languageService: LanguageService){
     this.portfolioPojects = this.portfolioData.getProjects();
   }
-
-  portfolioSectionData$: Observable<ProjectSectionData> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.portfolioData.getProjectSectionDataDe() : this.portfolioData.getProjectSectionDataEn())
-  );
+  
+  portfolioSectionData$: Observable<ProjectSectionData> = this.languageService.selectByLanguage(this.portfolioData.getProjectSectionDataDe(), this.portfolioData.getProjectSectionDataEn());
 
   onProjectIdRelaying(projectId: string): void{
     this.selectPortfolioProjectByIdRelay.emit(projectId);

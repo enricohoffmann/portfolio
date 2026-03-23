@@ -22,19 +22,15 @@ export class PortfolioDialogContentComponent {
 
   constructor(private projectDataService: PortfolioDataService, private languageService: LanguageService){}
 
-  liveTestButtonText$: Observable<string> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? 'Live ansehen' : 'Live Test')
-  );
+  liveTestButtonText$: Observable<string> = this.languageService.selectByLanguage('Live ansehen', 'Live Test');
 
-  nextProjectBottonText$: Observable<string> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? 'Weiteres Projekt' : 'Next project')
-  );
+  nextProjectBottonText$: Observable<string> = this.languageService.selectByLanguage('Weiteres Projekt', 'Next project');
 
   onNextProject(): void{
     this.projectEntry = this.projectDataService.getNextProject(this.projectEntry.id);
   }
 
-  onDialogContentCloseAction(){
+  onDialogContentCloseAction(): void{
     this.dialogContentCloseEvent.emit();
   }
 

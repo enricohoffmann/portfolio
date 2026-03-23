@@ -27,14 +27,9 @@ export class ReferencesComponent {
 
   constructor(private languageService: LanguageService, private referenceService: ReferenceDateService){}
 
-  currentReferencesHeadline$: Observable<string> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? 'So arbeite ich': 'This is how I work')
-  );
+  currentReferencesHeadline$: Observable<string> =  this.languageService.selectByLanguage('So arbeite ich', 'This is how I work');
 
-  referencesArray$: Observable<ReferenceEntry[]> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.referenceService.getReferneceArrayDe() : this.referenceService.getReferneceArrayEn())
-  );
-
+  referencesArray$: Observable<ReferenceEntry[]> = this.languageService.selectByLanguage(this.referenceService.getReferneceArrayDe(), this.referenceService.getReferneceArrayEn());
  
   ngOnInit() {
     this.referencesSubscription = this.referencesArray$.subscribe(array => {

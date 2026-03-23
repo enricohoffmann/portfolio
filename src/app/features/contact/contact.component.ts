@@ -22,13 +22,9 @@ export class ContactComponent {
 
   constructor(private languageService: LanguageService, private contactService: ContactDataService){}
 
-  contactDataFields$: Observable<ContactData[]> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.contactService.getContactFormFieldsDe() : this.contactService.getContactFormFieldsEn())
-  );
+  contactDataFields$: Observable<ContactData[]> = this.languageService.selectByLanguage(this.contactService.getContactFormFieldsDe(), this.contactService.getContactFormFieldsEn());
 
-  contactSectionData$: Observable<ContactSectionData> = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.contactService.getContactSectionDataDe() : this.contactService.getContactSectionDataEn())
-  );
+  contactSectionData$: Observable<ContactSectionData> = this.languageService.selectByLanguage(this.contactService.getContactSectionDataDe(), this.contactService.getContactSectionDataEn());
 
   privacyCheck: PrivacyCheck = {
     checked: false

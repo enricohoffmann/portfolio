@@ -40,4 +40,25 @@ export class LinksService {
     getHeroButtonLinksDe(){
         return this.heroButtonLinksDe;
     }
+
+    private readonly heroContactLinks: Link[] = [
+      {
+        isActive: false,
+        linkName: 'github',
+        linkTarget: 'https://github.com/enricohoffmann',
+        linkTargetFragment: null,
+        linkTargetPlace: '_blank'
+      },
+      {
+        isActive: false,
+        linkName: 'linkedin',
+        linkTarget: '#',
+        linkTargetFragment: null,
+        linkTargetPlace: '_blank'
+      }
+    ];
+
+    getHeroContactLinks(): Link[] {
+        return this.heroContactLinks;
+    }
 }

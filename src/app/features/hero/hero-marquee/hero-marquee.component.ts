@@ -2,7 +2,7 @@ import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, AfterViewInit, ElementRef, ViewChild, QueryList, ViewChildren, ChangeDetectorRef, Input } from '@angular/core';
 import { LanguageService } from '../../../services/language.service';
 import { MarqueeService } from '../../../services/marquee.service';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-hero-marquee',
@@ -19,9 +19,7 @@ export class HeroMarqueeComponent implements AfterViewInit {
   public copies: number[] = [0, 1];
 
 
-  marqueeTextArray$ = this.languageService.language$.pipe(
-    map(lang => lang === 'DE' ? this.marqueeService.getMarqueeTextArrayDe() : this.marqueeService.getMarqueeTextArrayEn())
-  );
+  marqueeTextArray$: Observable<string[]> = this.languageService.selectByLanguage(this.marqueeService.getMarqueeTextArrayDe(), this.marqueeService.getMarqueeTextArrayEn());
 
   @ViewChild('track', { static: true }) trackElement!: ElementRef<HTMLElement>;
   @ViewChildren('group') groupElements!: QueryList<ElementRef<HTMLElement>>;
