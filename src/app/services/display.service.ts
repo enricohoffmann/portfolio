@@ -1,37 +1,31 @@
 import { Injectable, inject } from "@angular/core";
 import { BreakpointObserver } from "@angular/cdk/layout";
 
-import { BehaviorSubject, Observable, map } from "rxjs";
+import { BehaviorSubject, Observable, distinctUntilChanged, map } from "rxjs";
 
 type DisplayMode = 'DESKTOP' | 'MOBILE';
-const BREAKPOIN900 = '(max-width: 900px)';
-const BREAKPOIN100 = '(min-width: 1000px)';
+const BREAKPOINT_MOBILE = '(max-width: 900px)';
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class DisplayService {
     private displayMode = new BehaviorSubject<DisplayMode>('DESKTOP');
 
     displayMode$ = this.displayMode.asObservable();
 
-    private breakpointObserver = inject(BreakpointObserver); 
+    private breakpointObserver = inject(BreakpointObserver);
 
-
-    ngOnInit(): void{
-
-        console.log('TEST');
-        
-
+    constructor() {
         this.breakpointObserver
-            .observe([BREAKPOIN900, BREAKPOIN100])
-            .subscribe(x => {
-                if(x.breakpoints[BREAKPOIN900]){ this.setDisplayMode('MOBILE'); }
-                if(x.breakpoints[BREAKPOIN100]) { this.setDisplayMode('DESKTOP'); }
-            });
+            .observe(BREAKPOINT_MOBILE)
+            .pipe(
+                map(state => state.matches ? 'MOBILE' as DisplayMode : 'DESKTOP' as DisplayMode),
+                distinctUntilChanged()
+            )
+            .subscribe(mode => this.setDisplayMode(mode));
     }
 
-
+   
     setDisplayMode(mode: DisplayMode): void {
-        console.log(mode);
         this.displayMode.next(mode);
     }
 
@@ -44,5 +38,5 @@ export class DisplayService {
             map(display => display === 'DESKTOP' ? desktopValue : mobileValue)
         );
     }
-    
+
 }

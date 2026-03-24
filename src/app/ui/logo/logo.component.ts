@@ -11,14 +11,15 @@ import { map } from 'rxjs/operators';
 })
 export class LogoComponent implements OnInit{
   @Input() width?: number;
+  @Input() height?: number;
   @Input() hoverable : boolean = true;
-  @Input() variant: 'full' | 'outline' | 'auto' = 'auto';
+  @Input() variant: 'full' | 'outline' | 'small' | 'auto' = 'auto';
   @Input() targetFragment?: string;
 
   constructor(private route: ActivatedRoute){}
 
   ngOnInit(): void {
-    if(this.variant == "full"){
+    if(this.variant === "full" || this.variant === 'small'){
       this.hoverable = false;
     }
 

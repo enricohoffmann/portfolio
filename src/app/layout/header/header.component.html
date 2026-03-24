@@ -1,10 +1,16 @@
-<header id="header" class="header" [class.header-desktop]="(isDesktop$ | async)">
-    <section class="headerContainer-desktop">
+<header id="header" class="header" [class.header-desktop]="(isDesktop$ | async)" [class.header-mobile]="!(isDesktop$ | async)">
+    <section class="headerContainer-desktop" [class.desktop-mode]="(isDesktop$ | async)">
         <app-menu-desktop class="menu-desktop"></app-menu-desktop>
         <app-logo [width]="200" [hoverable]="true" [variant]="'auto'" class="logo-desktop" [routerLink]="'/'"></app-logo>
     </section>
-    <section class="headerContainer-mobile">
-
+    <section class="headerContainer-mobile" [class.mobile-mode]="!(isDesktop$ | async)">
+        <app-logo class="logo-mobile" [width]="64" [height]="64" [hoverable]="false" [variant]="'small'" [routerLink]="'/'"></app-logo>
+        <button type="button" title="Mobile Menu Button" class="mobile-menu-btn" (pointerdown)="onPointerDown()" >
+            <div>
+                <img src="/assets/icon/menuMobileWhite.svg" class="mobile-menu-icon icon-white" [class.isActive]="isMenuButtonActive" alt="">
+                <img src="/assets/icon/menuMobileColored.svg" class="mobile-menu-icon icon-colored" [class.isActive]="isMenuButtonActive" alt="">
+            </div>
+        </button>
     </section>
 </header>
 

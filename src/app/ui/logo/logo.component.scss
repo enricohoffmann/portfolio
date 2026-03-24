@@ -7,7 +7,9 @@
 }
 
 .logo-full,
-.logo-outline{
+.logo-outline, 
+.logo-small,
+.logo-small-outline {
     position: absolute;
     inset: 0;
     background-size: contain;
@@ -23,6 +25,16 @@
 
 .logo-outline{
     background-image: url('/assets/img/logoEnricoOutline01.svg');
+    opacity: 0;
+}
+
+.logo-small {
+    background-image: url('/assets/img/logoEnricoSmall.svg');
+    opacity: 1;
+}
+
+.logo-small-outline {
+    background-image: url('/assets/img/logoEnricoSmallOutline.svg');
     opacity: 0;
 }
 
