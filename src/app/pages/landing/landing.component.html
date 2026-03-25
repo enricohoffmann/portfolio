@@ -11,3 +11,7 @@
 @if(portfolioDialogOpen){
     <app-portfolio-dialog [projectId]="selectedPortfolioById" (dialogClose)="dialogIsClosed($event)"></app-portfolio-dialog>
 }
+
+@if(mobileMenuOpen$ | async){
+    <app-menu-mobile></app-menu-mobile>
+}

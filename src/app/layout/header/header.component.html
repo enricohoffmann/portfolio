@@ -7,8 +7,8 @@
         <app-logo class="logo-mobile" [width]="64" [height]="64" [hoverable]="false" [variant]="'small'" [routerLink]="'/'"></app-logo>
         <button type="button" title="Mobile Menu Button" class="mobile-menu-btn" (pointerdown)="onPointerDown()" >
             <div>
-                <img src="/assets/icon/menuMobileWhite.svg" class="mobile-menu-icon icon-white" [class.isActive]="isMenuButtonActive" alt="">
-                <img src="/assets/icon/menuMobileColored.svg" class="mobile-menu-icon icon-colored" [class.isActive]="isMenuButtonActive" alt="">
+                <img src="/assets/icon/menuMobileWhite.svg" class="mobile-menu-icon icon-white" [class.isActive]="(isMenuButtonActive$ | async)" alt="">
+                <img src="/assets/icon/menuMobileColored.svg" class="mobile-menu-icon icon-colored" [class.isActive]="(isMenuButtonActive$ | async)" alt="">
             </div>
         </button>
     </section>

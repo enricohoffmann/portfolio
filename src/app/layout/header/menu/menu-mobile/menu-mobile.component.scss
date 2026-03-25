@@ -1,0 +1,21 @@
+@import './../../../../../styles.scss';
+
+.mobile-menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    overflow: auto;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+.mobile-menu-container {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    z-index: 110;
+    top: 20;
+    left: 20;
+    background-color: aqua;
+
+}
