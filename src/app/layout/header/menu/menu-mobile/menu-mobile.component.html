@@ -1,7 +1,10 @@
 <section class="mobile-menu-overlay" (pointerdown)="onMobileMenuOverlayClose($event)">
 
-    @if(mobileMenueShow$ | async) {
-        <div class="mobile-menu-container"></div>
-    }
+     <div class="mobile-menu-container" [class.menue-show]="(mobileMenueShow$ | async)" (pointerdown)="$event.stopPropagation()">
+        @for(mobileLink of (mobileMenuLinks$ | async); track $index){
+            <app-menu-item [tragetFragment]="mobileLink.linkTargetFragment!" class="menu-item-host" (pointerdown)="onMenuItemClick()" >{{mobileLink.linkName}}</app-menu-item>
+        }  
+        <app-language-toggle></app-language-toggle> 
+     </div>
 
 </section>

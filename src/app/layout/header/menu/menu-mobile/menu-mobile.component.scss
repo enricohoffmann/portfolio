@@ -10,12 +10,19 @@
 }
 
 .mobile-menu-container {
-    height: 200px;
-    width: 200px;
+    padding: 30px 45px;
     position: absolute;
-    z-index: 110;
-    top: 20;
-    left: 20;
-    background-color: aqua;
+    z-index: 200;
+    top: 90px;
+    right: -110%;
+    background: linear-gradient(30deg, #1c1c1c 23%, #08463b 100%);
+    border-radius: 30px;
+    border: solid 1px var(--default-element-color);
+    transition: all 150ms ease-in;
+    pointer-events: auto;
+    @include display-flex-setup(column, center, center, 20px);
+}
 
+.mobile-menu-container.menue-show {
+    right: 20px;
 }

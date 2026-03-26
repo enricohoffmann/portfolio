@@ -5,13 +5,12 @@ import { RouterLink } from "@angular/router";
 import { Observable, map } from 'rxjs';
 import { DisplayService } from '../../services/display.service';
 import { AsyncPipe } from '@angular/common';
-import { MenuMobileComponent } from "./menu/menu-mobile/menu-mobile.component";
 import { MobileNavFlowService } from '../../services/mobileMenu.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [LogoComponent, MenuDesktopComponent, RouterLink, AsyncPipe, MenuMobileComponent, AsyncPipe],
+  imports: [LogoComponent, MenuDesktopComponent, RouterLink, AsyncPipe,  AsyncPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
