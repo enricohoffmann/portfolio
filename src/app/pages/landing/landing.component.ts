@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { HeroComponent } from "../../features/hero/hero.component";
 import { AboutMeComponent } from "../../features/aboutMe/about-me.component";
 import { SkillsComponent } from "../../features/skills/skills.component";
@@ -11,6 +11,8 @@ import { MenuMobileComponent } from '../../layout/header/menu/menu-mobile/menu-m
 import { MobileNavFlowService, MobileNavFlow } from '../../services/mobileMenu.service';
 import { Observable, map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { DisplayService } from '../../services/display.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 
 
@@ -33,11 +35,23 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './landing.component.scss'
 })
 export class LandingComponent {
+  private destroyRef = inject(DestroyRef);
 
   portfolioDialogOpen: boolean = false;
   selectedPortfolioById?: string;
 
-  constructor(private mobileMenuFlowService: MobileNavFlowService){}
+  constructor(
+    private mobileMenuFlowService: MobileNavFlowService,
+    private displayService: DisplayService
+  ){
+    this.displayService.displayMode$
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe(displayMode => {
+        if (displayMode !== 'DESKTOP') { return; }
+        if (this.mobileMenuFlowService.getCurrentMobilNavFlow() === 'closed') { return; }
+        this.mobileMenuFlowService.setMobileFlow('closed');
+      });
+  }
 
   mobileMenuOpen$: Observable<boolean> = this.mobileMenuFlowService.mobileFlow$.pipe(
     map(flow => flow === 'closed' ? false : true)

@@ -19,6 +19,7 @@ export class HeaderComponent {
   constructor(private displayService: DisplayService, private mobileMenuService: MobileNavFlowService){}
 
   isDesktop$: Observable<boolean> = this.displayService.selectViewByDisplayMode(true, false);
+  
   isMenuButtonActive$: Observable<boolean> = this.mobileMenuService.mobileFlow$.pipe(
     map(flow => flow === 'overlay' ? true : flow === 'menuShow' ? true : false)
   );
