@@ -36,11 +36,17 @@ $column2: 14px;
     grid-row-end: auto;
     justify-self: center;
     width: 1px;
-    /* height: 186px; */
-    height: clamp(100px, calc(100vh * 0.18), 186px);
+    height: 186px;
     background-color: white;
+    transition: height 125ms ease;
 }
 
 .contact-icon{
     grid-column: 1 / span 2;
+}
+
+@media (max-width: 901px){
+    .line {
+        height: clamp(110px, 14vh, 186px);
+    }
 }
