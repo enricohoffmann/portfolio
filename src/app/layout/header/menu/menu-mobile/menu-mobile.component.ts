@@ -36,6 +36,8 @@ export class MenuMobileComponent {
   ngOnInit() {
     document.body.classList.add('no-scroll');
     document.documentElement.classList.add('no-scroll');
+    document.documentElement.classList.add('mobile');
+    document.body.classList.add('mobile');
 
     setTimeout(() => {
       this.mobileNavFlowService.setMobileFlow('menuShow');
@@ -66,7 +68,9 @@ export class MenuMobileComponent {
   private hideMobileOverlay(): void {
     setTimeout(() => {
       document.body.classList.remove('no-scroll');
+      document.body.classList.remove('mobile');
       document.documentElement.classList.remove('no-scroll');
+      document.documentElement.classList.remove('mobile');
       this.mobileNavFlowService.setMobileFlow('closed');
       this.isClosing = false;
     }, this.OVERLAY_CLOSE_DELAY_MS);
@@ -75,6 +79,8 @@ export class MenuMobileComponent {
   ngOnDestroy(): void {
     document.body.classList.remove('no-scroll');
     document.documentElement.classList.remove('no-scroll');
+    document.documentElement.classList.remove('mobile');
+    document.body.classList.remove('mobile');
   }
 
 }

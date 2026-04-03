@@ -19,6 +19,11 @@ body.no-scroll{
     padding-right: 10px;
 }
 
+html.no-scroll.mobile,
+body.no-scroll.mobile {
+    overflow: hidden;
+    padding-right: 0;
+}
 
 app-root {
     display: block;

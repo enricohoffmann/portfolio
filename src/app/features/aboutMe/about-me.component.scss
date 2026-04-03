@@ -1,39 +1,40 @@
 @import './../../../styles.scss';
 
-:host > *{
+:host>* {
     background-color: var(--background-dark);
 }
 
-.aboutMe-section{
+.aboutMe-section {
     @include display-flex-setup(row, center, center);
     padding-top: 108px;
     padding-bottom: 96px;
 }
 
-.aboutMe-mainGrid{
+.aboutMe-mainGrid {
     max-width: var(--max-content-width);
     width: 100%;
     padding-left: 96px;
     padding-right: 108px;
     display: grid;
-    grid-template-columns: minmax(0, 609px) 1fr minmax(0, 609px);
+    grid-template-columns: minmax(0, 609px) minmax(50px, 1fr) minmax(0, 609px);
     min-height: 700px;
     height: 100%;
+    transition: all 125ms ease;
 }
 
-.foto-grid{
+.foto-grid {
     grid-column: 1;
     display: grid;
     grid-template-rows: 598px 102px;
 }
 
-.aboutMe-boxGrid{
+.aboutMe-boxGrid {
     grid-column: 3;
     display: grid;
     grid-template-rows: 102px auto;
 }
 
-.foto-container{
+.foto-container {
     grid-row: 1;
     @include display-flex-setup(row, center, center);
     overflow-y: hidden;
@@ -42,17 +43,21 @@
 }
 
 
-.foto-container:hover .aboutMe-deco{
+.foto-container:hover .aboutMe-deco {
     transform: translateX(-41px) translateY(30px);
 }
 
 
-.aboutMe-deco{
+.aboutMe-deco {
     position: absolute;
     top: 0;
     right: 0;
-    height: 568px;
-    width: 568px;
+    /* height: 568px;
+    width: 568px; */
+
+    height: clamp(300px, 37vw, 568px);
+    width: clamp(300px, 37vw, 568px);
+
     background-image: url('/assets/decor/imgBackgroundDecor.svg');
     background-repeat: no-repeat;
     background-position: center center;
@@ -60,19 +65,59 @@
     transition: all 250ms ease-in;
 }
 
-.aboutMe-foto{
+.aboutMe-foto {
     position: absolute;
     top: 0;
     right: 0;
-    height: 570px;
-    width: 570px;
+    /* height: 570px;
+    width: 570px; */
+
+    height: clamp(300px, 37vw, 570px);
+    width: clamp(300px, 37vw, 570px);
+
     border-radius: 30px;
     background-color: rgb(60, 66, 64);
 }
 
-.aboutMe-container{
+.aboutMe-container {
     grid-row: 2;
 }
 
+@media(max-width: 901px) {
+    .aboutMe-mainGrid {
+        grid-template-columns: none;
+        grid-template-rows: auto 32px auto;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
 
+    .foto-grid {
+        grid-column: none;
+        grid-row: 1;
+        grid-template-rows: none;
+    }
 
+    .foto-container{
+        display: block;
+    }
+
+    .aboutMe-boxGrid {
+        width: 90vw;
+        grid-column: none;
+        grid-template-rows: none;
+        grid-row: 3;
+    }
+
+    .aboutMe-deco {
+        display: none;
+    }
+
+    .aboutMe-foto {
+        position: relative;
+        width: auto;
+        height: 80vw;
+        border-radius: 30px;
+        background-color: rgb(60, 66, 64);
+    }
+
+}
