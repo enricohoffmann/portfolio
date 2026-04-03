@@ -41,7 +41,7 @@ export class LinksService {
         return this.heroButtonLinksDe;
     }
 
-    private readonly heroContactLinks: Link[] = [
+    private readonly heroContactLinksDesktop: Link[] = [
       {
         isActive: false,
         linkName: 'github',
@@ -58,7 +58,35 @@ export class LinksService {
       }
     ];
 
-    getHeroContactLinks(): Link[] {
-        return this.heroContactLinks;
+    getHeroContactLinksDesktop(): Link[] {
+        return this.heroContactLinksDesktop;
+    }
+
+    private readonly heroContactLinksMobile: Link[] = [
+      {
+        isActive: false,
+        linkName: 'mail',
+        linkTarget: 'mailTo:enrico@enrico-hoffmann.de',
+        linkTargetFragment: null,
+        linkTargetPlace: '_self'
+      },
+      {
+        isActive: false,
+        linkName: 'github',
+        linkTarget: 'https://github.com/enricohoffmann',
+        linkTargetFragment: null,
+        linkTargetPlace: '_blank'
+      },
+      {
+        isActive: false,
+        linkName: 'linkedin',
+        linkTarget: '#',
+        linkTargetFragment: null,
+        linkTargetPlace: '_blank'
+      }
+    ];
+
+    getHeroContactLinksMobile(): Link[]{
+        return this.heroContactLinksMobile;
     }
 }

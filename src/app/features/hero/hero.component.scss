@@ -1,10 +1,10 @@
 @import './../../../styles.scss';
 
-:host{
+:host {
     overflow: hidden;
 }
 
-section {
+.hero-section {
     position: relative;
     height: 100vh;
     height: 100dvh;
@@ -25,12 +25,14 @@ article {
     z-index: 2;
 
     & span {
-        @include font-setup('Fira_Code', 40px, 400, var(--text-color-default));
+        @include font-setup('Fira_Code', clamp(18px, 1.4vw, 40px), 400, var(--text-color-default));
         overflow: hidden;
+        transition: padding-bottom 100ms ease-in;
     }
 
     & h1 {
-        @include font-setup('Karla', 128px, 700, var(--text-color-default));
+        @include font-setup('Karla', clamp(38px, 5.8vw ,128px), 700, var(--text-color-default));
+        letter-spacing: -2%;
         overflow: hidden;
     }
 
@@ -39,8 +41,22 @@ article {
 .btn-container {
     @include display-flex-setup(row, center, center, 48px);
     padding-top: 48px;
+    transition: gap 100ms ease-in;
 }
 
 .leteral {
     z-index: 0;
+}
+@media(max-width: 901px){
+    article {
+        & span {
+            margin-bottom: 16px;
+        }
+    }
+}
+
+@media(max-width: 400px){
+    .btn-container {
+        gap: 12px;
+    }
 }

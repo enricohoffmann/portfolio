@@ -3,6 +3,7 @@ import { Component, AfterViewInit, ElementRef, ViewChild, QueryList, ViewChildre
 import { LanguageService } from '../../../services/language.service';
 import { MarqueeService } from '../../../services/marquee.service';
 import { Observable } from 'rxjs';
+import { DisplayService } from '../../../services/display.service';
 
 @Component({
   selector: 'app-hero-marquee',
@@ -25,7 +26,15 @@ export class HeroMarqueeComponent implements AfterViewInit {
   @ViewChildren('group') groupElements!: QueryList<ElementRef<HTMLElement>>;
   @Input() marqueeFontSize: number = 32;
 
-  constructor(private changeDetectorRef: ChangeDetectorRef, private languageService: LanguageService, private marqueeService: MarqueeService) { }
+  constructor(
+    private changeDetectorRef: ChangeDetectorRef, 
+    private languageService: LanguageService, 
+    private marqueeService: MarqueeService,
+    private displaysService: DisplayService
+  ) { }
+
+
+  isViewInMobileMode$: Observable<boolean> = this.displaysService.selectViewByDisplayMode(false, true);
 
   /**
    * @description This lifecycle hook is called after the component's view has been fully initialized. It performs several asynchronous operations to set up the marquee animation. 
@@ -160,6 +169,8 @@ export class HeroMarqueeComponent implements AfterViewInit {
     return size * 2.5;
 
   }
+
+
 
   /**
    * @description Disconnect the ResizeObserver when the component is destroyed to prevent memory leaks and unnecessary observations.

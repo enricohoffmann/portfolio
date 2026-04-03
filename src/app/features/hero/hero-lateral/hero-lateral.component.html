@@ -1,4 +1,4 @@
-<section>
+<section [class.lateral-mobile]="(isInMobileMode$ | async)">
     <app-lateral-left></app-lateral-left>
     <app-lateral-right></app-lateral-right>
 </section>

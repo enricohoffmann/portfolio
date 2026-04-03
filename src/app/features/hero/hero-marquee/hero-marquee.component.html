@@ -1,4 +1,4 @@
-<section class="marquee-container">
+<section class="marquee-container" [class.marquee-mobile]="(isViewInMobileMode$ | async)">
     <div class="fade-viewport">
         <div class="marquee-track" #track>
             @for (num of copies; track $index;){
@@ -6,7 +6,7 @@
             <div class="marquee-group" #group>
                 @for (item of (marqueeTextArray$ | async); track $index; let last = $last) {
                 <span class="marquee-dot" aria-hidden="true"></span>
-                <span class="marquee-text">{{ item }}</span>
+                <span class="marquee-text" [class.marquee-mobile-text]="(isViewInMobileMode$ | async)">{{ item }}</span>
                 }
             </div>
             }

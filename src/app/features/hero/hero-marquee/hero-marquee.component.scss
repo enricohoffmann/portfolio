@@ -18,6 +18,11 @@ $backDrop: 5.3px;
     z-index: 2;
 }
 
+.marquee-container.marquee-mobile {
+    height: 46px;
+    padding: 0 14.5px;
+}
+
 .marquee-container::before {
     content: "";
     position: absolute;
@@ -70,6 +75,10 @@ $backDrop: 5.3px;
 .marquee-text {
     @include font-setup('Karla', var(--marqueeFontSize), 400, var(--default-element-color), 120%);
     white-space: nowrap;
+}
+
+.marquee-text.marquee-mobile-text {
+    font-size: 24px;
 }
 
 .marquee-dot,

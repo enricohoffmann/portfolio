@@ -1,10 +1,13 @@
 <article class="lateral-right-grid">
 
-    <div class="mail-link-container">
-        <a class="mail-link" href="mailto:enrico@enrico-hoffmann.de">enrico&#64;enrico-hoffmann.de</a>
-    </div>
+    @if(showMailLink$ | async){
+        <div class="mail-link-container">
+            <a class="mail-link" href="mailto:enrico@enrico-hoffmann.de">enrico&#64;enrico-hoffmann.de</a>
+        </div>
+    }
+   
   
-    @for(contactIcon of heroContactLinks; track contactIcon){
+    @for(contactIcon of (heroContactLinks$ | async); track contactIcon){
         <app-contact-icon [iconLink]="contactIcon" class="contact-icon"></app-contact-icon>
     }
     

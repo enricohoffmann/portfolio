@@ -10,6 +10,7 @@
     padding-right: 48px;
     @include display-flex-setup(column, center, center);
     overflow: hidden;
+    transition: padding-left 100ms ease-in, padding-right 100ms ease-in;
 }
 
 .header.header-desktop {
@@ -132,4 +133,12 @@
 
 .mobile-menu-icon.icon-colored.isActive {
     opacity: 1;
+}
+
+@media(max-width: 500px){
+    .header {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
 }
