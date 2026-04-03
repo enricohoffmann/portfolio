@@ -13,8 +13,8 @@
 .aboutMe-mainGrid {
     max-width: var(--max-content-width);
     width: 100%;
-    padding-left: 96px;
-    padding-right: 108px;
+    padding-left: clamp(42px, 3vw, 96px);
+    padding-right: clamp(50px, 3vw, 108px);
     display: grid;
     grid-template-columns: minmax(0, 609px) minmax(50px, 1fr) minmax(0, 609px);
     min-height: 700px;
@@ -85,27 +85,35 @@
 
 @media(max-width: 901px) {
     .aboutMe-mainGrid {
-        grid-template-columns: none;
-        grid-template-rows: auto 32px auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        row-gap: 32px;
         padding-left: 24px;
         padding-right: 24px;
+        justify-items: center;
+        align-items: start;
     }
 
     .foto-grid {
-        grid-column: none;
+        grid-column: 1;
         grid-row: 1;
-        grid-template-rows: none;
+        grid-template-rows: auto;
+        width: 100%;
+        justify-items: center;
     }
 
     .foto-container{
-        display: block;
+        display: flex;
+        justify-content: center;
+        width: 100%;
     }
 
     .aboutMe-boxGrid {
-        width: 90vw;
-        grid-column: none;
-        grid-template-rows: none;
-        grid-row: 3;
+        width: min(100%, 620px);
+        grid-column: 1;
+        grid-template-rows: auto;
+        grid-row: 2;
+        justify-items: center;
     }
 
     .aboutMe-deco {
@@ -114,10 +122,15 @@
 
     .aboutMe-foto {
         position: relative;
-        width: auto;
+        width: min(100%, 570px);
         height: 80vw;
+        max-height: 570px;
         border-radius: 30px;
         background-color: rgb(60, 66, 64);
+    }
+
+    .aboutMe-container {
+        width: min(100%, 570px);
     }
 
 }
