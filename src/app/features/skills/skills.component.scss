@@ -49,6 +49,7 @@
     display: grid;
     grid-template-columns: 520px 1fr;
     grid-template-rows: 48px auto;
+    transition: all 100ms ease;
 }
 
 .skill-set-container {
@@ -66,17 +67,17 @@
     color: var(--default-element-color);
 }
 
-.card-subtext{
+.card-subtext {
     width: 330px;
     margin-top: 20px;
     @include font-setup('Karla', 16px, 400, #fff);
 }
 
-.skills-btn-container{
+.skills-btn-container {
     margin-top: 24px;
 }
 
-.skillset-grid{
+.skillset-grid {
     padding-inline: 64px 0;
     grid-column: 2;
     grid-row: 2;
@@ -85,8 +86,45 @@
     grid-auto-rows: 135px;
     grid-gap: 48px;
     overflow: visible;
+    transition: all 100ms ease;
 }
 
-.skillset-grid > *{
+.skillset-grid>* {
     overflow: visible;
+    @include display-flex-setup(column, center, center);
+}
+
+
+@media(max-width: 1220px) {
+    .skills-content-grid {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media(max-width: 901px) {
+    .skills-content-grid {
+        grid-template-columns: 1fr;
+        row-gap: 32px;
+        align-content: center;
+    }
+
+    .skills-content-grid>* {
+        width: min(100%, 570px);
+    }
+
+    .skill-set-container {
+        width: 100%;
+        align-self: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .skillset-grid {
+        grid-column: 1;
+        grid-row: 3;
+        padding-inline: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

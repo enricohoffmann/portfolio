@@ -33,7 +33,7 @@
     }
 
     & h1 {
-        @include font-setup('Karla', clamp(38px, 5.8vw, 128px), 700, var(--text-color-default));
+        @include font-setup('Karla', clamp(38px, 7.8vw, 128px), 700, var(--text-color-default));
         letter-spacing: -2%;
         overflow: hidden;
     }
