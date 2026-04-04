@@ -45,3 +45,12 @@
     height: 22px;
     background-color: var(--default-element-color);
 }
+
+@media(max-width: 601px){
+
+    .portfolio-menu-item-container{
+        @include display-flex-setup(column, center, flex-start, 16px);
+        padding: 38px 8px;
+    }
+     
+}

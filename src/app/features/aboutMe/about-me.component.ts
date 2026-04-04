@@ -7,6 +7,7 @@ import { AsyncPipe } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 import { AboutMeService } from '../../services/aboutMe.service';
 import { AboutMe } from '../../interfaces/aboutMe.interface';
+import { DisplayService } from '../../services/display.service';
 
 @Component({
   selector: 'app-about-me',
@@ -16,8 +17,10 @@ import { AboutMe } from '../../interfaces/aboutMe.interface';
   styleUrl: './about-me.component.scss'
 })
 export class AboutMeComponent {
-  constructor(private languageService: LanguageService, private aboutMeDataService: AboutMeService){}
+  constructor(private languageService: LanguageService, private aboutMeDataService: AboutMeService, private displayService: DisplayService){}
 
   aboutMeData$: Observable<AboutMe> = this.languageService.selectByLanguage(this.aboutMeDataService.getAboutMeDataDe(), this.aboutMeDataService.getAboutMeDataEn());
+
+  isViewInMobileMode$: Observable<boolean> = this.displayService.selectViewByDisplayMode(false, true);
 
 }

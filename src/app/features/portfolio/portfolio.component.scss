@@ -23,3 +23,19 @@
 .portfolio-menu-container{
     margin-top: 48px;
 }
+
+@media(max-width: 1200px){
+    .portfolio-section {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90vw;
+        width: 90dvw;
+        padding: 0;
+    }
+
+    .portfolio-introduction {
+        max-width: 90vw;
+        width: 90vw;
+        width: 90dvw;
+    }
+}

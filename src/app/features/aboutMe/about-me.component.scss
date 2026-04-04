@@ -52,9 +52,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    /* height: 568px;
-    width: 568px; */
-
     height: clamp(300px, 37vw, 568px);
     width: clamp(300px, 37vw, 568px);
 
@@ -69,8 +66,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    /* height: 570px;
-    width: 570px; */
 
     height: clamp(300px, 37vw, 570px);
     width: clamp(300px, 37vw, 570px);
@@ -117,7 +112,10 @@
     }
 
     .aboutMe-deco {
-        display: none;
+        transform: translateX(-41px) translateY(30px);
+        width: min(100%, 570px);
+        height: 80vw;
+        max-height: 570px;
     }
 
     .aboutMe-foto {

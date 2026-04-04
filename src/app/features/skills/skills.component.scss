@@ -68,7 +68,7 @@
 }
 
 .card-subtext {
-    width: 330px;
+    width: clamp(100%,20vw,330px);
     margin-top: 20px;
     @include font-setup('Karla', 16px, 400, #fff);
 }
