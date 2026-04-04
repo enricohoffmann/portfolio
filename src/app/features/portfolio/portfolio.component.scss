@@ -28,8 +28,8 @@
     .portfolio-section {
         margin-left: auto;
         margin-right: auto;
-        width: 90vw;
-        width: 90dvw;
+        width: min(90vw, 570px);
+        width: min(90dvw, 570px);
         padding: 0;
     }
 

@@ -1,25 +1,24 @@
 <section class="references-section">
     <div class="references-headline">
         @if(currentReferencesHeadline$ | async; as currentReferencesHeadline){
-            <h3>{{currentReferencesHeadline}}</h3>
+        <h3>{{currentReferencesHeadline}}</h3>
         }@else {
-            <span>Loading...</span>
+        <span>Loading...</span>
         }
-        
+
     </div>
-    <div class="references-card-container fade-cards" (transitionend)="resetCardAnimation($event)">
+    <div class="references-card-container" [class.fade-cards]="!(isViewInMobileMode$ | async)"
+        (transitionend)="resetCardAnimation($event)">
 
         @for (reference of (referencesArray$ | async); track reference; let index = $index;) {
 
-            <div class="references-card" 
-                [class.references-card-left-off]="(index === getIndexLeftOff())"
+            <div class="references-card" [class.references-card-left-off]="(index === getIndexLeftOff())"
                 [class.references-card-left]="index === getIndexLeft()"
                 [class.references-card-activ]="index === currentIndex"
                 [class.references-card-right]="index === getIndexRight()"
                 [class.references-card-right-off]="(index === getIndexRightOff())"
-                [class.no-animation]="index === noAnimationIndex"
-                >
-                
+                [class.no-animation]="index === noAnimationIndex">
+
                 <app-card [cardIsActiv]="index === currentIndex" [cardType]="'references'">
                     <article class="references-card-content z1" cardReferences>
                         <p class="references-comment">
@@ -45,20 +44,22 @@
     <aside class="reference-button-container">
         <button class="reference-swipe-btn btn-back" type="button" (click)="referencesBackClick()">
             <div class="reference-swipe-btn-img-container">
-                <img alt="icon" src="/assets/icon/arrowsLeftWhite.svg" class="reference-arrow-left reference-arrow-left-white">
-                <img alt="icon" src="/assets/icon/arrowBackGreen.svg" class="reference-arrow-left reference-arrow-left-green">
+                <img alt="icon" src="/assets/icon/arrowsLeftWhite.svg"
+                    class="reference-arrow-left reference-arrow-left-white">
+                <img alt="icon" src="/assets/icon/arrowBackGreen.svg"
+                    class="reference-arrow-left reference-arrow-left-green">
             </div>
         </button>
         @for(dot of [0,1,2]; track dot; let index = $index){
-            <div class="reference-swipe-dot"
-                [class.dot-green]="index === currentDotIndex"
-                [class.dot-white]="index !== currentDotIndex"
-            ></div>
+        <div class="reference-swipe-dot" [class.dot-green]="index === currentDotIndex"
+            [class.dot-white]="index !== currentDotIndex"></div>
         }
         <button class="reference-swipe-btn btn-forward" type="button" (click)="referencesForwardClick()">
             <div class="reference-swipe-btn-img-container">
-                <img alt="icon" src="/assets/icon/arrowForwardWhite.svg" class="reference-arrow-left reference-arrow-right-white">
-                <img alt="icon" src="/assets/icon/arrowForwardGreen.svg" class="reference-arrow-left reference-arrow-right-green">
+                <img alt="icon" src="/assets/icon/arrowForwardWhite.svg"
+                    class="reference-arrow-left reference-arrow-right-white">
+                <img alt="icon" src="/assets/icon/arrowForwardGreen.svg"
+                    class="reference-arrow-left reference-arrow-right-green">
             </div>
         </button>
     </aside>

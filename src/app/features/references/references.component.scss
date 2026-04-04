@@ -4,21 +4,22 @@
     margin-bottom: 120px;
 }
 
-.references-headline{
+.references-headline {
     @include display-flex-setup(row, center, center);
     margin-bottom: 48px;
 
-    & h3{
+    & h3 {
         @include font-setup("Fira_Code", 32px, 700, var(--default-element-color), 120%);
         overflow: hidden;
     }
 }
 
-.references-card-container{
+.references-card-container {
+    --reference-card-width: min(80vw, 632px);
+    --reference-card-height: clamp(310px, 50vh, 418px);
     position: relative;
     @include display-flex-setup(row, center, center);
-    height: 310px;
-    padding-bottom: 16px;
+    height: var(--reference-card-height);
     overflow: hidden;
 }
 
@@ -26,72 +27,72 @@
     @include fadeInOut(0%, 100%, 14%, 80%);
 }
 
-.references-card{
+.references-card {
     position: absolute;
     flex-shrink: 0;
-    width: 632px;
-    height: 274px;
+    width: var(--reference-card-width);
+    height: calc(var(--reference-card-height) - 50px);
     margin-left: 16px;
     margin-right: 16px;
     transition: transform 500ms ease, filter 500ms ease;
 }
 
-.references-card-left-off{
+.references-card-left-off {
     filter: brightness(0.8);
     transform: translateX(-220%) scale(0.8);
 }
 
-.references-card-left{
+.references-card-left {
     filter: brightness(0.8);
     transform: translateX(-110%) scale(0.8);
 }
 
-.references-card-activ{
+.references-card-activ {
     opacity: 1;
     filter: brightness(1.1);
     transform: translateX(0);
 }
 
-.references-card-right{
+.references-card-right {
     filter: brightness(0.8);
     transform: translateX(110%) scale(0.8);
 }
 
-.references-card-right-off{
+.references-card-right-off {
     filter: brightness(0.8);
     transform: translateX(220%) scale(0.8);
 }
 
-.references-card-left-out{
+.references-card-left-out {
     filter: brightness(0.8);
     transform: translateX(-440%) scale(0.8);
 }
 
-.no-animation{
+.no-animation {
     transition: none !important;
 }
 
-.references-comment{
+.references-comment {
     @include font-setup('Karla', 20px, 400, #fff);
 }
 
-.references-card-content{
+.references-card-content {
     @include display-flex-setup(column, space-between, center);
     height: 100%;
 }
 
-.references-writer-container{
+.references-writer-container {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr auto;
-
+    padding-top: 100px;
 }
 
-.writer-columns-one{
+.writer-columns-one {
     width: 100%;
     @include display-flex-setup(row, center, center);
-    
-    & div{
+
+    & div {
         width: 100%;
         height: 1px;
         background-color: #fff;
@@ -99,16 +100,16 @@
 
 }
 
-.references-writer{
+.references-writer {
     padding-left: 12px;
     @include font-setup('Karla', 18px, 400, #fff);
 }
 
-.reference-button-container{
+.reference-button-container {
     @include display-flex-setup(row, center, center, 20px);
 }
 
-.reference-swipe-btn{
+.reference-swipe-btn {
     width: 40px;
     height: 40px;
     background-color: transparent;
@@ -118,7 +119,7 @@
     @include display-flex-setup(row, center, center);
 }
 
-.reference-swipe-btn-img-container{
+.reference-swipe-btn-img-container {
     position: relative;
     box-sizing: border-box;
     @include display-flex-setup(row, center, center);
@@ -126,7 +127,7 @@
     width: 28px;
 }
 
-.reference-arrow-left{
+.reference-arrow-left {
     position: absolute;
     inset: 0;
     height: 100%;
@@ -137,7 +138,7 @@
     transition: all 100ms ease-in;
 }
 
-.reference-arrow-right{
+.reference-arrow-right {
     position: absolute;
     inset: 0;
     height: 100%;
@@ -148,38 +149,76 @@
     transition: all 100ms ease-in;
 }
 
-.reference-arrow-left-white{ opacity: 1;}
-.btn-back:hover .reference-arrow-left-white {opacity: 0;}
+.reference-arrow-left-white {
+    opacity: 1;
+}
+
+.btn-back:hover .reference-arrow-left-white {
+    opacity: 0;
+}
+
 .btn-back:hover .reference-arrow-left-green {
     opacity: 1;
     transform: translateX(-3px);
 }
 
-.reference-arrow-right-white{ opacity: 1;}
-.btn-forward:hover .reference-arrow-right-white {opacity: 0;}
+.reference-arrow-right-white {
+    opacity: 1;
+}
+
+.btn-forward:hover .reference-arrow-right-white {
+    opacity: 0;
+}
+
 .btn-forward:hover .reference-arrow-right-green {
     opacity: 1;
     transform: translateX(3px);
 }
 
 
-.reference-swipe-dot{
+.reference-swipe-dot {
     @include createOneDot(8px, 8px);
     transition: background-color 125ms ease-in;
 }
 
-.dot-green{
+.dot-green {
     background-color: var(--default-element-color);
 }
 
-.dot-white{
+.dot-white {
     background-color: #fff;
 }
 
-.quotes-container{
+.quotes-container {
     position: absolute;
+    top: 0;
+    left: 50%;
+    width: calc(var(--reference-card-width) + 75px);
+    height: 100%;
+    transform: translateX(-50%);
+    pointer-events: none;
     z-index: 20;
-    inset: 0;
-    @include display-flex-setup(row, center, flex-start);
-    transform: translateX(-316px);
+}
+
+.quotes-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: clamp(56px, 5.5vw, 80px);
+    height: auto;
+    transform: translate(0%, 27%);
+}
+
+@media(max-width: 730px) {
+    .quotes-icon {
+        transform: translate(28%, 40%);
+    }
+
+    .references-card-left {
+        transform: translateX(-100%) scale(0.9);
+    }
+
+    .references-card-right {
+        transform: translateX(100%) scale(0.9);
+    }
 }

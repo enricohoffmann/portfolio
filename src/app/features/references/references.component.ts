@@ -7,6 +7,7 @@ import { AsyncPipe } from '@angular/common';
 import { LanguageService } from '../../services/language.service';
 import { ReferenceEntry } from '../../interfaces/reference.interface';
 import { ReferenceDateService } from '../../services/reference.service';
+import { DisplayService } from '../../services/display.service';
 
 @Component({
   selector: 'app-references',
@@ -25,12 +26,18 @@ export class ReferencesComponent {
   currentArrayLenght: number = 0;
   private referencesSubscription?: Subscription;
 
-  constructor(private languageService: LanguageService, private referenceService: ReferenceDateService){}
+  constructor(
+    private languageService: LanguageService, 
+    private referenceService: ReferenceDateService,
+    private displayService: DisplayService
+  ){}
 
   currentReferencesHeadline$: Observable<string> =  this.languageService.selectByLanguage('So arbeite ich', 'This is how I work');
 
   referencesArray$: Observable<ReferenceEntry[]> = this.languageService.selectByLanguage(this.referenceService.getReferneceArrayDe(), this.referenceService.getReferneceArrayEn());
  
+  isViewInMobileMode$: Observable<boolean> = this.displayService.selectViewByDisplayMode(false, true);
+
   ngOnInit() {
     this.referencesSubscription = this.referencesArray$.subscribe(array => {
       const isFirstLoad = this.currentArrayLenght === 0;

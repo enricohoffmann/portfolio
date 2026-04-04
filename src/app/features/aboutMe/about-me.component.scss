@@ -90,17 +90,11 @@
     }
 
     .foto-grid {
+        width: min(90vw, 598px);
+        aspect-ratio: 1 / 1;
         grid-column: 1;
         grid-row: 1;
         grid-template-rows: auto;
-        width: 100%;
-        justify-items: center;
-    }
-
-    .foto-container{
-        display: flex;
-        justify-content: center;
-        width: 100%;
     }
 
     .aboutMe-boxGrid {
@@ -112,19 +106,14 @@
     }
 
     .aboutMe-deco {
-        transform: translateX(-41px) translateY(30px);
-        width: min(100%, 570px);
-        height: 80vw;
-        max-height: 570px;
+        transform: translateX(0) translateY(0);
+        height: 100%;
+        width: 100%;
     }
 
     .aboutMe-foto {
-        position: relative;
-        width: min(100%, 570px);
-        height: 80vw;
-        max-height: 570px;
-        border-radius: 30px;
-        background-color: rgb(60, 66, 64);
+        width: 97%;
+        height: 97%;
     }
 
     .aboutMe-container {
