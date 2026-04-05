@@ -3,3 +3,7 @@
     <app-document-content [pageContent]="(imprintData$ | async) ?? undefined"></app-document-content>
     <app-footer></app-footer>
 </section>
+
+@if(mobileMenuOpen$ | async){
+    <app-menu-mobile></app-menu-mobile>
+}

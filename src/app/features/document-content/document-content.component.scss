@@ -1,27 +1,27 @@
 @import './../../../styles.scss';
 
-.text-page-content{
+.text-page-content {
     padding-left: 170px;
     padding-right: 170px;
     margin-bottom: 96px;
 }
 
 
-.page-title{
+.page-title {
     margin-top: 40px;
     margin-bottom: 80px;
     text-align: center;
-    @include font-setup('Fira_Code', 64px, 700, var(--default-element-color), 120%);
-    overflow: hidden
+    @include font-setup('Fira_Code', clamp(48px, 0.5vw ,64px), 700, var(--default-element-color), 120%);
+    overflow: hidden;
 }
 
-.sectionH2{
+.sectionH2 {
     @include font-setup('Fira_Code', 42px, 700, #fff, 120%);
     margin-bottom: 12px;
     overflow: hidden;
 }
 
-.sectionH3{
+.sectionH3 {
     @include font-setup('Fira_Code', 32px, 700, #fff, 120%);
     margin-bottom: 12px;
     overflow: hidden;
@@ -56,8 +56,8 @@
 }
 
 .normal.external-link:hover {
-     color: #fff
-}   
+    color: #fff
+}
 
 
 .dot {
@@ -65,4 +65,13 @@
     transform: translateY(-3.5px);
     margin-right: 6px;
     margin-left: 4px;
+}
+
+@media(max-width: 901px) {
+    .text-page-content {
+        padding: 0;
+        margin-left: auto;
+        margin-right: auto;
+        width: min(90vw, var(--mobile-max-width));
+    }
 }

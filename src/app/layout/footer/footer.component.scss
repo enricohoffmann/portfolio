@@ -1,12 +1,12 @@
 @import './../../../styles.scss';
 
-.footer-section{
+.footer-section {
     padding: 0 96px 76px 96px;
     display: grid;
     grid-template-columns: auto 1fr auto;
 }
 
-.footer-left{
+.footer-left {
     @include display-flex-setup(column, center, flex-start, 6px);
 
     & p {
@@ -15,11 +15,11 @@
     }
 }
 
-.footer-left > app-logo{
+.footer-left>app-logo {
     margin-bottom: 8px;
 }
 
-.footer-center{
+.footer-center {
     @include display-flex-setup(row, center, center);
 
     & span {
@@ -27,7 +27,22 @@
     }
 }
 
-.footer-right{
+.footer-right {
     position: relative;
     @include display-flex-setup(column, center, flex-start, 8px);
+}
+
+@media(max-width: 901px) {
+    .footer-section {
+        padding: 0 24px 42px 24px;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        row-gap: 32px;
+    }
+
+    .footer-center {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+
 }

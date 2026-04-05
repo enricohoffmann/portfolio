@@ -28,11 +28,11 @@ article>* {
     user-select: none;
 }
 
-.card-border{
+.card-border {
     border: 1px solid var(--default-element-color);
 }
 
-.card-transparent::before{
+.card-transparent::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -69,7 +69,7 @@ article>* {
     @include font-setup('Karla', 24px, 500, var(--default-element-color));
 }
 
-.card-eyebrow:empty{
+.card-eyebrow:empty {
     display: none;
 }
 
@@ -89,10 +89,16 @@ article>* {
     display: none;
 }
 
-[cardSkills]:empty{
+[cardSkills]:empty {
     display: none;
 }
 
-.card-container.references-card{
+.card-container.references-card {
     padding: 48px 32px;
+}
+
+@media(max-width: 901px) {
+    .card-container.references-card {
+        padding: 32px 24px;
+    }
 }

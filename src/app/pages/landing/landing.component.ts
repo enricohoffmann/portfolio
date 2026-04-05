@@ -8,7 +8,7 @@ import { ContactComponent } from '../../features/contact/contact.component';
 import { FooterComponent } from '../../layout/footer/footer.component';
 import { PortfolioDialogComponent } from '../../features/portfolio/portfolio-dialog/portfolio-dialog.component';
 import { MenuMobileComponent } from '../../layout/header/menu/menu-mobile/menu-mobile.component';
-import { MobileNavFlowService, MobileNavFlow } from '../../services/mobileMenu.service';
+import { MobileNavFlowService } from '../../services/mobileMenu.service';
 import { Observable, map } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { DisplayService } from '../../services/display.service';

@@ -1,7 +1,7 @@
 import { PageTextContent } from "../interfaces/pageTextContent.interface";
 
 export const PrivacyPolicyDataDe: PageTextContent = {
-    pageTitle: 'Datenschutzerklärung',
+    pageTitle: 'Datenschutz Erklärung',
     sections: [
         {
             sectionH2: '1. Datenschutz auf einen Blick',
