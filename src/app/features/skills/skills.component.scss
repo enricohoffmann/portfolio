@@ -110,7 +110,7 @@
     }
 
     .skills-content-grid>* {
-        width: min(100%, 570px);
+        width: min(100%, var(--mobile-max-width));
     }
 
     .skill-set-container {

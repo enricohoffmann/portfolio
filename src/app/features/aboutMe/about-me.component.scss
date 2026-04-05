@@ -67,8 +67,8 @@
     top: 0;
     right: 0;
 
-    height: clamp(300px, 37vw, 570px);
-    width: clamp(300px, 37vw, 570px);
+    height: clamp(300px, 37vw, var(--mobile-max-width));
+    width: clamp(300px, 37vw, var(--mobile-max-width));
 
     border-radius: 30px;
     background-color: rgb(60, 66, 64);
@@ -117,7 +117,7 @@
     }
 
     .aboutMe-container {
-        width: min(100%, 570px);
+        width: min(100%, var(--mobile-max-width));
     }
 
 }

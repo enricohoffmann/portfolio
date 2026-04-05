@@ -118,8 +118,8 @@
         grid-template-columns: 1fr;
         margin-left: auto;
         margin-right: auto;
-        width: min(90vw, 570px);
-        width: min(90dvw, 570px);
+        width: min(90vw, var(--mobile-max-width));
+        width: min(90dvw, var(--mobile-max-width));
         row-gap: 40px;
         padding: 0;
         padding-bottom: 91px;
