@@ -1,12 +1,26 @@
 @import './../../../../styles.scss';
 
-.dialog-overlay{
+.dialog-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1000;
     @include display-flex-setup(row, center, center);
     overflow-y: auto;
     box-sizing: border-box;
 }
 
+
+@media(max-width: 901px) {
+    .dialog-overlay {
+        align-items: flex-start;
+        padding-top: calc(env(safe-area-inset-top) + 12px);
+        padding-right: 12px;
+        padding-bottom: 12px;
+        padding-left: 12px;
+    }
+
+    .dialog-content {
+        overflow-y: auto;
+    }
+}

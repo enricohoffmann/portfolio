@@ -1,27 +1,35 @@
 @import './../../../../../styles.scss';
 
-:host{
+:host {
     display: block;
     max-width: 1440px;
 }
 
-.dialog{
+.dialog {
     position: relative;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas: 'content close_image_next';
+    grid-template-rows: auto 1fr auto;
     background: linear-gradient(45deg, rgba(28, 28, 28, 1) 42%, rgba(8, 70, 59, 1) 100%);
     border-radius: 30px;
     border: 1px solid var(--default-element-color);
-    padding: 4rem;
+    padding: 3rem;
+    max-width: 90vw;
+    max-width: 90dvw;
 }
 
-.content-card{
+.card-image-grid {
+    grid-row: 2;
     width: 100%;
-    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-.close_image_next{
+
+.dialog-card {
+    grid-column: 1;
+}
+
+.close_image_next {
     height: 100%;
     width: 100%;
     display: grid;
@@ -29,40 +37,43 @@
     grid-template-areas: 'close' 'image' 'next';
 }
 
-.project-id{
-    @include font-setup('Karla', 120px, 700, var(--default-element-color), 100px);
+.project-id {
+    @include font-setup('Karla', clamp(70px, 3.2vw, 120px), 700, var(--default-element-color), 100px);
     letter-spacing: -2%;
     margin-bottom: 24px;
 }
 
 .project-title {
-    @include font-setup('Fira_Code', 64px, 700, #fff, 100%);
+    @include font-setup('Fira_Code', clamp(56px, 0.5vw, 64px), 700, #fff, 100%);
     letter-spacing: -3%;
     overflow: hidden;
     margin-bottom: 32px;
 }
 
-.project-sub{
-    @include font-setup('Fira_Code', 24px, 700, var(--default-element-color), 120%);
+.project-sub {
+    @include font-setup('Fira_Code', clamp(20px, 0.3vw ,24px), 700, var(--default-element-color), 120%);
     overflow: hidden;
     margin-bottom: 32px;
 }
 
-.project-description{
+.project-description {
     @include font-setup('Karla', 18px, 400, #fff, 120%);
     margin-bottom: 32px;
 }
 
-.project-skills{
+.project-skills {
     @include display-flex-setup(row, flex-start, center, 16px);
     margin-bottom: 40px;
 }
 
-.project-buttons{
+.project-buttons {
     @include display-flex-setup(row, flex-start, center, 32px);
 }
 
-.project-image-area{
+.project-image-area {
+
+    grid-column: 2;
+
     @include display-flex-setup(row, flex-end, center);
 
     img {
@@ -75,6 +86,7 @@
 }
 
 .project-close-area {
+    grid-row: 1;
     @include display-flex-setup(row, flex-end, center);
 }
 
@@ -107,7 +119,7 @@
 }
 
 .project-close-lg {
-   opacity: 0;
+    opacity: 0;
 }
 
 .project-close-icons-container:hover .project-close-sm {
@@ -119,9 +131,9 @@
 }
 
 .project-next-area {
+    grid-row: 3;
     height: 40px;
     @include display-flex-setup(row, flex-end, center);
-    margin-top: 40px;
     cursor: pointer;
 }
 
@@ -144,7 +156,7 @@
     color: #fff;
 }
 
-.next-icon-container{
+.next-icon-container {
     width: 50px;
     @include display-flex-setup(row, flex-start, center);
     overflow: hidden;
@@ -154,4 +166,37 @@
     scale: 1.1;
     filter: brightness(1);
     transform: translateX(3px);
+}
+
+
+@media(max-width: 901px) {
+
+    .dialog {
+        margin: 0 auto;
+    }
+
+    .card-image-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .project-image-area {
+        grid-column: 1;
+        grid-row: 1;
+        @include display-flex-setup(row, center, center);
+    }
+
+    .dialog-card {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .project-id {
+        margin-bottom: 0;
+    }
+
+    .project-buttons {
+        width: 100%;
+        @include display-flex-setup(row, center, center, 16px);
+    }
 }
