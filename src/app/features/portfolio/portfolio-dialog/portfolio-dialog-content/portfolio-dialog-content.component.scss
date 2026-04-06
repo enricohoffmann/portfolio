@@ -51,7 +51,7 @@
 }
 
 .project-sub {
-    @include font-setup('Fira_Code', clamp(20px, 0.3vw ,24px), 700, var(--default-element-color), 120%);
+    @include font-setup('Fira_Code', clamp(20px, 0.3vw, 24px), 700, var(--default-element-color), 120%);
     overflow: hidden;
     margin-bottom: 32px;
 }
@@ -173,6 +173,7 @@
 
     .dialog {
         margin: 0 auto;
+        padding: 16px 0;
     }
 
     .card-image-grid {
@@ -199,4 +200,21 @@
         width: 100%;
         @include display-flex-setup(row, center, center, 16px);
     }
+
+    .project-close-area {
+        margin-bottom: 16px;
+        margin-right: 20px;
+    }
+
+    .project-skills>* {
+        flex: 0 0 auto;
+    }
+
+    .project-skills {
+        flex-wrap: wrap;
+        row-gap: 12px;
+        margin-bottom: 40px;
+    }
+
+
 }
