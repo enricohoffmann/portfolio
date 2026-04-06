@@ -11,7 +11,7 @@
                 [type]="'button'" 
                 [variant]="'primary'"
                 [target]="buttonLink.linkTarget"
-                [targetFragment]="'buttonLink.linkTargetFragment'"
+                [targetFragment]="buttonLink.linkTargetFragment ?? undefined"
                 >{{buttonLink.linkName}}</app-button>
             }
         </div>

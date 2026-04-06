@@ -43,6 +43,7 @@
     .footer-center {
         grid-column: 1 / span 2;
         grid-row: 2;
+        overflow: hidden;
     }
 
 }
