@@ -16,7 +16,7 @@
 
 .references-card-container {
     --reference-card-width: min(80vw, 632px);
-    --reference-card-height: clamp(310px, 50vh, 418px);
+    --reference-card-height: clamp(310px, 60vh, 418px);
     position: relative;
     @include display-flex-setup(row, center, center);
     height: var(--reference-card-height);
@@ -85,7 +85,6 @@
     width: 100%;
     display: grid;
     grid-template-columns: 1fr auto;
-    padding-top: 100px;
 }
 
 .writer-columns-one {

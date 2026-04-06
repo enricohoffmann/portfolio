@@ -24,6 +24,7 @@
 
     & span {
         @include font-setup('Fira_Code', 18px, 100, var(--default-element-color), 120%);
+        overflow: hidden;
     }
 }
 
@@ -43,7 +44,6 @@
     .footer-center {
         grid-column: 1 / span 2;
         grid-row: 2;
-        overflow: hidden;
     }
 
 }
