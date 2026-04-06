@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { ContactData, ContactSectionData } from "../interfaces/contact.interface";
+import { MailResponse } from "../interfaces/mailResponse.interface";
 
 
 @Injectable({ providedIn: 'root' })
@@ -26,6 +27,7 @@ export class ContactDataService {
             placeholterText: 'Hello Lukas, I am interested in...',
             errorText: 'What do you need to develop?'
         }
+
     ];
 
 
@@ -95,4 +97,45 @@ export class ContactDataService {
         return this.contactSectionDataDe;
     }
 
+    private readonly contactPrivacyAcceptErrorEn :string = 'Please accept the privacy policy.';
+
+    getContactPrivacyAcceptErrorEn(): string {
+        return this.contactPrivacyAcceptErrorEn;
+    }
+
+    private readonly contactPrivacyAcceptErrorDe :string = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
+
+    getContactPrivacyAcceptErrorDe(): string {
+        return this.contactPrivacyAcceptErrorDe;
+    }
+
+    private readonly mailResponsesDe: MailResponse[] = [
+        { success: false, messageId: '1', messageText: 'Methode nicht erlaubt.' },
+        { success: false, messageId: '2', messageText: 'Ungueltige JSON-Daten.' },
+        { success: false, messageId: '3', messageText: 'Bitte alle Felder ausfuellen.' },
+        { success: false, messageId: '4', messageText: 'Ungültige E-Mail-Adresse.' },
+        { success: false, messageId: '5', messageText: 'Ungültige Header-Daten.' },
+        { success: false, messageId: '6', messageText: 'Zu viele Anfragen. Bitte kurz warten.' },
+        { success: false, messageId: '7', messageText: 'E-Mail konnte nicht versendet werden.' },
+        { success: true, messageId: '8', messageText: ' E-Mail wurde erfolgreich versendet.' },
+    ];
+
+    getContactMailResponseMessagesDe(): MailResponse[] {
+        return this.mailResponsesDe;
+    }
+
+    private readonly mailResponsesEn: MailResponse[] = [
+        { success: false, messageId: '1', messageText: 'Method not allowed.' },
+        { success: false, messageId: '2', messageText: 'Invalid JSON data.' },
+        { success: false, messageId: '3', messageText: 'Please fill in all fields.' },
+        { success: false, messageId: '4', messageText: 'Invalid email address.' },
+        { success: false, messageId: '5', messageText: 'Invalid header data.' },
+        { success: false, messageId: '6', messageText: 'Too many requests. Please wait a moment.' },
+        { success: false, messageId: '7', messageText: 'Email could not be sent.' },
+        { success: true, messageId: '8', messageText: 'Email was sent successfully.' },
+    ];
+
+    getContactMailResponseMessagesEn(): MailResponse[] {
+        return this.mailResponsesEn;
+    }
 }

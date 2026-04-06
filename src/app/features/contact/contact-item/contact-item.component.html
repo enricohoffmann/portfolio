@@ -1,5 +1,5 @@
 
-<article class="contact-input-container" (mouseover)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+<article class="contact-input-container">
 
     <div class="contact-item-line"></div>
 
@@ -38,7 +38,7 @@
 
         <span 
             class="input-error"
-            [class.visible]="(field.invalid && hasText(field))">
+            [class.visible]="(field.invalid && (field.touched || formSubmitted))">
             {{errorMessage}}
         </span>
 

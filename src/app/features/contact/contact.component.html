@@ -18,7 +18,7 @@
             <form #contactForm="ngForm" (ngSubmit)="onContactFormSubmit(contactForm)">
 
                 @for(contactItem of (contactDataFields$ | async); track contactItem; let index = $index; let last = $last){
-                    <app-contact-item [contactData]="contactItem"
+                    <app-contact-item [contactData]="contactItem" [formSubmitted]="submitAttempted"
                         [contactFieldIndex]="'contact_id_' + index"></app-contact-item>
                     @if(last){<div class="contact-line"></div>}
                 }
@@ -35,9 +35,17 @@
                     </div>
 
                     <span class="privacy-error-message"
-                        [class.visible]="contactForm.submitted && !privacyCheck.checked">{{privacyCheckErrorMessage}}</span>
+                        [class.visible]="contactForm.submitted && !privacyCheck.checked">{{(contactPrivacyAcceptErrorMessage$ | async)}}</span>
 
-                    <app-button [type]="'submit'" [variant]="'primary'" class="contact-submit">{{contactSectionData.contactSectionFormSubmitBtnText}}</app-button>
+                    <span
+                        class="server-feedback"
+                        [class.visible]="serverMessage.length > 0"
+                        [class.success]="serverMessageType === 'success'"
+                        [class.error]="serverMessageType === 'error'">
+                        {{serverMessage}}
+                    </span>
+
+                    <app-button [type]="'submit'" [variant]="'primary'" [disabled]="isSending" class="contact-submit">{{contactSectionData.contactSectionFormSubmitBtnText}}</app-button>
 
                 </div>
 

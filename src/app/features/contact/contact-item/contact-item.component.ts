@@ -14,6 +14,7 @@ import { ControlContainer, FormsModule, NgForm, NgModel } from '@angular/forms';
 export class ContactItemComponent {
   @Input({ required: true }) contactData!: ContactData;
   @Input({ required: true }) contactFieldIndex!: string;
+  @Input() formSubmitted: boolean = false;
   readonly emailPattern = '[a-zA-Z0-9._%+\\-]+@[a-zA-Z0-9.\\-]+\\.[a-zA-Z]{2,}';
   isChanged: boolean = false;
   placeHolderText: string = "";
@@ -26,14 +27,6 @@ export class ContactItemComponent {
     if (this.contactData) {
       this.placeHolderText = this.contactData.placeholterText;
     }
-
-  }
-
-  onMouseEnter() {
-
-  }
-
-  onMouseLeave() {
 
   }
 
@@ -54,7 +47,7 @@ export class ContactItemComponent {
   }
 
   shouldShowErrors(field: NgModel): boolean {
-    return !!field.touched;
+    return !!field.touched || this.formSubmitted;
   }
 
   getErrorMessage(field: NgModel): string {

@@ -113,6 +113,25 @@
     opacity: 1;
 }
 
+.server-feedback {
+    opacity: 0;
+    min-height: 20px;
+    transition: opacity 125ms ease-in;
+    @include font-setup('Karla', 14px, 400, #fff);
+}
+
+.server-feedback.visible {
+    opacity: 1;
+}
+
+.server-feedback.success {
+    color: var(--default-element-color);
+}
+
+.server-feedback.error {
+    color: rgba(236, 123, 123, 1);
+}
+
 @media(max-width: 901px) {
     .contact-section {
         grid-template-columns: 1fr;

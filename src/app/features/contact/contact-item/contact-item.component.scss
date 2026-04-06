@@ -5,7 +5,7 @@
     @include display-flex-setup(column, center, flex-start, 24px);
 
     & label{
-        @include font-setup('Fira_Code', 24px, 500, var(--default-element-color), 120%);
+        @include font-setup('Fira_Code', clamp(20px, 1.3vw ,24px), 500, var(--default-element-color), 120%);
         overflow: hidden;
     }
 }

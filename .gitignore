@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 /htaccess
+/phpScript
 
 # Node
 /node_modules
