@@ -10,22 +10,59 @@ export class ContactDataService {
             title: 'What\'s your name?',
             contactValue: '',
             contactField: 'name',
+            minLength: 4,
             placeholterText: 'Your name goes here',
-            errorText: 'Oops! it seems your name is missing'
+            errors: [
+                {
+                    contactErrorKey: 'required',
+                    contactErrorMessagePartOne: 'Oops! it seems your name is missing'
+                },
+                {
+                    contactErrorKey: 'minlength',
+                    contactErrorMessagePartOne: 'The name is too short. (minimum',
+                    contactErrorMessagePartTwo: 'characters)'
+                }
+            ]
         },
         {
             title: 'What\'s your email?',
             contactValue: '',
             contactField: 'email',
+            minLength: 4,
             placeholterText: 'youremail@email.com',
-            errorText: 'Hoppla! your email is required'
+            errors: [
+                {
+                    contactErrorKey: 'required',
+                    contactErrorMessagePartOne: 'Hoppla! your email is required'
+                },
+                {
+                    contactErrorKey: 'minlength',
+                    contactErrorMessagePartOne: 'The email is too short. (minimum',
+                    contactErrorMessagePartTwo: 'characters)'
+                },
+                {
+                    contactErrorKey: 'pattern',
+                    contactErrorMessagePartOne: 'The email address is invalid.'
+                }
+            ]
         },
         {
             title: 'How can I help you?',
             contactValue: '',
             contactField: 'message',
-            placeholterText: 'Hello Lukas, I am interested in...',
-            errorText: 'What do you need to develop?'
+            minLength: 4,
+            placeholterText: 'Hello Enrico, I am interested in...',
+            errors: [
+                {
+                    contactErrorKey: 'required',
+                    contactErrorMessagePartOne: 'What do you need to develop?'
+                },
+                {
+                    contactErrorKey: 'minlength',
+                    contactErrorMessagePartOne: 'The message is too short. (minimum',
+                    contactErrorMessagePartTwo: 'characters)'
+                }
+            ]
         }
 
     ];
@@ -40,22 +77,59 @@ export class ContactDataService {
             title: 'Wie heißt du?',
             contactValue: '',
             contactField: 'name',
+            minLength: 4,
             placeholterText: 'Dein Name',
-            errorText: 'Ups! Bitte gib deinen Namen ein.'
+            errors: [
+                {
+                    contactErrorKey: 'required',
+                    contactErrorMessagePartOne: 'Ups! Bitte gib deinen Namen ein.'
+                },
+                {
+                    contactErrorKey: 'minlength',
+                    contactErrorMessagePartOne: 'Der Name ist zu kurz. (mindestens',
+                    contactErrorMessagePartTwo: 'Zeichen)'
+                }
+            ]
         },
         {
             title: 'Wie lautet deine E-Mail?',
             contactValue: '',
             contactField: 'email',
+            minLength: 4,
             placeholterText: 'deinname@email.de',
-            errorText: 'Bitte gib eine gültige E-Mail-Adresse ein.'
+            errors: [
+                {
+                    contactErrorKey: 'required',
+                    contactErrorMessagePartOne: 'Bitte gib eine gültige E-Mail-Adresse ein.'
+                },
+                {
+                    contactErrorKey: 'minlength',
+                    contactErrorMessagePartOne: 'Die Adresse ist zu kurz. (mindestens',
+                    contactErrorMessagePartTwo: 'Zeichen)'
+                },
+                {
+                    contactErrorKey: 'pattern',
+                    contactErrorMessagePartOne: 'Die E-Mail-Adresse ist ungültig.'
+                }
+            ]
         },
         {
             title: 'Wie kann ich dir helfen?',
             contactValue: '',
             contactField: 'message',
+            minLength: 4,
             placeholterText: 'Hallo Enrico, ich interessiere mich für...',
-            errorText: 'Bitte beschreibe kurz dein Anliegen.'
+            errors: [
+                {
+                    contactErrorKey: 'required',
+                    contactErrorMessagePartOne: 'Bitte beschreibe kurz dein Anliegen.'
+                },
+                {
+                    contactErrorKey: 'minlength',
+                    contactErrorMessagePartOne: 'Deine Nachricht ist zu kurz. (mindestens',
+                    contactErrorMessagePartTwo: 'Zeichen)'
+                }
+            ]
         }
     ];
 
@@ -97,13 +171,13 @@ export class ContactDataService {
         return this.contactSectionDataDe;
     }
 
-    private readonly contactPrivacyAcceptErrorEn :string = 'Please accept the privacy policy.';
+    private readonly contactPrivacyAcceptErrorEn: string = 'Please accept the privacy policy.';
 
     getContactPrivacyAcceptErrorEn(): string {
         return this.contactPrivacyAcceptErrorEn;
     }
 
-    private readonly contactPrivacyAcceptErrorDe :string = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
+    private readonly contactPrivacyAcceptErrorDe: string = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
 
     getContactPrivacyAcceptErrorDe(): string {
         return this.contactPrivacyAcceptErrorDe;

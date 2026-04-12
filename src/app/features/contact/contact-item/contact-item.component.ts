@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { ContactData } from '../../../interfaces/contact.interface';
+import { NgTemplateOutlet } from '@angular/common';
 import { ControlContainer, FormsModule, NgForm, NgModel } from '@angular/forms';
 @Component({
   selector: 'app-contact-item',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, NgTemplateOutlet],
   templateUrl: './contact-item.component.html',
   styleUrl: './contact-item.component.scss',
   viewProviders: [
@@ -20,6 +21,7 @@ export class ContactItemComponent {
   placeHolderText: string = "";
   hasError: boolean = false;
   hasFocus: boolean = false;
+  errorMessageForRequired: string = "";
   errorMessage: string = "";
 
 
@@ -44,17 +46,40 @@ export class ContactItemComponent {
     const showErrors = this.shouldShowErrors(field);
     this.hasError = showErrors && !!field.invalid;
     this.errorMessage = this.getErrorMessage(field);
+    this.errorMessageForRequired = this.getErrorMessageForRequired();
   }
 
   shouldShowErrors(field: NgModel): boolean {
     return !!field.touched || this.formSubmitted;
   }
 
+
   getErrorMessage(field: NgModel): string {
-    if (field.errors?.['required']) { return this.contactData.errorText; }
-    if (field.errors?.['pattern']) { return 'The email address is invalid.'; }
-    if (field.errors?.['minlength']) { return `The input is too short. (minimum ${field.errors['minlength'].requiredLength} characters)`; }
-    return '';
+
+    let message: string = '';
+
+    this.contactData.errors.forEach((fieldError) => {
+      if(field.errors?.[fieldError.contactErrorKey]){
+        if(fieldError.contactErrorKey === 'minlength'){
+          message = `${fieldError.contactErrorMessagePartOne} ${field.errors['minlength'].requiredLength} ${fieldError.contactErrorMessagePartTwo})`;
+        } else {
+          message = fieldError.contactErrorMessagePartOne;
+        }
+      }
+
+    });
+
+    return message;
+
+  }
+
+  getErrorMessageForRequired(): string {
+    const errorMessageObject = this.contactData.errors.find(error => error.contactErrorKey === 'required');
+    if(errorMessageObject){
+      return errorMessageObject.contactErrorMessagePartOne;
+    } else {
+      return '';
+    }
   }
 
   hasText(field: NgModel): boolean {

@@ -25,6 +25,10 @@
     width: 100%;
 }
 
+.input-wrapper.is-textArea {
+    height: auto;
+}
+
 .contact-input-field{
     width: 100%;
     @include font-setup('Karla', 18px, 400, #fff);
@@ -93,19 +97,23 @@
 }
 
 .input-error{
+    display: block;
     overflow: hidden;
-    max-height:0;
+    height:0;
     opacity: 0;
+    transform: translateY(-4px);
+    transform-origin: top;
     width: 100%;
     pointer-events: none;
     @include font-setup('Karla', 16px, 400, rgba(236, 123, 123, 1));
     background-color: transparent; 
-    transition: max-height 250ms ease-in, opacity 250ms ease-in;
+    transition: height 280ms ease, opacity 180ms ease, transform 280ms ease;
 }
 
 .input-error.visible{
-    max-height: 24px;
+    height: 24px;
     opacity: 1;
+    transform: translateY(0);
 }
 
 .contact-item-line{

@@ -1,4 +1,3 @@
-
 <article class="contact-input-container">
 
     <div class="contact-item-line"></div>
@@ -6,43 +5,50 @@
     <div class="contact-input-field-container">
         <label [for]="contactFieldIndex" class="contact-item-title">{{ contactData.title }}</label>
 
-        <div class="input-wrapper">
-            <input 
-                [(ngModel)]="contactData.contactValue"
-                [id]="contactFieldIndex" 
-                [name]="contactData.contactField" 
-                class="contact-input-field" 
-                [type]="contactData.contactField === 'email' ? 'email' : 'text'"
-                [inputMode]="contactData.contactField === 'email' ? 'email' : 'text'" 
-                (input)="onInput(field)"
-                (blur)="hasFocus = false; onBlur(field)"
-                (focus)="hasFocus = true"
-                required
-                [autocomplete]="contactData.contactField === 'email' ? 'email' : 'off'"
-                [pattern]="contactData.contactField === 'email' ? emailPattern : '.*'"
-                [minlength]="contactData.contactField === 'email' ? null : 4"
-                title="Contact field"
-                #field="ngModel"
-            >
-
-            <span 
-                class="input-overlay"
-                [class.placeHolderError]="field.invalid && field.touched"
-                [class.placeHolderNormal]="!field.touched && !hasText(field)"
-                [class.hidden]="hasText(field)"
-                >
-                {{ field.invalid && field.touched ? contactData.errorText : contactData.placeholterText }}
+        <ng-template #fieldOverlay let-field="field">
+            <span class="input-overlay"
+                [class.placeHolderError]="field.invalid && !hasText(field) && (field.touched || formSubmitted)"
+                [class.placeHolderNormal]="!field.touched && !hasText(field)" [class.hidden]="hasText(field)">
+                {{ field.invalid && !hasText(field) && (field.touched || formSubmitted) ? errorMessageForRequired :
+                contactData.placeholterText }}
             </span>
+        </ng-template>
 
-        </div>
+        <ng-template #fieldError let-field="field">
+            <span class="input-error"
+                [class.visible]="field.invalid && hasText(field) && (field.touched || formSubmitted)">
+                {{ errorMessage }}
+            </span>
+        </ng-template>
 
-        <span 
-            class="input-error"
-            [class.visible]="(field.invalid && (field.touched || formSubmitted))">
-            {{errorMessage}}
-        </span>
+        @if(contactData.contactField !== 'message'){
+            <div class="input-wrapper">
+                <input [(ngModel)]="contactData.contactValue" [id]="contactFieldIndex" [name]="contactData.contactField"
+                    class="contact-input-field" [type]="contactData.contactField === 'email' ? 'email' : 'text'"
+                    [inputMode]="contactData.contactField === 'email' ? 'email' : 'text'" (input)="onInput(inputField)"
+                    (blur)="hasFocus = false; onBlur(inputField)" (focus)="hasFocus = true" required
+                    [autocomplete]="contactData.contactField === 'email' ? 'email' : 'off'"
+                    [pattern]="contactData.contactField === 'email' ? emailPattern : '.*'"
+                    [minlength]="contactData.minLength" 
+                    title="Contact field"
+                    #inputField="ngModel">
+                <ng-container [ngTemplateOutlet]="fieldOverlay"
+                    [ngTemplateOutletContext]="{ field: inputField }"></ng-container>
+            </div>
+        <ng-container [ngTemplateOutlet]="fieldError" [ngTemplateOutletContext]="{ field: inputField }"></ng-container>
+        } @else {
+            <div class="input-wrapper" [class.is-textArea]="(contactData.contactField === 'message')">
+                <textarea [(ngModel)]="contactData.contactValue" [id]="contactFieldIndex" [name]="contactData.contactField"
+                    class="contact-input-field" (input)="onInput(textField)" (blur)="hasFocus = false; onBlur(textField)"
+                    (focus)="hasFocus = true" required minlength="4" title="Contact message" #textField="ngModel"
+                    rows="1"></textarea>
+                <ng-container [ngTemplateOutlet]="fieldOverlay"
+                    [ngTemplateOutletContext]="{ field: textField }"></ng-container>
+            </div>
+            <ng-container [ngTemplateOutlet]="fieldError" [ngTemplateOutletContext]="{ field: textField }"></ng-container>
+        }
 
-        
+
     </div>
-   
+
 </article>

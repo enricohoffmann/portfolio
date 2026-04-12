@@ -64,6 +64,7 @@ export class ContactComponent {
 
     if(this.serverMessageType === 'success'){
       this.resetContactForm(contactForm);
+      this.resetServerMessageAndType();
     }
 
   }
@@ -125,10 +126,7 @@ export class ContactComponent {
     }
   }
 
-  private resetContactForm(contactForm: NgForm): void {
-    contactForm.resetForm();
-    this.privacyCheck.checked = false;
-  }
+  
 
 
   private async analyzeTheEmailResponse(response: MailResponse): Promise<void> {
@@ -147,6 +145,18 @@ export class ContactComponent {
     const currentResponseArray = await firstValueFrom(this.mailResponseMessages$);
     const currentResponseByMessageId = currentResponseArray.find(responseArrayObject => responseArrayObject.messageId === messageId);
     return currentResponseByMessageId;
+  }
+
+  private resetServerMessageAndType(): void {
+    setTimeout(() => {
+      this.serverMessageType = '';
+      this.serverMessage = '';
+    }, 2000);
+  }
+
+  private resetContactForm(contactForm: NgForm): void {
+    contactForm.resetForm();
+    this.privacyCheck.checked = false;
   }
 
 
