@@ -1,4 +1,9 @@
 
+/**
+ * This file defines the interfaces for the contact form data and errors.
+ * It includes the ContactData interface for the form data, the ContactSectionData interface for the section content,
+ * and the ContactError interface for error messages related to the contact form.
+ */
 type ContactField = 'name' | 'email' | 'message';
 
 export interface ContactData {

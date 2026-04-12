@@ -11,12 +11,12 @@
     width: 100%;
     background: linear-gradient(30deg, #1c1c1c 23%, #08463b 100%);
     @include display-flex-setup(column, center, center);
+    overflow: hidden;
 }
 
 .hero-header {
     position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
 }
 
@@ -44,6 +44,7 @@
     @include display-flex-setup(row, center, center, 48px);
     padding-top: 48px;
     transition: gap 100ms ease-in;
+    z-index: 10;
 }
 
 .leteral {

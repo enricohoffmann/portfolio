@@ -1,23 +1,23 @@
-
 <section class="hero-section">
     <app-header class="hero-header"></app-header>
-    <article class="hero-content">
-        <span>{{(developer$! | async)}}</span>
-        <h1>Enrico Hoffmann</h1>
-        <div class="btn-container">
 
-            @for(buttonLink of (heroButtonLinks$! | async); track $index){
-                <app-button 
-                [type]="'button'" 
-                [variant]="'primary'"
-                [target]="buttonLink.linkTarget"
-                [targetFragment]="buttonLink.linkTargetFragment ?? undefined"
-                >{{buttonLink.linkName}}</app-button>
-            }
-        </div>
-    </article>
+    <div class="component-wrapper">
+        <article class="hero-content">
+            <span>{{(developer$! | async)}}</span>
+            <h1>Enrico Hoffmann</h1>
+            <div class="btn-container">
 
-    <app-hero-lateral class="leteral"></app-hero-lateral>
-    <app-hero-marquee [marqueeFontSize]="32"></app-hero-marquee>
-    
+                @for(buttonLink of (heroButtonLinks$! | async); track $index){
+                <app-button [type]="'button'" [variant]="'primary'" [target]="buttonLink.linkTarget"
+                    [targetFragment]="buttonLink.linkTargetFragment ?? undefined">{{buttonLink.linkName}}</app-button>
+                }
+            </div>
+        </article>
+
+        <app-hero-lateral class="leteral"></app-hero-lateral>
+        <app-hero-marquee [marqueeFontSize]="32"></app-hero-marquee>
+    </div>
+
+
+
 </section>

@@ -214,7 +214,7 @@ select:-webkit-autofill:focus {
 
 .page-wrapper {
     width: 100%;
-    max-width: 1920px;
+    /* max-width: 1920px; */
     margin-inline: auto;
     min-height: 100dvh;
     display: flex;
@@ -229,3 +229,4 @@ select:-webkit-autofill:focus {
 .page-wrapper.document-background {
     background: linear-gradient(30deg, #1c1c1c 23%, #08463b 100%);
 }
+
