@@ -3,7 +3,6 @@ import { HeroComponent } from "../../features/hero/hero.component";
 import { AboutMeComponent } from "../../features/aboutMe/about-me.component";
 import { SkillsComponent } from "../../features/skills/skills.component";
 import { PortfolioComponent } from "../../features/portfolio/portfolio.component";
-import { ReferencesComponent } from '../../features/references/references.component';
 import { ContactComponent } from '../../features/contact/contact.component';
 import { FooterComponent } from '../../layout/footer/footer.component';
 import { PortfolioDialogComponent } from '../../features/portfolio/portfolio-dialog/portfolio-dialog.component';
@@ -24,7 +23,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     AboutMeComponent, 
     SkillsComponent, 
     PortfolioComponent, 
-    ReferencesComponent, 
     ContactComponent, 
     FooterComponent, 
     PortfolioDialogComponent,
