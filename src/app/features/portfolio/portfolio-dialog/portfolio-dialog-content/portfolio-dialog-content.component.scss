@@ -218,3 +218,9 @@
 
 
 }
+
+@media(max-width: 400px){
+    .project-buttons {
+        flex-direction: column;
+    }
+}

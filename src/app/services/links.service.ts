@@ -69,13 +69,6 @@ export class LinksService {
         linkTarget: 'https://github.com/enricohoffmann',
         linkTargetFragment: null,
         linkTargetPlace: '_blank'
-      },
-      {
-        isActive: false,
-        linkName: 'linkedin',
-        linkTarget: '#',
-        linkTargetFragment: null,
-        linkTargetPlace: '_blank'
       }
     ];
 

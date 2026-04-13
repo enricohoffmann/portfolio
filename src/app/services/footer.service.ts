@@ -32,13 +32,6 @@ export class FooterDataService {
         },
         {
             isActive: false,
-            linkName: 'LinkedIn',
-            linkTarget: '#',
-            linkTargetFragment: null,
-            linkTargetPlace: '_blank'
-        },
-        {
-            isActive: false,
             linkName: 'Email',
             linkTarget: 'mailto:enrico@enrico-hoffmann.de',
             linkTargetFragment: null,
@@ -48,7 +41,14 @@ export class FooterDataService {
             isActive: false,
             linkName: 'Legal Notice',
             linkTarget: '/legal-notice',
-            linkTargetFragment: 'null',
+            linkTargetFragment: 'top',
+            linkTargetPlace: '_self'
+        },
+        {
+            isActive: false,
+            linkName: 'Privacy Policy',
+            linkTarget: '/privacy-policy',
+            linkTargetFragment: 'top',
             linkTargetPlace: '_self'
         }
     ];
@@ -67,13 +67,6 @@ export class FooterDataService {
         },
         {
             isActive: false,
-            linkName: 'LinkedIn',
-            linkTarget: '#',
-            linkTargetFragment: null,
-            linkTargetPlace: '_blank'
-        },
-        {
-            isActive: false,
             linkName: 'Email',
             linkTarget: 'mailto:enrico@enrico-hoffmann.de',
             linkTargetFragment: null,
@@ -83,7 +76,14 @@ export class FooterDataService {
             isActive: false,
             linkName: 'Impressum',
             linkTarget: '/legal-notice',
-            linkTargetFragment: 'null',
+            linkTargetFragment: 'top',
+            linkTargetPlace: '_self'
+        },
+        {
+            isActive: false,
+            linkName: 'Datenschutz',
+            linkTarget: '/privacy-policy',
+            linkTargetFragment: 'top',
             linkTargetPlace: '_self'
         }
     ];

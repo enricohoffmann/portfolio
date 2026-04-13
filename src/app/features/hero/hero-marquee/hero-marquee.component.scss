@@ -4,15 +4,15 @@ $backDrop: 5.3px;
 
 .marquee-container {
     position: absolute;
-    left: calc(50% - var(--max-content-width) / 2);
+    left: 50%;
     bottom: 0;
     @include display-flex-setup(row, flex-start, center);
     max-width: var(--max-content-width);
-    width: 105%;
+    width: min(105vw, var(--max-content-width));
     height: 62px;
     overflow: hidden;
     isolation: isolate;
-    transform: rotate(-3deg) translateY(-100%) translateX(0);
+    transform: rotate(-3deg) translateY(-188%) translateX(-50%);
     -webkit-user-select: none;
     user-select: none;
     padding: 0 24px;
@@ -22,6 +22,7 @@ $backDrop: 5.3px;
 .marquee-container.marquee-mobile {
     height: 46px;
     padding: 0 14.5px;
+    transform: rotate(-3deg) translateY(-100%) translateX(-50%);
 }
 
 .marquee-container::before {

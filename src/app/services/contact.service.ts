@@ -206,7 +206,7 @@ export class ContactDataService {
      */
     private readonly contactSectionDataDe: ContactSectionData = {
         contactSectionEyebrow: 'Kontakt',
-        contactSectionHeadline: 'Lass uns zusammenarbeiten',
+        contactSectionHeadline: 'Lass uns zusammen arbeiten',
         contactSectionSubtile: 'Du hast ein Problem zu lösen?',
         contactSectionDescription: `Du hast eine Idee oder ein Projekt im Kopf? Ich unterstütze dich gerne dabei, passende Lösungen zu entwickeln und deine Anforderungen umzusetzen.`,
         contactSectionEndTextPartOne: 'Du suchst einen Frontend-Entwickler? ',

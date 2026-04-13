@@ -39,7 +39,7 @@
         } @else {
             <div class="input-wrapper" [class.is-textArea]="(contactData.contactField === 'message')">
                 <textarea [(ngModel)]="contactData.contactValue" [id]="contactFieldIndex" [name]="contactData.contactField"
-                    class="contact-input-field" (input)="onInput(textField)" (blur)="hasFocus = false; onBlur(textField)"
+                    class="contact-input-field message-textarea" (input)="onInput(textField)" (blur)="hasFocus = false; onBlur(textField)"
                     (focus)="hasFocus = true" required minlength="4" title="Contact message" #textField="ngModel"
                     rows="1"></textarea>
                 <ng-container [ngTemplateOutlet]="fieldOverlay"

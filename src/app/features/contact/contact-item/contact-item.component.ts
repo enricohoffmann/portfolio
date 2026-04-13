@@ -54,6 +54,7 @@ export class ContactItemComponent {
   ngOnInit():void {
     if (this.contactData) {
       this.placeHolderText = this.contactData.placeholterText;
+      this.errorMessageForRequired = this.getErrorMessageForRequired();
     }
   }
 
@@ -92,7 +93,6 @@ export class ContactItemComponent {
     const showErrors = this.shouldShowErrors(field);
     this.hasError = showErrors && !!field.invalid;
     this.errorMessage = this.getErrorMessage(field);
-    this.errorMessageForRequired = this.getErrorMessageForRequired();
   }
 
   /**
