@@ -14,12 +14,6 @@
     overflow: hidden;
 }
 
-.hero-header {
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
-
 .hero-content {
     @include display-flex-setup(column, center, center);
     z-index: 2;

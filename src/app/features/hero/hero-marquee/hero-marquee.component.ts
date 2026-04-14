@@ -170,8 +170,6 @@ export class HeroMarqueeComponent implements AfterViewInit {
 
   }
 
-
-
   /**
    * @description Disconnect the ResizeObserver when the component is destroyed to prevent memory leaks and unnecessary observations.
    */

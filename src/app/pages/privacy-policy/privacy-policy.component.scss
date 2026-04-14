@@ -1,1 +1,14 @@
 @import './../../../styles.scss';
+
+:host {
+    display: block;
+    position: relative;
+}
+
+app-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
