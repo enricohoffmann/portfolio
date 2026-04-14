@@ -1,27 +1,99 @@
-# Portfolio
+# Enrico Hoffmann – Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.3.
+A personal developer portfolio built with **Angular 17**, featuring a bilingual (DE/EN) interface, responsive design, and a contact form with a PHP mailer backend.
 
-## Development server
+This project was developed as part of the **Frontend Web Developer** training program at the [Developer Akademie](https://developerakademie.com/).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+**Live:** [enrico-hoffmann.de](https://enrico-hoffmann.de)
 
-## Code scaffolding
+---
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Tech Stack
 
-## Build
+| Layer | Technology |
+|---|---|
+| Framework | Angular 17 (standalone components) |
+| Styling | SCSS with custom mixins, CSS custom properties, `clamp()` |
+| Forms | Angular FormsModule, template-driven |
+| HTTP | Angular HttpClient, `firstValueFrom` |
+| Routing | Angular Router with lazy-loaded pages |
+| Backend | PHP mailer with rate limiting and CORS |
+| Fonts | Karla, Fira Code (self-hosted) |
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+---
 
-## Running unit tests
+## Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Bilingual** – full German/English toggle via `LanguageService` with `localStorage` persistence
+- **Responsive** – fluid typography with `clamp()`, mobile-first breakpoints, adaptive header/navigation
+- **Mobile navigation** – slide-in overlay menu with guarded close animation pipeline
+- **Portfolio section** – filterable project grid with detail dialog
+- **Contact form** – validation, error messages per field, PHP backend with 30s cooldown and `messageId`-based response mapping
+- **Legal pages** – Impressum and Datenschutzerklärung with dynamic content and RouterLink navigation
+- **Marquee** – animated skill/tech ticker in the hero section
 
-## Running end-to-end tests
+---
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Project Structure
 
-## Further help
+```
+src/
+├── app/
+│   ├── features/        # Section components (hero, about-me, skills, portfolio, contact, references)
+│   ├── layout/          # Header (desktop + mobile) and footer
+│   ├── pages/           # Routed pages (landing, legal-notice, privacy-policy)
+│   ├── services/        # Language, display, navigation, data services
+│   ├── interfaces/      # TypeScript interfaces
+│   └── ui/              # Reusable UI components (button, card, tooltip, etc.)
+├── assets/
+│   ├── font/            # Karla + Fira Code
+│   └── icon/
+└── phpScript/
+    └── send_mail.php    # Contact form mailer
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js ≥ 18
+- Angular CLI ≥ 17
+
+```bash
+npm install
+```
+
+### Development
+
+```bash
+ng serve
+```
+
+Navigate to `http://localhost:4200/`. The app reloads automatically on file changes.
+
+### Production Build
+
+```bash
+ng build --configuration production --base-href /
+```
+
+Build artifacts are output to `dist/`.
+
+---
+
+## Contact Form Backend
+
+The PHP mailer (`phpScript/send_mail.php`) requires a server with PHP mail support. It handles:
+
+- CORS for configured origins
+- IP-based rate limiting (30s cooldown)
+- Header injection protection
+- `messageId`-based response codes mapped to localized messages in the Angular app
+
+---
+
+## License
+
+This project is for portfolio and demonstration purposes. All content and design are property of Enrico Hoffmann.
