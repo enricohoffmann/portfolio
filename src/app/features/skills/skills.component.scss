@@ -128,3 +128,10 @@
         grid-gap: 16px;
     }
 }
+
+@media(max-width: 700px) {
+    .skills-content-grid {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}

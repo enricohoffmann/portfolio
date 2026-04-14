@@ -9,6 +9,7 @@ import { Observable, firstValueFrom } from 'rxjs';
 import { LanguageService } from '../../services/language.service';
 import { ContactDataService } from '../../services/contact.service';
 import { AsyncPipe } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MailResponse } from '../../interfaces/mailResponse.interface';
 
@@ -16,7 +17,7 @@ import { MailResponse } from '../../interfaces/mailResponse.interface';
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [ContactItemComponent, FormsModule, ButtonComponent, CheckBoxComponent, AsyncPipe],
+  imports: [ContactItemComponent, FormsModule, ButtonComponent, CheckBoxComponent, AsyncPipe, RouterLink],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
