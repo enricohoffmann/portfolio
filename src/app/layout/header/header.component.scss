@@ -17,10 +17,12 @@
 
 .header.header-mobile {
     margin-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
     height: var(--header-height-mobile);
 }
 
-.header.header-desktop::before{
+.header.header-desktop::before {
     z-index: 0;
     content: '';
     position: absolute;
@@ -67,7 +69,7 @@
     grid-template-rows: var(--header-row-middle) var(--header-row-height);
 }
 
-.logo-desktop{
+.logo-desktop {
     grid-column-end: auto;
     grid-row: 2 / span 3;
     justify-self: flex-end;
@@ -134,10 +136,10 @@
     opacity: 1;
 }
 
-@media(max-width: 500px){
+@media(max-width: 500px) {
     .header {
         padding-left: 24px;
         padding-right: 24px;
     }
-    
+
 }
